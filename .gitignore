@@ -1,0 +1,28 @@
+# OS X Finder
+.DS_Store
+
+# XCode per-user config
+*.mode
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+
+# Build products
+build/
+*.[o]
+
+# Automatic backup files
+*~.nib
+*.swp
+*~
+*(Autosaved).rtfd/
+
+# Xcode 4 specific
+xcuserdata
+xcshareddata
+
+# appledoc docset installation notifications
+docset-installed.txt
+
