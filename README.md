@@ -1,4 +1,4 @@
-JLComponentLibrary
+JLComponentLibrary    
 *A collection of classes that simplify complex boilerplate code.*
 
 ---
