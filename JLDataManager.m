@@ -45,6 +45,12 @@ NSString * const kDataManagerSQLiteName = @"Model.sqlite";
 	return _objectModel;
 }
 
+- (NSDictionary *)persistentStoreCoordinatorOptions {
+    
+    return @{NSMigratePersistentStoresAutomaticallyOption, @YES,
+             NSInferMappingModelAutomaticallyOption,       @YES};
+}
+
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
 	if (_persistentStoreCoordinator)
 		return _persistentStoreCoordinator;
@@ -59,10 +65,7 @@ NSString * const kDataManagerSQLiteName = @"Model.sqlite";
     }
 	NSURL *storeURL = [NSURL fileURLWithPath:storePath];
     
-	NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-                             [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
-                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,
-                             nil];
+	NSDictionary *options = [self persistentStoreCoordinatorOptions];
     
 	NSError *error = nil;
 	_persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.objectModel];
