@@ -8,9 +8,9 @@ extern NSString * const JLDataManagerDidSaveFailedNotification;
 
 @interface JLDataManager : NSObject
 
-@property (nonatomic, readonly, retain) NSManagedObjectModel *objectModel;
-@property (nonatomic, readonly, retain) NSManagedObjectContext *mainObjectContext;
-@property (nonatomic, readonly, retain) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic, readonly, strong) NSManagedObjectModel *objectModel;
+@property (nonatomic, readonly, strong) NSManagedObjectContext *mainObjectContext;
+@property (nonatomic, readonly, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 + (JLDataManager *)sharedInstance;
 - (BOOL)save;

@@ -34,12 +34,6 @@ NSString * const kDataManagerSQLiteName = @"Model.sqlite";
 
 - (void)dealloc {
 	[self save];
-    
-	[_persistentStoreCoordinator release];
-	[_mainObjectContext release];
-	[_objectModel release];
-    
-	[super dealloc];
 }
 
 - (NSManagedObjectModel *)objectModel {
@@ -124,8 +118,8 @@ NSString * const kDataManagerSQLiteName = @"Model.sqlite";
 	if (SharedDocumentsPath)
 		return SharedDocumentsPath;
     
-	NSString *libraryPath = [[NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0] retain];
-	SharedDocumentsPath = [[libraryPath stringByAppendingPathComponent:@"Database"] retain];
+	NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+	SharedDocumentsPath = [libraryPath stringByAppendingPathComponent:@"Database"];
     
 	NSFileManager *manager = [NSFileManager defaultManager];
 	BOOL isDirectory;
@@ -149,7 +143,7 @@ NSString * const kDataManagerSQLiteName = @"Model.sqlite";
           a new context, make sure you do not autorelease it because it will most likely immediately be deallocated after you're done using it to     \
           execute a fetch request. Managed objects would then be unable to fault on values, and your objects would essentially null all of their properties.");
 #endif
-	NSManagedObjectContext *ctx = [[[NSManagedObjectContext alloc] init] autorelease];
+	NSManagedObjectContext *ctx = [[NSManagedObjectContext alloc] init];
 	[ctx setPersistentStoreCoordinator:self.persistentStoreCoordinator];
     
 	return ctx;
