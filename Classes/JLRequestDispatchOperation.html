@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>JLManagedTableViewControllerDelegate Protocol Reference</title>
+		<title>JLRequestDispatchOperation Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
@@ -17,7 +17,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">JLManagedTableViewControllerDelegate Protocol Reference</h1>
+				<h1 class="hideInXcode">JLRequestDispatchOperation Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -44,11 +44,7 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/managedTableViewController:didInsertObject:">&nbsp;&nbsp;&nbsp;&nbsp;- managedTableViewController:didInsertObject:</option>
-	
-	<option value="//api/name/managedTableViewController:didMoveObject:fromIndexPath:toIndexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- managedTableViewController:didMoveObject:fromIndexPath:toIndexPath:</option>
-	
-	<option value="//api/name/managedTableViewController:willDeleteObject:">&nbsp;&nbsp;&nbsp;&nbsp;- managedTableViewController:willDeleteObject:</option>
+	<option value="//api/name/initWithURLRequest:progress:completion:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithURLRequest:progress:completion:</option>
 	
 	
 	
@@ -78,11 +74,7 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/managedTableViewController:didInsertObject:">managedTableViewController:didInsertObject:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/managedTableViewController:didMoveObject:fromIndexPath:toIndexPath:">managedTableViewController:didMoveObject:fromIndexPath:toIndexPath:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/managedTableViewController:willDeleteObject:">managedTableViewController:willDeleteObject:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithURLRequest:progress:completion:">initWithURLRequest:progress:completion:</a></span></li>
 	
 </ul></li>
 
@@ -91,7 +83,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="JLManagedTableViewControllerDelegate Protocol Reference" name="top"></a>
+				<a title="JLRequestDispatchOperation Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -100,18 +92,21 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">JLManagedTableViewControllerDelegate Protocol Reference</h1>
+						<h1 class="title title-header">JLRequestDispatchOperation Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSOperation</td>
+</tr><tr>
 	<td class="specification-title">Conforms to</td>
-	<td class="specification-value">NSObject</td>
+	<td class="specification-value">NSURLConnectionDataDelegate</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">JLManagedTableViewController.h</td>
+	<td class="specification-value">JLRequestDispatchOperation.h<br />JLRequestDispatchOperation.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -121,7 +116,12 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Objects conforming to JLManagedTableViewControllerDelegate receive messages when events occur.</p>
+						<p>An NSOperation subclass that manages a single network request that is guaranteed
+to execute asynchronously.</p>
+
+<p>You are free to use this operation in the context of an NSOperationQueue or as a
+stand-alone asynchronous request executor. Call <code>[NSOperation start]</code> if you are
+not using this object in the context of an NSOperationQueue.</p>
 					</div>
 					
 					
@@ -139,22 +139,9 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/managedTableViewController:didMoveObject:fromIndexPath:toIndexPath:">&ndash;&nbsp;managedTableViewController:didMoveObject:fromIndexPath:toIndexPath:</a></code>
-		<span class="tooltip"><p>Informs the delegate after an object has been moved from one index path to another index path.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/managedTableViewController:willDeleteObject:">&ndash;&nbsp;managedTableViewController:willDeleteObject:</a></code>
-		<span class="tooltip"><p>Informs the delegate when an object pending deletion.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/managedTableViewController:didInsertObject:">&ndash;&nbsp;managedTableViewController:didInsertObject:</a></code>
-		<span class="tooltip"><p>Informs the delegate when an object has been inserted.</p></span>
+		<code><a href="#//api/name/initWithURLRequest:progress:completion:">&ndash;&nbsp;initWithURLRequest:progress:completion:</a></code>
+		<span class="tooltip"><p>Initializes the dispatch operation with a <a href="#//api/name/urlRequest">urlRequest</a>, a periodic <a href="#//api/name/progress">progress</a> block,
+and a <a href="#//api/name/completion">completion</a> block.</p></span>
 	</span>
 	
 	
@@ -176,18 +163,19 @@
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/managedTableViewController:didInsertObject:" title="managedTableViewController:didInsertObject:"></a>
-	<h3 class="subsubtitle method-title">managedTableViewController:didInsertObject:</h3>
+	<a name="//api/name/initWithURLRequest:progress:completion:" title="initWithURLRequest:progress:completion:"></a>
+	<h3 class="subsubtitle method-title">initWithURLRequest:progress:completion:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Informs the delegate when an object has been inserted.</p>
+		<p>Initializes the dispatch operation with a <a href="#//api/name/urlRequest">urlRequest</a>, a periodic <a href="#//api/name/progress">progress</a> block,
+and a <a href="#//api/name/completion">completion</a> block.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)managedTableViewController:(JLManagedTableViewController *)<em>tableController</em> didInsertObject:(NSManagedObject *)<em>object</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (id)initWithURLRequest:(NSURLRequest *)<em>urlRequest</em> progress:(JLRequestProgress)<em>progress</em> completion:(JLRequestCompletion)<em>completion</em></code></div>
 
     
 	
@@ -195,18 +183,32 @@
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>tableController</em></dt>
-			<dd><p>The sender.</p></dd>
+			<dt><em>urlRequest</em></dt>
+			<dd><p>The request to dispatch asynchronously.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>object</em></dt>
-			<dd><p>The object that has been inserted.</p></dd>
+			<dt><em>progress</em></dt>
+			<dd><p>The <a href="#//api/name/progress">progress</a> block to invoke periodically when the <a href="#//api/name/connection">connection</a>
+has received more <a href="#//api/name/data">data</a>. Passes in the RequestDispatchOperation object, the current
+length of the NSData object, and the <em>expected</em> final length of the object. If
+the final length is unknown or zero, passes RequestDispatchOperationUnknownLength.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completion</em></dt>
+			<dd><p>The <a href="#//api/name/completion">completion</a> block to invoke when the network request returns.
+Passes in the received <a href="#//api/name/data">data</a>, if any, and an NSError object (nil if no error).</p></dd>
 		</dl>
 		
 	</div>
 	
 	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The initialized object.</p>
+	</div>
 	
 	
 	
@@ -214,7 +216,8 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Informs the delegate when an object has been inserted.</p>
+		<p>Initializes the dispatch operation with a <a href="#//api/name/urlRequest">urlRequest</a>, a periodic <a href="#//api/name/progress">progress</a> block,
+and a <a href="#//api/name/completion">completion</a> block.</p>
 	</div>
 	
 	
@@ -225,129 +228,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">JLManagedTableViewController.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/managedTableViewController:didMoveObject:fromIndexPath:toIndexPath:" title="managedTableViewController:didMoveObject:fromIndexPath:toIndexPath:"></a>
-	<h3 class="subsubtitle method-title">managedTableViewController:didMoveObject:fromIndexPath:toIndexPath:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Informs the delegate after an object has been moved from one index path to another index path.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (void)managedTableViewController:(JLManagedTableViewController *)<em>tableController</em> didMoveObject:(NSManagedObject *)<em>movedObject</em> fromIndexPath:(NSIndexPath *)<em>fromIndex</em> toIndexPath:(NSIndexPath *)<em>toIndex</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>tableController</em></dt>
-			<dd><p>The sender.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>movedObject</em></dt>
-			<dd><p>The Core Data entity that was moved.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>fromIndex</em></dt>
-			<dd><p>The index path the entity was moved from.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>toIndex</em></dt>
-			<dd><p>The index path the entity was moved to.</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Informs the delegate after an object has been moved from one index path to another index path.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">JLManagedTableViewController.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/managedTableViewController:willDeleteObject:" title="managedTableViewController:willDeleteObject:"></a>
-	<h3 class="subsubtitle method-title">managedTableViewController:willDeleteObject:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Informs the delegate when an object pending deletion.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (void)managedTableViewController:(JLManagedTableViewController *)<em>tableController</em> willDeleteObject:(NSManagedObject *)<em>object</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>tableController</em></dt>
-			<dd><p>The sender.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>object</em></dt>
-			<dd><p>The object pending deletion.</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Informs the delegate when an object pending deletion.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">JLManagedTableViewController.h</code><br />
+		<code class="declared-in-ref">JLRequestDispatchOperation.h</code><br />
 	</div>				
 	
 	
