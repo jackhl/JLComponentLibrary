@@ -24,8 +24,9 @@
  
  **To Do**:
  
- + Clean up NSError-related strings and enums as well as error-generating
- logic.
+ + Improved parameter validation.
+ + Verify that memory management and dispatching works in end cases. 
+ + Better (public) unit testing.
  + Grouped caches.
  + POST requests.
  + Dependency graphs.
