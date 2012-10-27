@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>JLRequestDispatchOperation Class Reference</title>
+		<title>NSURL(JL_Parameters) Category Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
@@ -17,7 +17,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">JLRequestDispatchOperation Class Reference</h1>
+				<h1 class="hideInXcode">NSURL(JL_Parameters) Category Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -38,18 +38,13 @@
 	
 	
 	
-	<option value="properties">Properties</option>
-	
-	<option value="//api/name/urlRequest">&nbsp;&nbsp;&nbsp;&nbsp;urlRequest</option>
 	
 	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/JL_URLWithProtocol:domain:endpoint:parameters:">&nbsp;&nbsp;&nbsp;&nbsp;+ JL_URLWithProtocol:domain:endpoint:parameters:</option>
 	
 	
-	
-	
-	<option value="instance_methods">Instance Methods</option>
-	
-	<option value="//api/name/initWithURLRequest:progress:completion:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithURLRequest:progress:completion:</option>
 	
 	
 	
@@ -67,8 +62,6 @@
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Properties">Properties</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Initialization">Initialization</a></span></li>
 	
 </ul></li>
@@ -77,28 +70,22 @@
 
 
 
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/urlRequest">urlRequest</a></span></li>
-	
-</ul></li>
-
-
-
-
-
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithURLRequest:progress:completion:">initWithURLRequest:progress:completion:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/JL_URLWithProtocol:domain:endpoint:parameters:">JL_URLWithProtocol:domain:endpoint:parameters:</a></span></li>
 	
 </ul></li>
+
+
 
 
 			</ul>
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="JLRequestDispatchOperation Class Reference" name="top"></a>
+				<a title="NSURL(JL_Parameters) Category Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -107,21 +94,15 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">JLRequestDispatchOperation Class Reference</h1>
+						<h1 class="title title-header">NSURL(JL_Parameters) Category Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
-	<td class="specification-title">Inherits from</td>
-	<td class="specification-value">NSOperation</td>
-</tr><tr>
-	<td class="specification-title">Conforms to</td>
-	<td class="specification-value">NSURLConnectionDataDelegate</td>
-</tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">JLRequestDispatchOperation.h<br />JLRequestDispatchOperation.m</td>
+	<td class="specification-value">NSURL+JL_Parameters.h<br />NSURL+JL_Parameters.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -131,12 +112,19 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>An NSOperation subclass that manages a single network request that is guaranteed
-to execute asynchronously.</p>
+						<p>Extends NSURL to provide support for creating URLs with parameters.</p>
 
-<p>You are free to use this operation in the context of an NSOperationQueue or as a
-stand-alone asynchronous request executor. Call <code>[NSOperation start]</code> if you are
-not using this object in the context of an NSOperationQueue.</p>
+<h2>Typedefs</h2>
+
+<h3>JL_URLProtocol</h3>
+
+<ul>
+<li><code>JL_URLProtocolHTTP</code>: The HTTP unsecured protocol, specified by prefixing a
+URL with the string <code>http://</code>.</li>
+<li><code>JL_URLProtocolHTTPS</code>: The HTTPS secured protocol, specified by prefixing a
+URL with the string <code>https://</code>.</li>
+</ul>
+
 					</div>
 					
 					
@@ -148,30 +136,15 @@ not using this object in the context of an NSOperationQueue.</p>
 						<h2 class="subtitle subtitle-tasks">Tasks</h2>
 						
 						
-						<a title="Properties" name="task_Properties"></a>
-						<h3 class="subsubtitle task-title">Properties</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/urlRequest">&nbsp;&nbsp;urlRequest</a></code>
-		<span class="tooltip"><p>The URL request to be executed.</p></span>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li>
-						</ul>
-						
-						
 						<a title="Initialization" name="task_Initialization"></a>
-						<h3 class="subsubtitle task-title">Initialization</h3>
-
+						
+<h3 class="subsubtitle task-title">Initialization</h3>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/initWithURLRequest:progress:completion:">&ndash;&nbsp;initWithURLRequest:progress:completion:</a></code>
-		<span class="tooltip"><p>Initializes the dispatch operation with a <a href="#//api/name/urlRequest">urlRequest</a>, a periodic <a href="#//api/name/progress">progress</a> block,
-and a <a href="#//api/name/completion">completion</a> block.</p></span>
+		<code><a href="#//api/name/JL_URLWithProtocol:domain:endpoint:parameters:">+&nbsp;JL_URLWithProtocol:domain:endpoint:parameters:</a></code>
+		<span class="tooltip"><p>Creates an NSURL by formatting and concatenating commonly dynamically joined
+URL components.</p></span>
 	</span>
 	
 	
@@ -184,75 +157,26 @@ and a <a href="#//api/name/completion">completion</a> block.</p></span>
 					
 					
 					
+					
+					
 					<div class="section section-methods">
-						<a title="Properties" name="properties"></a>
-						<h2 class="subtitle subtitle-methods">Properties</h2>
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/urlRequest" title="urlRequest"></a>
-	<h3 class="subsubtitle method-title">urlRequest</h3>
+	<a name="//api/name/JL_URLWithProtocol:domain:endpoint:parameters:" title="JL_URLWithProtocol:domain:endpoint:parameters:"></a>
+	<h3 class="subsubtitle method-title">JL_URLWithProtocol:domain:endpoint:parameters:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The URL request to be executed.</p>
+		<p>Creates an NSURL by formatting and concatenating commonly dynamically joined
+URL components.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, strong) NSURLRequest *urlRequest</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>The URL request to be executed.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">JLRequestDispatchOperation.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-					</div>
-					
-					
-					
-					
-					
-					<div class="section section-methods">
-						<a title="Instance Methods" name="instance_methods"></a>
-						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
-						
-						<div class="section-method">
-	<a name="//api/name/initWithURLRequest:progress:completion:" title="initWithURLRequest:progress:completion:"></a>
-	<h3 class="subsubtitle method-title">initWithURLRequest:progress:completion:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Initializes the dispatch operation with a <a href="#//api/name/urlRequest">urlRequest</a>, a periodic <a href="#//api/name/progress">progress</a> block,
-and a <a href="#//api/name/completion">completion</a> block.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (id)initWithURLRequest:(NSURLRequest *)<em>urlRequest</em> progress:(JLRequestProgress)<em>progress</em> completion:(JLRequestCompletion)<em>completion</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (id)JL_URLWithProtocol:(JL_URLProtocol)<em>protocol</em> domain:(NSString *)<em>domain</em> endpoint:(NSString *)<em>endpoint</em> parameters:(NSDictionary *)<em>parameters</em></code></div>
 
     
 	
@@ -260,22 +184,28 @@ and a <a href="#//api/name/completion">completion</a> block.</p>
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>urlRequest</em></dt>
-			<dd><p>The request to dispatch asynchronously.</p></dd>
+			<dt><em>protocol</em></dt>
+			<dd><p>The protocol to use.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>progress</em></dt>
-			<dd><p>The <a href="#//api/name/progress">progress</a> block to invoke periodically when the <a href="#//api/name/connection">connection</a>
-has received more <a href="#//api/name/data">data</a>. Passes in the RequestDispatchOperation object, the current
-length of the NSData object, and the <em>expected</em> final length of the object. If
-the final length is unknown or zero, passes RequestDispatchOperationUnknownLength.</p></dd>
+			<dt><em>domain</em></dt>
+			<dd><p>The domain to place the request on. Do not end the domain with a
+forward slash.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>completion</em></dt>
-			<dd><p>The <a href="#//api/name/completion">completion</a> block to invoke when the network request returns.
-Passes in the received <a href="#//api/name/data">data</a>, if any, and an NSError object (nil if no error).</p></dd>
+			<dt><em>endpoint</em></dt>
+			<dd><p>The endpoint to add to the end of the domain. Do not prefix the
+endpoint with a forward slash. Pass nil if the URL is simply the domain.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>parameters</em></dt>
+			<dd><p>A dictionary of key-value pairs to append to the URL by adding
+a question mark (?) to the end of the URL and then separating each key from each
+value with an equal sign (=) and each pair with an ampersand (&amp;). Pass nil if the
+URL does not take any parameters.</p></dd>
 		</dl>
 		
 	</div>
@@ -284,7 +214,7 @@ Passes in the received <a href="#//api/name/data">data</a>, if any, and an NSErr
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>The initialized object.</p>
+		<p>A URL by joining the components passed in as method parameters.</p>
 	</div>
 	
 	
@@ -293,8 +223,11 @@ Passes in the received <a href="#//api/name/data">data</a>, if any, and an NSErr
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Initializes the dispatch operation with a <a href="#//api/name/urlRequest">urlRequest</a>, a periodic <a href="#//api/name/progress">progress</a> block,
-and a <a href="#//api/name/completion">completion</a> block.</p>
+		<p>Creates an NSURL by formatting and concatenating commonly dynamically joined
+URL components.</p>
+
+<p>Components are joined like so:
+<code>&lt;protocol&gt;domain/&lt;endpoint&gt;?key1=value1&amp;key2=value2</code></p>
 	</div>
 	
 	
@@ -305,13 +238,15 @@ and a <a href="#//api/name/completion">completion</a> block.</p>
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">JLRequestDispatchOperation.h</code><br />
+		<code class="declared-in-ref">NSURL+JL_Parameters.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 					</div>
+					
+					
 					
 					
 				</div>

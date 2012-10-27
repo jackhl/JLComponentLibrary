@@ -50,21 +50,9 @@
 	
 	<option value="//api/name/dispatchManagableRequestForResourceAtURL:shouldCache:timeoutInterval:progress:processing:serialQueue:orderedCompletion:">&nbsp;&nbsp;&nbsp;&nbsp;+ dispatchManagableRequestForResourceAtURL:shouldCache:timeoutInterval:progress:processing:serialQueue:orderedCompletion:</option>
 	
-	<option value="//api/name/dispatchManagableRequestOnAPI:forEndpoint:withParameters:shouldCache:timeoutInterval:progress:completion:">&nbsp;&nbsp;&nbsp;&nbsp;+ dispatchManagableRequestOnAPI:forEndpoint:withParameters:shouldCache:timeoutInterval:progress:completion:</option>
-	
-	<option value="//api/name/dispatchManagableRequestOnAPI:forEndpoint:withParameters:shouldCache:timeoutInterval:progress:processing:serialQueue:orderedCompletion:">&nbsp;&nbsp;&nbsp;&nbsp;+ dispatchManagableRequestOnAPI:forEndpoint:withParameters:shouldCache:timeoutInterval:progress:processing:serialQueue:orderedCompletion:</option>
-	
-	<option value="//api/name/dispatchRequestForResourceAtURL:completion:">&nbsp;&nbsp;&nbsp;&nbsp;+ dispatchRequestForResourceAtURL:completion:</option>
-	
 	<option value="//api/name/dispatchRequestForResourceAtURL:shouldCache:completion:">&nbsp;&nbsp;&nbsp;&nbsp;+ dispatchRequestForResourceAtURL:shouldCache:completion:</option>
 	
 	<option value="//api/name/dispatchRequestForResourceAtURL:shouldCache:processing:serialQueue:orderedCompletion:">&nbsp;&nbsp;&nbsp;&nbsp;+ dispatchRequestForResourceAtURL:shouldCache:processing:serialQueue:orderedCompletion:</option>
-	
-	<option value="//api/name/dispatchRequestOnAPI:forEndpoint:withParameters:completion:">&nbsp;&nbsp;&nbsp;&nbsp;+ dispatchRequestOnAPI:forEndpoint:withParameters:completion:</option>
-	
-	<option value="//api/name/dispatchRequestOnAPI:forEndpoint:withParameters:shouldCache:completion:">&nbsp;&nbsp;&nbsp;&nbsp;+ dispatchRequestOnAPI:forEndpoint:withParameters:shouldCache:completion:</option>
-	
-	<option value="//api/name/dispatchRequestOnAPI:forEndpoint:withParameters:shouldCache:processing:serialQueue:orderedCompletion:">&nbsp;&nbsp;&nbsp;&nbsp;+ dispatchRequestOnAPI:forEndpoint:withParameters:shouldCache:processing:serialQueue:orderedCompletion:</option>
 	
 	
 	
@@ -86,9 +74,11 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Request Dispatching">Request Dispatching</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Cache management">Cache management</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Managable Request Dispatching">Managable Request Dispatching</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Operation management">Operation management</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Cache Management">Cache Management</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Request Management">Request Management</a></span></li>
 	
 </ul></li>
 
@@ -108,21 +98,9 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dispatchManagableRequestForResourceAtURL:shouldCache:timeoutInterval:progress:processing:serialQueue:orderedCompletion:">dispatchManagableRequestForResourceAtURL:shouldCache:timeoutInterval:progress:processing:serialQueue:orderedCompletion:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dispatchManagableRequestOnAPI:forEndpoint:withParameters:shouldCache:timeoutInterval:progress:completion:">dispatchManagableRequestOnAPI:forEndpoint:withParameters:shouldCache:timeoutInterval:progress:completion:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dispatchManagableRequestOnAPI:forEndpoint:withParameters:shouldCache:timeoutInterval:progress:processing:serialQueue:orderedCompletion:">dispatchManagableRequestOnAPI:forEndpoint:withParameters:shouldCache:timeoutInterval:progress:processing:serialQueue:orderedCompletion:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dispatchRequestForResourceAtURL:completion:">dispatchRequestForResourceAtURL:completion:</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dispatchRequestForResourceAtURL:shouldCache:completion:">dispatchRequestForResourceAtURL:shouldCache:completion:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dispatchRequestForResourceAtURL:shouldCache:processing:serialQueue:orderedCompletion:">dispatchRequestForResourceAtURL:shouldCache:processing:serialQueue:orderedCompletion:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dispatchRequestOnAPI:forEndpoint:withParameters:completion:">dispatchRequestOnAPI:forEndpoint:withParameters:completion:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dispatchRequestOnAPI:forEndpoint:withParameters:shouldCache:completion:">dispatchRequestOnAPI:forEndpoint:withParameters:shouldCache:completion:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dispatchRequestOnAPI:forEndpoint:withParameters:shouldCache:processing:serialQueue:orderedCompletion:">dispatchRequestOnAPI:forEndpoint:withParameters:shouldCache:processing:serialQueue:orderedCompletion:</a></span></li>
 	
 </ul></li>
 
@@ -167,7 +145,10 @@
 
 <p>JLRequestDispatch is useful for &ldquo;set it and forget it&rdquo; network requests that need
 to execute discrete behavior on completion. JLRequestDispatch efficiently manages
-multiple concurrent threads as well as data caching.</p>
+multiple concurrent threads as well as data caching among other nifty tools.</p>
+
+<p>While not strictly enforced, you should refrain from initializing your own instance
+of JLRequestDispatch and instead rely on the class methods provided.</p>
 
 <p><strong>To Do</strong>:</p>
 
@@ -199,40 +180,6 @@ thread.</p></div>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/dispatchRequestOnAPI:forEndpoint:withParameters:completion:">+&nbsp;dispatchRequestOnAPI:forEndpoint:withParameters:completion:</a></code>
-		<span class="tooltip"><p>Dispatches an asynchronous request on an API URL at the specified endpoint with
-optional parameters. Executes a completion block when the request returns.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/dispatchRequestOnAPI:forEndpoint:withParameters:shouldCache:completion:">+&nbsp;dispatchRequestOnAPI:forEndpoint:withParameters:shouldCache:completion:</a></code>
-		<span class="tooltip"><p>Dispatches an asynchronous request on an API URL at the specified endpoint with
-optional parameters. Executes a completion block when the request returns.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/dispatchRequestOnAPI:forEndpoint:withParameters:shouldCache:processing:serialQueue:orderedCompletion:">+&nbsp;dispatchRequestOnAPI:forEndpoint:withParameters:shouldCache:processing:serialQueue:orderedCompletion:</a></code>
-		<span class="tooltip"><p>Dispatches an asynchronous request on an API URL at the specified endpoint with
-optional parameters. Executes a processing block when the request returns. Holds
-the execution of the completion block until previous blocks in the passed-in
-serial queue have executed.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/dispatchRequestForResourceAtURL:completion:">+&nbsp;dispatchRequestForResourceAtURL:completion:</a></code>
-		<span class="tooltip"><p>Dispatches an asynchronous request for the resource at the specified URL.
-Executes a completion block when the request returns.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
 		<code><a href="#//api/name/dispatchRequestForResourceAtURL:shouldCache:completion:">+&nbsp;dispatchRequestForResourceAtURL:shouldCache:completion:</a></code>
 		<span class="tooltip"><p>Dispatches an asynchronous request for the resource at the specified URL.
 Executes a completion block when the request returns.</p></span>
@@ -247,27 +194,15 @@ Executes a completion block when the request returns.</p></span>
 	</span>
 	
 	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/dispatchManagableRequestOnAPI:forEndpoint:withParameters:shouldCache:timeoutInterval:progress:completion:">+&nbsp;dispatchManagableRequestOnAPI:forEndpoint:withParameters:shouldCache:timeoutInterval:progress:completion:</a></code>
-		<span class="tooltip"><p>Dispatches a managable asynchronous request on an API URL at the specified
-endpoint with optional parameters. Periodically calls a progress block with the
-amount of data downloaded and executes a completion block when the request
-finishes. Allows management of progress, cancellation, and timeout.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/dispatchManagableRequestOnAPI:forEndpoint:withParameters:shouldCache:timeoutInterval:progress:processing:serialQueue:orderedCompletion:">+&nbsp;dispatchManagableRequestOnAPI:forEndpoint:withParameters:shouldCache:timeoutInterval:progress:processing:serialQueue:orderedCompletion:</a></code>
-		<span class="tooltip"><p>Dispatches a managable asynchronous request on an API URL at the specified
-endpoint with optional parameters. Periodically calls a progress block with the
-amount of data downloaded and executes a completion block when the request
-finishes. Allows management of progress, cancellation, and timeout.</p></span>
-	</span>
-	
-	
-</li><li>
+</li>
+						</ul>
+						
+						
+						<a title="Managable Request Dispatching" name="task_Managable Request Dispatching"></a>
+						<h3 class="subsubtitle task-title">Managable Request Dispatching</h3>
+
+						<ul class="task-list">
+							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/dispatchManagableRequestForResourceAtURL:shouldCache:timeoutInterval:progress:completion:">+&nbsp;dispatchManagableRequestForResourceAtURL:shouldCache:timeoutInterval:progress:completion:</a></code>
 		<span class="tooltip"><p>Dispatches a managable asynchronous request for the resource at the specified
@@ -291,8 +226,8 @@ progress, cancellation, and timeout.</p></span>
 						</ul>
 						
 						
-						<a title="Cache management" name="task_Cache management"></a>
-						<h3 class="subsubtitle task-title">Cache management</h3>
+						<a title="Cache Management" name="task_Cache Management"></a>
+						<h3 class="subsubtitle task-title">Cache Management</h3>
 
 						<ul class="task-list">
 							<li>
@@ -306,8 +241,8 @@ progress, cancellation, and timeout.</p></span>
 						</ul>
 						
 						
-						<a title="Operation management" name="task_Operation management"></a>
-						<h3 class="subsubtitle task-title">Operation management</h3>
+						<a title="Request Management" name="task_Request Management"></a>
+						<h3 class="subsubtitle task-title">Request Management</h3>
 
 						<ul class="task-list">
 							<li>
@@ -487,9 +422,7 @@ you want to cancel a request.</p>
 		<p>Dispatches a managable asynchronous request for the resource at the specified
 URL. Periodically calls a progress block with the amount of data downloaded and
 executes a completion block when the request finishes. Allows management of
-progress, cancellation, and timeout.</p><div class="note"><p><strong>Note:</strong> This API uses the NSURLRequest&rsquo;s internal caching mechanism when enabled.
-Therefore if you wish to clear the contents of the cache generated from the use
-of this request, call <code>[[NSURLCache sharedURLCache] removeAllCachedResponses]</code>.</p></div>
+progress, cancellation, and timeout.</p>
 	</div>
 	
 	
@@ -566,7 +499,7 @@ into the completion block.</p></dd>
 			<dd><p>The serial dispatch queue to order completion blocks in. You
 are free to add your own blocks to the queue. You should pass in the same serial
 queue for every request in which the completion block must execute in the request
-order.</p></dd>
+order. Passing in a concurrent dispatch queue results in undefined behavior.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
@@ -598,296 +531,13 @@ executes a completion block when the request finishes. Allows management of
 progress, cancellation, and timeout.</p>
 
 <p>Useful for when you want requests to execute concurrently but you want completion
-blocks to execute in the order you initiated the requests.</p><div class="note"><p><strong>Note:</strong> This API uses the NSURLRequest&rsquo;s internal caching mechanism when enabled.
-Therefore if you wish to clear the contents of the cache generated from the use
-of this request, call <code>[[NSURLCache sharedURLCache] removeAllCachedResponses]</code>.</p></div>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">JLRequestDispatch.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/dispatchManagableRequestOnAPI:forEndpoint:withParameters:shouldCache:timeoutInterval:progress:completion:" title="dispatchManagableRequestOnAPI:forEndpoint:withParameters:shouldCache:timeoutInterval:progress:completion:"></a>
-	<h3 class="subsubtitle method-title">dispatchManagableRequestOnAPI:forEndpoint:withParameters:shouldCache:timeoutInterval:progress:completion:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Dispatches a managable asynchronous request on an API URL at the specified
-endpoint with optional parameters. Periodically calls a progress block with the
-amount of data downloaded and executes a completion block when the request
-finishes. Allows management of progress, cancellation, and timeout.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>+ (JLRequestDispatchOperation *)dispatchManagableRequestOnAPI:(NSString *)<em>apiURL</em> forEndpoint:(NSString *)<em>endpoint</em> withParameters:(NSDictionary *)<em>paramsOrNil</em> shouldCache:(BOOL)<em>shouldCache</em> timeoutInterval:(NSTimeInterval)<em>timeout</em> progress:(JLRequestProgress)<em>progress</em> completion:(JLRequestCompletion)<em>completion</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>apiURL</em></dt>
-			<dd><p>The API URL to use.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>endpoint</em></dt>
-			<dd><p>The API endpoint to request.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>paramsOrNil</em></dt>
-			<dd><p>An optional dictionary of key-value pairs to append as URL
-parameters.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>shouldCache</em></dt>
-			<dd><p>Instructs the dispatcher whether or not it should cache (and
-attempt to retrieve from the cache) the data at the constructed URL.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>timeout</em></dt>
-			<dd><p>The amount of time to wait before the connection fails.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>progress</em></dt>
-			<dd><p>The progress block to invoke periodically when the connection
-has received more data. Passes in the RequestDispatchOperation object, the
-current length of the NSData object, and the <em>expected</em> final length
-of the object. If the final length is unknown or zero, passes
-RequestDispatchOperationUnknownLength for the final parameter.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>completion</em></dt>
-			<dd><p>The completion block to invoke when the network request
-returns. Passes in the received data, if any, and an NSError object (nil if no
-error).</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>The operation queued to execute the network request. Useful for when you
-want to cancel a request.</p>
-	</div>
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Dispatches a managable asynchronous request on an API URL at the specified
-endpoint with optional parameters. Periodically calls a progress block with the
-amount of data downloaded and executes a completion block when the request
-finishes. Allows management of progress, cancellation, and timeout.</p><div class="note"><p><strong>Note:</strong> This API uses the NSURLRequest&rsquo;s internal caching mechanism when enabled.
-Therefore if you wish to clear the contents of the cache generated from the use
-of this request, call <code>[[NSURLCache sharedURLCache] removeAllCachedResponses]</code>.</p></div>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">JLRequestDispatch.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/dispatchManagableRequestOnAPI:forEndpoint:withParameters:shouldCache:timeoutInterval:progress:processing:serialQueue:orderedCompletion:" title="dispatchManagableRequestOnAPI:forEndpoint:withParameters:shouldCache:timeoutInterval:progress:processing:serialQueue:orderedCompletion:"></a>
-	<h3 class="subsubtitle method-title">dispatchManagableRequestOnAPI:forEndpoint:withParameters:shouldCache:timeoutInterval:progress:processing:serialQueue:orderedCompletion:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Dispatches a managable asynchronous request on an API URL at the specified
-endpoint with optional parameters. Periodically calls a progress block with the
-amount of data downloaded and executes a completion block when the request
-finishes. Allows management of progress, cancellation, and timeout.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>+ (JLRequestDispatchOperation *)dispatchManagableRequestOnAPI:(NSString *)<em>apiURL</em> forEndpoint:(NSString *)<em>endpoint</em> withParameters:(NSDictionary *)<em>paramsOrNil</em> shouldCache:(BOOL)<em>shouldCache</em> timeoutInterval:(NSTimeInterval)<em>timeout</em> progress:(JLRequestProgress)<em>progress</em> processing:(JLRequestProcessing)<em>processing</em> serialQueue:(dispatch_queue_t)<em>serialQueue</em> orderedCompletion:(JLRequestOrderedCompletion)<em>completion</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>apiURL</em></dt>
-			<dd><p>The API URL to use.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>endpoint</em></dt>
-			<dd><p>The API endpoint to request.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>paramsOrNil</em></dt>
-			<dd><p>An optional dictionary of key-value pairs to append as URL
-parameters.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>shouldCache</em></dt>
-			<dd><p>Instructs the dispatcher whether or not it should cache (and
-attempt to retrieve from the cache) the data at the constructed URL.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>timeout</em></dt>
-			<dd><p>The amount of time to wait before the connection fails.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>progress</em></dt>
-			<dd><p>The progress block to invoke periodically when the connection
-has received more data. Passes in the RequestDispatchOperation object, the
-current length of the NSData object, and the <em>expected</em> final length
-of the object. If the final length is unknown or zero, passes
-RequestDispatchOperationUnknownLength for the final parameter.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>processing</em></dt>
-			<dd><p>The processing block to invoke when the network request
-returns. Passes in the received data, if any, and an NSError object (nil if no
-error). You should return the processed data from the block, ready to be passed
-into the completion block.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>serialQueue</em></dt>
-			<dd><p>The serial dispatch queue to order completion blocks in. You
-are free to add your own blocks to the queue. You should pass in the same serial
-queue for every request in which the completion block must execute in the request
-order.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>completion</em></dt>
-			<dd><p>The completion block to invoke when the network request
-returns and any previous blocks in the passed in serial queue have completed.
-Passes in the processed data.</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>The operation queued to execute the network request. Useful for when you
-want to cancel a request.</p>
-	</div>
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Dispatches a managable asynchronous request on an API URL at the specified
-endpoint with optional parameters. Periodically calls a progress block with the
-amount of data downloaded and executes a completion block when the request
-finishes. Allows management of progress, cancellation, and timeout.</p>
-
-<p>Useful for when you want requests to execute concurrently but you want completion
-blocks to execute in the order you initiated the requests.</p><div class="note"><p><strong>Note:</strong> This API uses the NSURLRequest&rsquo;s internal caching mechanism when enabled.
-Therefore if you wish to clear the contents of the cache generated from the use
-of this request, call <code>[[NSURLCache sharedURLCache] removeAllCachedResponses]</code>.</p></div>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">JLRequestDispatch.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/dispatchRequestForResourceAtURL:completion:" title="dispatchRequestForResourceAtURL:completion:"></a>
-	<h3 class="subsubtitle method-title">dispatchRequestForResourceAtURL:completion:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Dispatches an asynchronous request for the resource at the specified URL.
-Executes a completion block when the request returns.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>+ (void)dispatchRequestForResourceAtURL:(NSURL *)<em>url</em> completion:(JLRequestCompletion)<em>completion</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>url</em></dt>
-			<dd><p>The URL to use in the network request.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>completion</em></dt>
-			<dd><p>The completion block to invoke when the network request
-returns. Passes in the received data, if any, and an NSError object (nil if no
-error).</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Dispatches an asynchronous request for the resource at the specified URL.
-Executes a completion block when the request returns.</p>
-
-<p>Does not cache the received data.</p>
+blocks to execute in the order you initiated the requests. For example, you could
+concurrently download and parse several paged JSON requests at the same time but
+add data to a UITableView in the request order. Note that the processing block
+executes in the background. It should do all of the heavy lifting to turn the
+received data into a form that can be quickly consumed in an ordered manner
+when the completion block executes, or it should handle the error or pass it along
+to the completion block.</p>
 	</div>
 	
 	
@@ -1014,7 +664,7 @@ into the completion block.</p></dd>
 			<dd><p>The serial dispatch queue to order completion blocks in. You
 are free to add your own blocks to the queue. You should pass in the same serial
 queue for every request in which the completion block must execute in the request
-order.</p></dd>
+order. Passing in a concurrent dispatch queue results in undefined behavior.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
@@ -1038,267 +688,13 @@ Passes in the processed data.</p></dd>
 Executes a completion block when the request returns.</p>
 
 <p>Useful for when you want requests to execute concurrently but you want completion
-blocks to execute in the order you initiated the requests.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">JLRequestDispatch.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/dispatchRequestOnAPI:forEndpoint:withParameters:completion:" title="dispatchRequestOnAPI:forEndpoint:withParameters:completion:"></a>
-	<h3 class="subsubtitle method-title">dispatchRequestOnAPI:forEndpoint:withParameters:completion:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Dispatches an asynchronous request on an API URL at the specified endpoint with
-optional parameters. Executes a completion block when the request returns.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>+ (void)dispatchRequestOnAPI:(NSString *)<em>apiURL</em> forEndpoint:(NSString *)<em>endpoint</em> withParameters:(NSDictionary *)<em>paramsOrNil</em> completion:(JLRequestCompletion)<em>completion</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>apiURL</em></dt>
-			<dd><p>The API URL to use.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>endpoint</em></dt>
-			<dd><p>The API endpoint to request.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>paramsOrNil</em></dt>
-			<dd><p>An optional dictionary of key-value pairs to append as URL
-parameters.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>completion</em></dt>
-			<dd><p>The completion block to invoke when the network request
-returns. Passes in the received data, if any, and an NSError object (nil if no
-error).</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Dispatches an asynchronous request on an API URL at the specified endpoint with
-optional parameters. Executes a completion block when the request returns.</p>
-
-<p>The apiURL must include the protocol (http(s)) and a trailing forward-slash.</p>
-
-<p>The URL is constructed as follows: <code>&lt;API URL&gt;&lt;endpoint&gt;/?key1=value1&amp;key2=value2</code>.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">JLRequestDispatch.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/dispatchRequestOnAPI:forEndpoint:withParameters:shouldCache:completion:" title="dispatchRequestOnAPI:forEndpoint:withParameters:shouldCache:completion:"></a>
-	<h3 class="subsubtitle method-title">dispatchRequestOnAPI:forEndpoint:withParameters:shouldCache:completion:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Dispatches an asynchronous request on an API URL at the specified endpoint with
-optional parameters. Executes a completion block when the request returns.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>+ (void)dispatchRequestOnAPI:(NSString *)<em>apiURL</em> forEndpoint:(NSString *)<em>endpoint</em> withParameters:(NSDictionary *)<em>paramsOrNil</em> shouldCache:(BOOL)<em>shouldCache</em> completion:(JLRequestCompletion)<em>completion</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>apiURL</em></dt>
-			<dd><p>The API URL to use.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>endpoint</em></dt>
-			<dd><p>The API endpoint to request.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>paramsOrNil</em></dt>
-			<dd><p>An optional dictionary of key-value pairs to append as URL
-parameters.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>shouldCache</em></dt>
-			<dd><p>Instructs the dispatcher whether or not it should cache (and
-attempt to retrieve from the cache) the data at the constructed URL.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>completion</em></dt>
-			<dd><p>The completion block to invoke when the network request
-returns. Passes in the received data, if any, and an NSError object (nil if no
-error).</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Dispatches an asynchronous request on an API URL at the specified endpoint with
-optional parameters. Executes a completion block when the request returns.</p>
-
-<p>The apiURL must include the protocol (http(s)) and a trailing forward-slash.</p>
-
-<p>The URL is constructed as follows: <code>&lt;API URL&gt;&lt;endpoint&gt;/?key1=value1&amp;key2=value2</code>.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">JLRequestDispatch.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/dispatchRequestOnAPI:forEndpoint:withParameters:shouldCache:processing:serialQueue:orderedCompletion:" title="dispatchRequestOnAPI:forEndpoint:withParameters:shouldCache:processing:serialQueue:orderedCompletion:"></a>
-	<h3 class="subsubtitle method-title">dispatchRequestOnAPI:forEndpoint:withParameters:shouldCache:processing:serialQueue:orderedCompletion:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Dispatches an asynchronous request on an API URL at the specified endpoint with
-optional parameters. Executes a processing block when the request returns. Holds
-the execution of the completion block until previous blocks in the passed-in
-serial queue have executed.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>+ (void)dispatchRequestOnAPI:(NSString *)<em>apiURL</em> forEndpoint:(NSString *)<em>endpoint</em> withParameters:(NSDictionary *)<em>paramsOrNil</em> shouldCache:(BOOL)<em>shouldCache</em> processing:(JLRequestProcessing)<em>processing</em> serialQueue:(dispatch_queue_t)<em>serialQueue</em> orderedCompletion:(JLRequestOrderedCompletion)<em>completion</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>apiURL</em></dt>
-			<dd><p>The API URL to use.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>endpoint</em></dt>
-			<dd><p>The API endpoint to request.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>paramsOrNil</em></dt>
-			<dd><p>An optional dictionary of key-value pairs to append as URL
-parameters.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>shouldCache</em></dt>
-			<dd><p>Instructs the dispatcher whether or not it should cache (and
-attempt to retrieve from the cache) the data at the constructed URL.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>processing</em></dt>
-			<dd><p>The processing block to invoke when the network request
-returns. Passes in the received data, if any, and an NSError object (nil if no
-error). You should return the processed data from the block, ready to be passed
-into the completion block.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>serialQueue</em></dt>
-			<dd><p>The serial dispatch queue to order completion blocks in. You
-are free to add your own blocks to the queue. You should pass in the same serial
-queue for every request in which the completion block must execute in the request
-order.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>completion</em></dt>
-			<dd><p>The completion block to invoke when the network request
-returns and any previous blocks in the passed in serial queue have completed.
-Passes in the processed data.</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Dispatches an asynchronous request on an API URL at the specified endpoint with
-optional parameters. Executes a processing block when the request returns. Holds
-the execution of the completion block until previous blocks in the passed-in
-serial queue have executed.</p>
-
-<p>Useful for when you want requests to execute concurrently but you want completion
-blocks to execute in the order you initiated the requests.</p>
-
-<p>The apiURL must include the protocol (http(s)) and a trailing forward-slash.</p>
-
-<p>The URL is constructed as follows: <code>&lt;API URL&gt;&lt;endpoint&gt;/?key1=value1&amp;key2=value2</code>.</p>
+blocks to execute in the order you initiated the requests. For example, you could
+concurrently download and parse several paged JSON requests at the same time but
+add data to a UITableView in the request order. Note that the processing block
+executes in the background. It should do all of the heavy lifting to turn the
+received data into a form that can be quickly consumed in an ordered manner
+when the completion block executes, or it should handle the error or pass it along
+to the completion block.</p>
 	</div>
 	
 	
@@ -1330,7 +726,7 @@ blocks to execute in the order you initiated the requests.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2012 Jack Lawrence. All rights reserved. (Last updated: 2012-10-21)</span><br />
+						<p><span class="copyright">&copy; 2012 Jack Lawrence. All rights reserved. (Last updated: 2012-10-27)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
