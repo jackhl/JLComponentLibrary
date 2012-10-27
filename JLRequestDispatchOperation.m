@@ -10,7 +10,7 @@
 
 @interface JLRequestDispatchOperation ()
 
-@property (nonatomic, strong) NSURLRequest *urlRequest;
+@property (nonatomic, readwrite, strong) NSURLRequest *urlRequest;
 @property (nonatomic, strong) NSURLConnection *connection;
 @property (nonatomic, strong) NSMutableData *data;
 @property (nonatomic, strong) JLRequestProgress progress;
@@ -25,6 +25,7 @@
 }
 
 - (id)initWithURLRequest:(NSURLRequest *)urlRequest progress:(JLRequestProgress)progress completion:(JLRequestCompletion)completion {
+    NSParameterAssert(urlRequest != nil);
     self = [super init];
     if (self) {
         [self setUrlRequest:urlRequest];
@@ -50,6 +51,10 @@
         _isLoadingRequest = YES;
         NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:[self urlRequest] delegate:self startImmediately:NO];
         [self setConnection:urlConnection];
+        // Under iOS 5 and above NSURLConnection + NSOperation has a bug where the run loop that the call to -start is executed in
+        // ends as soon as the method returns and therefore the delegate callbacks fail to re-enter to run loop the NSOperation resides
+        // on. Therefore you must either force the current run loop to stay alive or schedule in the main run loop which never exits
+        // and then dispatch calls off of the main thread in the delegate callbacks.
         [[self connection] scheduleInRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
         [[self connection] start];
         [self didChangeValueForKey:@"isExecuting"];
@@ -79,7 +84,6 @@
         // Consumers should always assume that completion blocks get dispatched onto
         // a different thread than the main thread.
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-#warning If the operation is dealloced and [self completion] isn't block copied the completion block itself will be nil and we'll crash and burn.
             [self completion](nil, error);
         });
     }
@@ -107,7 +111,6 @@
         // Consumers should always assume that progress blocks get dispatched onto
         // a different thread than the main thread.
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-#warning I don't know if [self progress]/self/self.data/self.data.length/_expectedContentLength is getting block copied so it's possible that the request will finish, the operation will get dealloced, and then this block will fire and get nil for every parameter or the completion block itself will be nil and we'll crash and burn.
             [self progress](self, [[self data] length], _expectedContentLength);
         });
     }
@@ -124,7 +127,6 @@
         // Consumers should always assume that completion blocks get dispatched onto
         // a different thread than the main thread.
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-#warning I don't know if [self data]/[self completion] is getting block copied so it's possible that the KVO notifications will execute, the operation will dealloc itself, and the completion block will get nil for [self data] or the completion block itself will be nil and we'll crash and burn.
             [self completion]([self data], nil);
         });
     }

@@ -93,6 +93,7 @@
 
 + (void)dispatchRequestForResourceAtURL:(NSURL *)url shouldCache:(BOOL)shouldCache processing:(JLRequestProcessing)processing serialQueue:(dispatch_queue_t)serialQueue orderedCompletion:(JLRequestOrderedCompletion)completion
 {
+    NSParameterAssert(serialQueue != nil);
     JLRequestCompletion blockedBlock = [self bindOrderedCompletion:completion toSerialQueue:serialQueue afterProcessing:processing];
     
     [self dispatchRequestForResourceAtURL:url shouldCache:shouldCache completion:blockedBlock];
@@ -106,7 +107,8 @@
     }
     else {
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        [NSURLConnection sendAsynchronousRequest:request queue:[[self sharedDispatch] operationQueue]
+        [NSURLConnection sendAsynchronousRequest:request
+                                           queue:[[self sharedDispatch] operationQueue]
                                completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
                                    if (shouldCache) {
                                        [[[self sharedDispatch] resourceCache] setObject:data forKey:[url absoluteString]];
@@ -120,6 +122,7 @@
 
 + (JLRequestDispatchOperation *)dispatchManagableRequestForResourceAtURL:(NSURL *)url shouldCache:(BOOL)shouldCache timeoutInterval:(NSTimeInterval)timeout progress:(JLRequestProgress)progress processing:(JLRequestProcessing)processing serialQueue:(dispatch_queue_t)serialQueue orderedCompletion:(JLRequestOrderedCompletion)completion
 {
+    NSParameterAssert(serialQueue != nil);
     JLRequestCompletion blockedBlock = [self bindOrderedCompletion:completion toSerialQueue:serialQueue afterProcessing:processing];
     
     return [self dispatchManagableRequestForResourceAtURL:url shouldCache:shouldCache timeoutInterval:timeout progress:progress completion:blockedBlock];

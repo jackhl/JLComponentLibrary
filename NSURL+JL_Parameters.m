@@ -42,11 +42,15 @@
 
 + (id)JL_URLWithProtocol:(JL_URLProtocol)protocol domain:(NSString *)domain endpoint:(NSString *)endpoint parameters:(NSDictionary *)parameters
 {
+    NSParameterAssert(domain != nil);
+    NSParameterAssert(protocol == JL_URLProtocolHTTP || protocol == JL_URLProtocolHTTPS);
+    
     NSString *urlString = [NSString stringWithFormat:
-                           @"%@%@/%@%@%@",
+                           @"%@%@%@%@%@%@",
                            (protocol == JL_URLProtocolHTTP)?@"http://":@"https://",
-                           domain,
-                           endpoint,
+                           domain?domain:@"",
+                           endpoint?@"/":@"",
+                           endpoint?endpoint:@"",
                            ([parameters count] != 0)?@"?":@"",
                            [self JL_paramStringWithParameters:parameters]];
     return [NSURL URLWithString:urlString];

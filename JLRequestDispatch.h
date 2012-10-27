@@ -19,6 +19,9 @@
  to execute discrete behavior on completion. JLRequestDispatch efficiently manages
  multiple concurrent threads as well as data caching among other nifty tools.
  
+ While not strictly enforced, you should refrain from initializing your own instance
+ of JLRequestDispatch and instead rely on the class methods provided.
+ 
  **To Do**:
  
  + Clean up NSError-related strings and enums as well as error-generating
@@ -74,7 +77,7 @@
  @param serialQueue The serial dispatch queue to order completion blocks in. You
  are free to add your own blocks to the queue. You should pass in the same serial
  queue for every request in which the completion block must execute in the request
- order.
+ order. Passing in a concurrent dispatch queue results in undefined behavior.
  @param completion The completion block to invoke when the network request
  returns and any previous blocks in the passed in serial queue have completed.
  Passes in the processed data.
@@ -110,10 +113,10 @@
  you want to cancel a request.
  */
 + (JLRequestDispatchOperation *)dispatchManagableRequestForResourceAtURL:(NSURL *)url
-                                                           shouldCache:(BOOL)shouldCache
-                                                       timeoutInterval:(NSTimeInterval)timeout
-                                                              progress:(JLRequestProgress)progress
-                                                            completion:(JLRequestCompletion)completion;
+                                                             shouldCache:(BOOL)shouldCache
+                                                         timeoutInterval:(NSTimeInterval)timeout
+                                                                progress:(JLRequestProgress)progress
+                                                              completion:(JLRequestCompletion)completion;
 
 /**
  Dispatches a managable asynchronous request for the resource at the specified
@@ -151,7 +154,7 @@
  @param serialQueue The serial dispatch queue to order completion blocks in. You
  are free to add your own blocks to the queue. You should pass in the same serial
  queue for every request in which the completion block must execute in the request
- order.
+ order. Passing in a concurrent dispatch queue results in undefined behavior.
  @param completion The completion block to invoke when the network request
  returns. Passes in the received data, if any, and an NSError object (nil if no
  error).
@@ -159,20 +162,21 @@
  @return The operation queued to execute the network request. Useful for when
  you want to cancel a request.
  */
-+ (JLRequestDispatchOperation *)dispatchManagableRequestForResourceAtURL:(NSURL *)url
-                                                shouldCache:(BOOL)shouldCache
-                                            timeoutInterval:(NSTimeInterval)timeout
-                                                   progress:(JLRequestProgress)progress
-                                                 processing:(JLRequestProcessing)processing
-                                                serialQueue:(dispatch_queue_t)serialQueue
-                                          orderedCompletion:(JLRequestOrderedCompletion)completion;
 
-/** @name Cache management */
++ (JLRequestDispatchOperation *)dispatchManagableRequestForResourceAtURL:(NSURL *)url
+                                                             shouldCache:(BOOL)shouldCache
+                                                         timeoutInterval:(NSTimeInterval)timeout
+                                                                progress:(JLRequestProgress)progress
+                                                              processing:(JLRequestProcessing)processing
+                                                             serialQueue:(dispatch_queue_t)serialQueue
+                                                       orderedCompletion:(JLRequestOrderedCompletion)completion;
+
+/** @name Cache Management */
 
 /** Flushes the cache. */
 + (void)clearCache;
 
-/** @name Request management */
+/** @name Request Management */
 
 /** Cancels all scheduled and currently executing requests */
 + (void)cancelAllRequests;

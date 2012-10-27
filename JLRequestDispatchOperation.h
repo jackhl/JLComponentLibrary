@@ -27,6 +27,13 @@
  */
 @interface JLRequestDispatchOperation : NSOperation <NSURLConnectionDataDelegate>
 
+/** @name Properties */
+
+/** The URL request to be executed. */
+@property (nonatomic, readonly, strong) NSURLRequest *urlRequest;
+
+/** @name Initialization */
+
 /**
  Initializes the dispatch operation with a urlRequest, a periodic progress block, 
  and a completion block.
@@ -38,7 +45,6 @@
  the final length is unknown or zero, passes RequestDispatchOperationUnknownLength.
  @param completion The completion block to invoke when the network request returns. 
  Passes in the received data, if any, and an NSError object (nil if no error).
- 
  
  @return The initialized object.
  */
