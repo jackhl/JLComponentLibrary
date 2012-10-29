@@ -1,7 +1,3 @@
-//
-//  JLManagedTableViewController.h
-//  JLComponentLibrary
-//
 //  Created by Jack Lawrence on 8/2/12.
 //  Copyright (c) 2012 Jack Lawrence. All rights reserved.
 //

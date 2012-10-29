@@ -9,7 +9,7 @@
 #import "JLManagedTableViewController.h"
 
 #import "JLDataManager.h"
-#import "JLComponentLibraryMacros.h"
+#import "JLDataManagerMacros.h"
 
 @interface JLManagedTableViewController ()
 
