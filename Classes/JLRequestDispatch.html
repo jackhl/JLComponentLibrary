@@ -500,7 +500,7 @@ into the completion block.</p></dd>
 			<dd><p>The serial dispatch queue to order completion blocks in. You
 are free to add your own blocks to the queue. You should pass in the same serial
 queue for every request in which the completion block must execute in the request
-order. Passing in a concurrent dispatch queue results in undefined behavior.</p></dd>
+order.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
@@ -538,7 +538,7 @@ add data to a UITableView in the request order. Note that the processing block
 executes in the background. It should do all of the heavy lifting to turn the
 received data into a form that can be quickly consumed in an ordered manner
 when the completion block executes, or it should handle the error or pass it along
-to the completion block.</p>
+to the completion block.</p><div class="warning"><p><strong>Warning:</strong> Passing in a concurrent dispatch queue results in undefined behavior.</p></div>
 	</div>
 	
 	
@@ -665,7 +665,7 @@ into the completion block.</p></dd>
 			<dd><p>The serial dispatch queue to order completion blocks in. You
 are free to add your own blocks to the queue. You should pass in the same serial
 queue for every request in which the completion block must execute in the request
-order. Passing in a concurrent dispatch queue results in undefined behavior.</p></dd>
+order.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
@@ -695,7 +695,7 @@ add data to a UITableView in the request order. Note that the processing block
 executes in the background. It should do all of the heavy lifting to turn the
 received data into a form that can be quickly consumed in an ordered manner
 when the completion block executes, or it should handle the error or pass it along
-to the completion block.</p>
+to the completion block.</p><div class="warning"><p><strong>Warning:</strong> Passing in a concurrent dispatch queue results in undefined behavior.</p></div>
 	</div>
 	
 	
