@@ -64,6 +64,8 @@
  when the completion block executes, or it should handle the error or pass it along
  to the completion block.
  
+ @warning Passing in a concurrent dispatch queue results in undefined behavior.
+ 
  @param url The URL to use in the network request.
  @param shouldCache Instructs the dispatcher whether or not it should cache (and
  attempt to retrieve from the cache) the data at the constructed URL.
@@ -74,7 +76,7 @@
  @param serialQueue The serial dispatch queue to order completion blocks in. You
  are free to add your own blocks to the queue. You should pass in the same serial
  queue for every request in which the completion block must execute in the request
- order. Passing in a concurrent dispatch queue results in undefined behavior.
+ order.
  @param completion The completion block to invoke when the network request
  returns and any previous blocks in the passed in serial queue have completed.
  Passes in the processed data.
@@ -130,6 +132,8 @@
  when the completion block executes, or it should handle the error or pass it along
  to the completion block.
  
+ @warning Passing in a concurrent dispatch queue results in undefined behavior.
+ 
  @param url The URL to use in the network request.
  @param shouldCache Instructs the dispatcher whether or not it should cache (and
  attempt to retrieve from the cache) the data at the constructed URL.
@@ -151,7 +155,7 @@
  @param serialQueue The serial dispatch queue to order completion blocks in. You
  are free to add your own blocks to the queue. You should pass in the same serial
  queue for every request in which the completion block must execute in the request
- order. Passing in a concurrent dispatch queue results in undefined behavior.
+ order.
  @param completion The completion block to invoke when the network request
  returns. Passes in the received data, if any, and an NSError object (nil if no
  error).
