@@ -1,7 +1,3 @@
-//
-//  RequestDispatch.h
-//  Cascade
-//
 //  Created by Jack Lawrence on 10/7/12.
 //  Copyright (c) 2012 Jack Lawrence. All rights reserved.
 //

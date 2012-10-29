@@ -1,3 +1,7 @@
+//  Created by Jack Lawrence on 10/14/12.
+//  Copyright (c) 2012 Jack Lawrence. All rights reserved.
+//
+
 #ifndef JLRequestDispatchDefines_h
 #define JLRequestDispatchDefines_h
 

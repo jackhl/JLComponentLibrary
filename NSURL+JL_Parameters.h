@@ -1,7 +1,3 @@
-//
-//  NSURL+JL_Parameters.h
-//  Cascade
-//
 //  Created by Jack Lawrence on 10/25/12.
 //  Copyright (c) 2012 Jack Lawrence. All rights reserved.
 //
@@ -25,7 +21,7 @@ typedef enum JL_URLProtocol {
  URL with the string `http://`.
  - `JL_URLProtocolHTTPS`: The HTTPS secured protocol, specified by prefixing a
  URL with the string `https://`.
-
+ 
  */
 @interface NSURL (JL_Parameters)
 
@@ -50,9 +46,9 @@ typedef enum JL_URLProtocol {
  
  @return A URL by joining the components passed in as method parameters.
  */
-+ (id)JL_URLWithProtocol:(JL_URLProtocol)protocol
-                  domain:(NSString *)domain
-                endpoint:(NSString *)endpoint
-              parameters:(NSDictionary *)parameters;
++ (instancetype)JL_URLWithProtocol:(JL_URLProtocol)protocol
+                            domain:(NSString *)domain
+                          endpoint:(NSString *)endpoint
+                        parameters:(NSDictionary *)parameters;
 
 @end

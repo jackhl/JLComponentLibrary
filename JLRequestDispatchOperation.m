@@ -1,7 +1,3 @@
-//
-//  RequestDispatchOperation.m
-//  Cascade
-//
 //  Created by Jack Lawrence on 10/14/12.
 //  Copyright (c) 2012 Jack Lawrence. All rights reserved.
 //
@@ -24,7 +20,7 @@
     long long _expectedContentLength;
 }
 
-- (id)initWithURLRequest:(NSURLRequest *)urlRequest progress:(JLRequestProgress)progress completion:(JLRequestCompletion)completion {
+- (instancetype)initWithURLRequest:(NSURLRequest *)urlRequest progress:(JLRequestProgress)progress completion:(JLRequestCompletion)completion {
     NSParameterAssert(urlRequest != nil);
     self = [super init];
     if (self) {

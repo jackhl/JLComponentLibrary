@@ -1,7 +1,3 @@
-//
-//  NSURL+JL_Parameters.m
-//  Cascade
-//
 //  Created by Jack Lawrence on 10/25/12.
 //  Copyright (c) 2012 Jack Lawrence. All rights reserved.
 //
@@ -40,7 +36,7 @@
 
 @implementation NSURL (JL_Parameters)
 
-+ (id)JL_URLWithProtocol:(JL_URLProtocol)protocol domain:(NSString *)domain endpoint:(NSString *)endpoint parameters:(NSDictionary *)parameters
++ (instancetype)JL_URLWithProtocol:(JL_URLProtocol)protocol domain:(NSString *)domain endpoint:(NSString *)endpoint parameters:(NSDictionary *)parameters
 {
     NSParameterAssert(domain != nil);
     NSParameterAssert(protocol == JL_URLProtocolHTTP || protocol == JL_URLProtocolHTTPS);

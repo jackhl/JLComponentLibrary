@@ -1,7 +1,3 @@
-//
-//  RequestDispatch.m
-//  Cascade
-//
 //  Created by Jack Lawrence on 10/7/12.
 //  Copyright (c) 2012 Jack Lawrence. All rights reserved.
 //
@@ -22,7 +18,7 @@
  
  @return The network dispatch singleton.
  */
-+ (id)sharedDispatch;
++ (instancetype)sharedDispatch;
 
 /*
  name sucks!
@@ -36,7 +32,7 @@
 
 @implementation JLRequestDispatch
 
-+ (id)sharedDispatch
++ (instancetype)sharedDispatch
 {
     __strong static id _sharedObject = nil;
     static dispatch_once_t onceToken;
