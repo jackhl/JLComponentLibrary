@@ -47,8 +47,8 @@ NSString * const kDataManagerSQLiteName = @"Model.sqlite";
 
 - (NSDictionary *)persistentStoreCoordinatorOptions {
     
-    return @{NSMigratePersistentStoresAutomaticallyOption, @YES,
-             NSInferMappingModelAutomaticallyOption,       @YES};
+    return @{NSMigratePersistentStoresAutomaticallyOption: @YES,
+             NSInferMappingModelAutomaticallyOption:       @YES};
 }
 
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
