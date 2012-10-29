@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>JLManagedTableViewControllerDelegate Protocol Reference</title>
+		<title>NSObject(JL_KeyPathIntrospection) Category Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
@@ -17,7 +17,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">JLManagedTableViewControllerDelegate Protocol Reference</h1>
+				<h1 class="hideInXcode">NSObject(JL_KeyPathIntrospection) Category Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -40,15 +40,20 @@
 	
 	
 	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/JL_classForPropertyAtKeyPath:">&nbsp;&nbsp;&nbsp;&nbsp;+ JL_classForPropertyAtKeyPath:</option>
+	
+	<option value="//api/name/JL_primitiveTypeForPropertyAtKeyPath:">&nbsp;&nbsp;&nbsp;&nbsp;+ JL_primitiveTypeForPropertyAtKeyPath:</option>
+	
+	
 	
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/managedTableViewController:didInsertObject:">&nbsp;&nbsp;&nbsp;&nbsp;- managedTableViewController:didInsertObject:</option>
+	<option value="//api/name/JL_classForPropertyAtKeyPath:">&nbsp;&nbsp;&nbsp;&nbsp;- JL_classForPropertyAtKeyPath:</option>
 	
-	<option value="//api/name/managedTableViewController:didMoveObject:fromIndexPath:toIndexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- managedTableViewController:didMoveObject:fromIndexPath:toIndexPath:</option>
-	
-	<option value="//api/name/managedTableViewController:willDeleteObject:">&nbsp;&nbsp;&nbsp;&nbsp;- managedTableViewController:willDeleteObject:</option>
+	<option value="//api/name/JL_primitiveTypeForPropertyAtKeyPath:">&nbsp;&nbsp;&nbsp;&nbsp;- JL_primitiveTypeForPropertyAtKeyPath:</option>
 	
 	
 	
@@ -66,6 +71,8 @@
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Property Type Introspection">Property Type Introspection</a></span></li>
+	
 </ul></li>
 
 
@@ -74,15 +81,21 @@
 
 
 
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/JL_classForPropertyAtKeyPath:">JL_classForPropertyAtKeyPath:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/JL_primitiveTypeForPropertyAtKeyPath:">JL_primitiveTypeForPropertyAtKeyPath:</a></span></li>
+	
+</ul></li>
+
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/managedTableViewController:didInsertObject:">managedTableViewController:didInsertObject:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/JL_classForPropertyAtKeyPath:">JL_classForPropertyAtKeyPath:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/managedTableViewController:didMoveObject:fromIndexPath:toIndexPath:">managedTableViewController:didMoveObject:fromIndexPath:toIndexPath:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/managedTableViewController:willDeleteObject:">managedTableViewController:willDeleteObject:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/JL_primitiveTypeForPropertyAtKeyPath:">JL_primitiveTypeForPropertyAtKeyPath:</a></span></li>
 	
 </ul></li>
 
@@ -91,7 +104,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="JLManagedTableViewControllerDelegate Protocol Reference" name="top"></a>
+				<a title="NSObject(JL_KeyPathIntrospection) Category Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -100,18 +113,15 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">JLManagedTableViewControllerDelegate Protocol Reference</h1>
+						<h1 class="title title-header">NSObject(JL_KeyPathIntrospection) Category Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
-	<td class="specification-title">Conforms to</td>
-	<td class="specification-value">NSObject</td>
-</tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">JLManagedTableViewController.h</td>
+	<td class="specification-value">NSObject+JL_KeyPathIntrospection.h<br />NSObject+JL_KeyPathIntrospection.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -121,7 +131,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Objects conforming to JLManagedTableViewControllerDelegate receive messages when events occur.</p>
+						<p>Implements methods to simplify Objective-C runtime introspection on key paths.</p>
 					</div>
 					
 					
@@ -133,28 +143,39 @@
 						<h2 class="subtitle subtitle-tasks">Tasks</h2>
 						
 						
+						<a title="Property Type Introspection" name="task_Property Type Introspection"></a>
 						
-						
-
+<h3 class="subsubtitle task-title">Property Type Introspection</h3>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/managedTableViewController:didMoveObject:fromIndexPath:toIndexPath:">&ndash;&nbsp;managedTableViewController:didMoveObject:fromIndexPath:toIndexPath:</a></code>
-		<span class="tooltip"><p>Informs the delegate after an object has been moved from one index path to another index path.</p></span>
+		<code><a href="#//api/name/JL_classForPropertyAtKeyPath:">+&nbsp;JL_classForPropertyAtKeyPath:</a></code>
+		<span class="tooltip"><p>Introspects the class type of the property at the specified key path on the
+receiver.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/managedTableViewController:willDeleteObject:">&ndash;&nbsp;managedTableViewController:willDeleteObject:</a></code>
-		<span class="tooltip"><p>Informs the delegate when an object pending deletion.</p></span>
+		<code><a href="#//api/name/JL_classForPropertyAtKeyPath:">&ndash;&nbsp;JL_classForPropertyAtKeyPath:</a></code>
+		<span class="tooltip"><p>Introspects the class type of the property at the specified key path on the
+receiver&rsquo;s class.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/managedTableViewController:didInsertObject:">&ndash;&nbsp;managedTableViewController:didInsertObject:</a></code>
-		<span class="tooltip"><p>Informs the delegate when an object has been inserted.</p></span>
+		<code><a href="#//api/name/JL_primitiveTypeForPropertyAtKeyPath:">+&nbsp;JL_primitiveTypeForPropertyAtKeyPath:</a></code>
+		<span class="tooltip"><p>Introspects the primitive type of the property at the specified key path on the
+receiver.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/JL_primitiveTypeForPropertyAtKeyPath:">&ndash;&nbsp;JL_primitiveTypeForPropertyAtKeyPath:</a></code>
+		<span class="tooltip"><p>Introspects the primitive type of the property at the specified key path on the
+receiver&rsquo;s class.</p></span>
 	</span>
 	
 	
@@ -169,6 +190,128 @@
 					
 					
 					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/JL_classForPropertyAtKeyPath:" title="JL_classForPropertyAtKeyPath:"></a>
+	<h3 class="subsubtitle method-title">JL_classForPropertyAtKeyPath:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Introspects the class type of the property at the specified key path on the
+receiver.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (Class)JL_classForPropertyAtKeyPath:(NSString *)<em>keyPath</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>keyPath</em></dt>
+			<dd><p>The key path from the receiver to the property in question.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The class of the property at the specified key path.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Introspects the class type of the property at the specified key path on the
+receiver.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">NSObject+JL_KeyPathIntrospection.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/JL_primitiveTypeForPropertyAtKeyPath:" title="JL_primitiveTypeForPropertyAtKeyPath:"></a>
+	<h3 class="subsubtitle method-title">JL_primitiveTypeForPropertyAtKeyPath:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Introspects the primitive type of the property at the specified key path on the
+receiver.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (NSString *)JL_primitiveTypeForPropertyAtKeyPath:(NSString *)<em>keyPath</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>keyPath</em></dt>
+			<dd><p>The key path from the receiver to the property in question.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The primitive type of the property at the specified key path.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Introspects the primitive type of the property at the specified key path on the
+receiver.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">NSObject+JL_KeyPathIntrospection.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
 					
 					
 					<div class="section section-methods">
@@ -176,18 +319,19 @@
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/managedTableViewController:didInsertObject:" title="managedTableViewController:didInsertObject:"></a>
-	<h3 class="subsubtitle method-title">managedTableViewController:didInsertObject:</h3>
+	<a name="//api/name/JL_classForPropertyAtKeyPath:" title="JL_classForPropertyAtKeyPath:"></a>
+	<h3 class="subsubtitle method-title">JL_classForPropertyAtKeyPath:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Informs the delegate when an object has been inserted.</p>
+		<p>Introspects the class type of the property at the specified key path on the
+receiver&rsquo;s class.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)managedTableViewController:(JLManagedTableViewController *)<em>tableController</em> didInsertObject:(NSManagedObject *)<em>object</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (Class)JL_classForPropertyAtKeyPath:(NSString *)<em>keyPath</em></code></div>
 
     
 	
@@ -195,18 +339,18 @@
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>tableController</em></dt>
-			<dd><p>The sender.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>object</em></dt>
-			<dd><p>The object that has been inserted.</p></dd>
+			<dt><em>keyPath</em></dt>
+			<dd><p>The key path from the receiver&rsquo;s class to the property in question.</p></dd>
 		</dl>
 		
 	</div>
 	
 	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The class of the property at the specified key path.</p>
+	</div>
 	
 	
 	
@@ -214,7 +358,8 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Informs the delegate when an object has been inserted.</p>
+		<p>Introspects the class type of the property at the specified key path on the
+receiver&rsquo;s class.</p>
 	</div>
 	
 	
@@ -225,25 +370,26 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">JLManagedTableViewController.h</code><br />
+		<code class="declared-in-ref">NSObject+JL_KeyPathIntrospection.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/managedTableViewController:didMoveObject:fromIndexPath:toIndexPath:" title="managedTableViewController:didMoveObject:fromIndexPath:toIndexPath:"></a>
-	<h3 class="subsubtitle method-title">managedTableViewController:didMoveObject:fromIndexPath:toIndexPath:</h3>
+	<a name="//api/name/JL_primitiveTypeForPropertyAtKeyPath:" title="JL_primitiveTypeForPropertyAtKeyPath:"></a>
+	<h3 class="subsubtitle method-title">JL_primitiveTypeForPropertyAtKeyPath:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Informs the delegate after an object has been moved from one index path to another index path.</p>
+		<p>Introspects the primitive type of the property at the specified key path on the
+receiver&rsquo;s class.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)managedTableViewController:(JLManagedTableViewController *)<em>tableController</em> didMoveObject:(NSManagedObject *)<em>movedObject</em> fromIndexPath:(NSIndexPath *)<em>fromIndex</em> toIndexPath:(NSIndexPath *)<em>toIndex</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (NSString *)JL_primitiveTypeForPropertyAtKeyPath:(NSString *)<em>keyPath</em></code></div>
 
     
 	
@@ -251,28 +397,18 @@
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>tableController</em></dt>
-			<dd><p>The sender.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>movedObject</em></dt>
-			<dd><p>The Core Data entity that was moved.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>fromIndex</em></dt>
-			<dd><p>The index path the entity was moved from.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>toIndex</em></dt>
-			<dd><p>The index path the entity was moved to.</p></dd>
+			<dt><em>keyPath</em></dt>
+			<dd><p>The key path from the receiver&rsquo;s class to the property in question.</p></dd>
 		</dl>
 		
 	</div>
 	
 	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The primitive type of the property at the specified key path.</p>
+	</div>
 	
 	
 	
@@ -280,7 +416,8 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Informs the delegate after an object has been moved from one index path to another index path.</p>
+		<p>Introspects the primitive type of the property at the specified key path on the
+receiver&rsquo;s class.</p>
 	</div>
 	
 	
@@ -291,63 +428,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">JLManagedTableViewController.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/managedTableViewController:willDeleteObject:" title="managedTableViewController:willDeleteObject:"></a>
-	<h3 class="subsubtitle method-title">managedTableViewController:willDeleteObject:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Informs the delegate when an object pending deletion.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (void)managedTableViewController:(JLManagedTableViewController *)<em>tableController</em> willDeleteObject:(NSManagedObject *)<em>object</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>tableController</em></dt>
-			<dd><p>The sender.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>object</em></dt>
-			<dd><p>The object pending deletion.</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Informs the delegate when an object pending deletion.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">JLManagedTableViewController.h</code><br />
+		<code class="declared-in-ref">NSObject+JL_KeyPathIntrospection.h</code><br />
 	</div>				
 	
 	
