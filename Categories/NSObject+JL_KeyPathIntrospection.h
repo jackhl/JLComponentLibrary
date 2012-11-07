@@ -6,6 +6,19 @@
 
 /** 
  Implements methods to simplify Objective-C runtime introspection on key paths.
+ 
+ JL_KeyPathIntrospection is cool because instead of traveling a particular instance
+ like `valueForKeyPath:` and related methods do, this category traverses the class
+ definitions themselves.
+ 
+ @warn Because the introspection is done on the class definition and not a particular
+ instance, introspection will dead-end when the property is of type id. It will 
+ also report the declared object type, so for example if you externally declare
+ a property of type `NSArray` but internally you return an `NSMutableArray`, 
+ property introspection will report it as an NSArray.
+ 
+ @warn Does this look at the public or private property declarations?
+ 
  */
 @interface NSObject (JL_KeyPathIntrospection)
 

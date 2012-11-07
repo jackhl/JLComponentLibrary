@@ -39,12 +39,12 @@
 
 + (NSString *)JL_primitiveTypeForProperty:(objc_property_t)property
 {
-    return [self JL_primitiveTypeForProperty:property];
+    return [self JL_typeStringForProperty:property];
 }
 
 + (Class)JL_classTypeForProperty:(objc_property_t)property
 {
-    return NSClassFromString([self JL_primitiveTypeForProperty:property]);
+    return NSClassFromString([self JL_typeStringForProperty:property]);
 }
 
 + (Class)JL_classForPropertyAtKeyPath:(NSArray *)keyArray onClass:(Class)class
@@ -54,7 +54,7 @@
     objc_property_t theProperty;
     if ([keyArray count] == 1) {
         theProperty = class_getProperty(class, [[keyArray lastObject] UTF8String]);
-        return [self JL_classTypeForProperty:theProperty];
+        return NSClassFromString([self JL_typeStringForProperty:theProperty]);
     }
     else if ([keyArray count] > 1) {
         theProperty = class_getProperty(class, [[keyArray objectAtIndex:0] UTF8String]);
