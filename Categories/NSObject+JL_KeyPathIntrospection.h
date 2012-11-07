@@ -11,13 +11,17 @@
  like `valueForKeyPath:` and related methods do, this category traverses the class
  definitions themselves.
  
+ @note `id` is simply a typedef for a struct; It is not a full-fledged class.
+ Therefore when checking for type `id`, use the primitive introspection methods
+ which will return `@` for properties declared as type `id`.
+ 
  @warn Because the introspection is done on the class definition and not a particular
  instance, introspection will dead-end when the property is of type id. It will 
  also report the declared object type, so for example if you externally declare
  a property of type `NSArray` but internally you return an `NSMutableArray`, 
  property introspection will report it as an NSArray.
  
- @warn Does this look at the public or private property declarations?
+ @warn JL_KeyPathIntrospection does not look at private property (re)declarations.
  
  */
 @interface NSObject (JL_KeyPathIntrospection)
@@ -50,6 +54,9 @@
  Introspects the primitive type of the property at the specified key path on the 
  receiver.
  
+ @warn Asking for the primitive type string for an object returns a string
+ representation of the object's class. It does not raise an exception.
+ 
  @param keyPath The key path from the receiver to the property in question.
  
  @return The primitive type of the property at the specified key path.
@@ -59,6 +66,9 @@
 /**
  Introspects the primitive type of the property at the specified key path on the
  receiver's class.
+ 
+ @warn Asking for the primitive type string for an object returns a string
+ representation of the object's class. It does not raise an exception.
  
  @param keyPath The key path from the receiver's class to the property in question.
  
