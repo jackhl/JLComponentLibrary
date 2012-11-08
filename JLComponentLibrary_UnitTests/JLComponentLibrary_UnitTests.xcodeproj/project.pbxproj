@@ -77,7 +77,6 @@
 		04861B03164ABB34000991D0 = {
 			isa = PBXGroup;
 			children = (
-				04861B6A164ABDF2000991D0 /* CoreData.framework */,
 				04861B18164ABB34000991D0 /* JLComponentLibrary_UnitTests */,
 				04861B39164ABB55000991D0 /* UnitTests */,
 				04861B11164ABB34000991D0 /* Frameworks */,
@@ -96,6 +95,7 @@
 		04861B11164ABB34000991D0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04861B6A164ABDF2000991D0 /* CoreData.framework */,
 				04861B12164ABB34000991D0 /* UIKit.framework */,
 				04861B14164ABB34000991D0 /* Foundation.framework */,
 				04861B16164ABB34000991D0 /* CoreGraphics.framework */,
@@ -186,9 +186,9 @@
 		04861B52164ABC22000991D0 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				04861B55164ABC22000991D0 /* JLRequestDispatchDefines.h */,
 				04861B53164ABC22000991D0 /* JLRequestDispatch.h */,
 				04861B54164ABC22000991D0 /* JLRequestDispatch.m */,
-				04861B55164ABC22000991D0 /* JLRequestDispatchDefines.h */,
 				04861B56164ABC22000991D0 /* JLRequestDispatchOperation.h */,
 				04861B57164ABC22000991D0 /* JLRequestDispatchOperation.m */,
 			);
