@@ -8,6 +8,7 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
+/* Unit tests for NSURL+JL_Parameters. */
 @interface JLUNIT_Parameters : SenTestCase
 
 @end

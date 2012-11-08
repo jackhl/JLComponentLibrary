@@ -8,6 +8,7 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
+/* Unit tests for NSObject+JL_KeyPathIntrospection. */
 @interface JLUNIT_KeyPathIntrospection : SenTestCase
 
 @end
