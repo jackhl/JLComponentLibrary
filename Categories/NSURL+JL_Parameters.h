@@ -4,10 +4,10 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum JL_URLProtocol {
+typedef NS_ENUM(NSUInteger, JL_URLProtocol) {
     JL_URLProtocolHTTP,
     JL_URLProtocolHTTPS
-} JL_URLProtocol;
+};
 
 /**
  Extends NSURL to provide support for creating URLs with parameters.

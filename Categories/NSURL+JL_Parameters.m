@@ -11,7 +11,8 @@
  key is separated from each value with an `=` (equal) sign and each pair is separated
  by an & (ampersand).
  
- @param parameters A dictionary of key-value pairs to turn into a URL parameter string.
+ @param parameters A dictionary of key-value pairs to turn into a URL parameter
+ string.
  
  @return A string containing the parameters.
  */
@@ -38,12 +39,14 @@
 
 + (instancetype)JL_URLWithProtocol:(JL_URLProtocol)protocol domain:(NSString *)domain endpoint:(NSString *)endpoint parameters:(NSDictionary *)parameters
 {
+#if DEBUG
     NSParameterAssert(domain != nil);
     NSParameterAssert(protocol == JL_URLProtocolHTTP || protocol == JL_URLProtocolHTTPS);
+#endif
     
     NSString *urlString = [NSString stringWithFormat:
                            @"%@%@%@%@%@%@",
-                           (protocol == JL_URLProtocolHTTP)?@"http://":@"https://",
+                           (protocol == JL_URLProtocolHTTP)?@"http://":(protocol == JL_URLProtocolHTTPS)?@"https://":@"",
                            domain?domain:@"",
                            endpoint?@"/":@"",
                            endpoint?endpoint:@"",
