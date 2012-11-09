@@ -61,10 +61,12 @@
 
 - (void)testParameterValidation {
     // nil domain
+    NSLog(@"EXPECT ASSERTION FAILURE");
     STAssertThrowsSpecificNamed([NSURL JL_URLWithProtocol:JL_URLProtocolHTTP domain:nil endpoint:nil parameters:nil],
                                 NSException, NSInternalInconsistencyException,
                                 @"+[NSURL JL_URLWithProtocol:domain:endpoint:parameters] did not bail when a nil domain parameter was specified.");
     // protocol out of bounds
+    NSLog(@"EXPECT ASSERTION FAILURE");
     STAssertThrowsSpecificNamed([NSURL JL_URLWithProtocol:5 domain:@"example.com" endpoint:nil parameters:nil],
                                 NSException, NSInternalInconsistencyException,
                                 @"+[NSURL JL_URLWithProtocol:domain:endpoint:parameters] did not bail when an out of bounds protocol was specified.");
