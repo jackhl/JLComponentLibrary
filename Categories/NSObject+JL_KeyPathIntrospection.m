@@ -9,7 +9,7 @@
 @interface NSObject (JL_KeyPathIntrospectionInternal)
 
 + (NSString *)JL_typeStringForProperty:(objc_property_t)property;
-+ (Class) JL_classTypeForProperty:(objc_property_t)property;
++ (Class)JL_classTypeForProperty:(objc_property_t)property;
 + (NSString *)JL_primitiveTypeForProperty:(objc_property_t)property;
 
 + (Class)JL_classForPropertyAtKeyPath:(NSArray *)keyArray onClass:(Class)class;
