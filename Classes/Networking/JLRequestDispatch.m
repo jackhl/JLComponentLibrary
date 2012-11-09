@@ -89,7 +89,10 @@
 
 + (void)dispatchRequestForResourceAtURL:(NSURL *)url shouldCache:(BOOL)shouldCache processing:(JLRequestProcessing)processing serialQueue:(dispatch_queue_t)serialQueue orderedCompletion:(JLRequestOrderedCompletion)completion
 {
+    // would this crash in production (non-debug)?
+#if DEBUG
     NSParameterAssert(serialQueue != nil);
+#endif
     JLRequestCompletion blockedBlock = [self bindOrderedCompletion:completion toSerialQueue:serialQueue afterProcessing:processing];
     
     [self dispatchRequestForResourceAtURL:url shouldCache:shouldCache completion:blockedBlock];
@@ -118,7 +121,10 @@
 
 + (JLRequestDispatchOperation *)dispatchManagableRequestForResourceAtURL:(NSURL *)url shouldCache:(BOOL)shouldCache timeoutInterval:(NSTimeInterval)timeout progress:(JLRequestProgress)progress processing:(JLRequestProcessing)processing serialQueue:(dispatch_queue_t)serialQueue orderedCompletion:(JLRequestOrderedCompletion)completion
 {
+    // would this crash in production (non-debug)?
+#if DEBUG
     NSParameterAssert(serialQueue != nil);
+#endif
     JLRequestCompletion blockedBlock = [self bindOrderedCompletion:completion toSerialQueue:serialQueue afterProcessing:processing];
     
     return [self dispatchManagableRequestForResourceAtURL:url shouldCache:shouldCache timeoutInterval:timeout progress:progress completion:blockedBlock];

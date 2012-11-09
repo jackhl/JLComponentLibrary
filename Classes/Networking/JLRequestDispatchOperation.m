@@ -21,7 +21,9 @@
 }
 
 - (instancetype)initWithURLRequest:(NSURLRequest *)urlRequest progress:(JLRequestProgress)progress completion:(JLRequestCompletion)completion {
+#if DEBUG
     NSParameterAssert(urlRequest != nil);
+#endif
     self = [super init];
     if (self) {
         [self setUrlRequest:urlRequest];
