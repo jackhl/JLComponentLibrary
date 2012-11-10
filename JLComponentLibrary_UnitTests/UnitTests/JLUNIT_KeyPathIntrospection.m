@@ -88,11 +88,11 @@
 }
 
 - (void)testKeyPathOfObjectType {
-    
+    STFail(@"Test not implemented.");
 }
 
 - (void)testKeyPathOfPrimitiveType {
-    
+    STFail(@"Test not implemented.");
 }
 
 @end
