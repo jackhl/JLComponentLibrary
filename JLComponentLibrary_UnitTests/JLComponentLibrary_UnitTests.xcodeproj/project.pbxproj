@@ -24,6 +24,20 @@
 		04B8E964164CE4470006AD75 /* JLRequestDispatchOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E95E164CE4470006AD75 /* JLRequestDispatchOperation.m */; };
 		04D75236164DEF7F004429A7 /* JLUNIT_RequestDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D75235164DEF7F004429A7 /* JLUNIT_RequestDispatch.m */; };
 		04D7523A164DF095004429A7 /* JLUNIT_RequestDispatchCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D75239164DF095004429A7 /* JLUNIT_RequestDispatchCommon.m */; };
+		04D75257164E09C6004429A7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B35164ABB55000991D0 /* SenTestingKit.framework */; };
+		04D75259164E09C6004429A7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D75258164E09C6004429A7 /* Cocoa.framework */; };
+		04D75263164E09C6004429A7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04D75261164E09C6004429A7 /* InfoPlist.strings */; };
+		04D7526B164E09D0004429A7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D7524E164E09A2004429A7 /* CoreData.framework */; };
+		04D7526C164E0A71004429A7 /* NSObject+JL_KeyPathIntrospection.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E94F164CE4470006AD75 /* NSObject+JL_KeyPathIntrospection.m */; };
+		04D7526D164E0A71004429A7 /* NSURL+JL_Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E951164CE4470006AD75 /* NSURL+JL_Parameters.m */; };
+		04D7526E164E0A71004429A7 /* JLDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E955164CE4470006AD75 /* JLDataManager.m */; };
+		04D75270164E0A71004429A7 /* JLRequestDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E95B164CE4470006AD75 /* JLRequestDispatch.m */; };
+		04D75271164E0A71004429A7 /* JLRequestDispatchOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E95E164CE4470006AD75 /* JLRequestDispatchOperation.m */; };
+		04D75272164E0A71004429A7 /* JLUNIT_KeyPathIntrospection.m in Sources */ = {isa = PBXBuildFile; fileRef = 04861B40164ABB55000991D0 /* JLUNIT_KeyPathIntrospection.m */; };
+		04D75273164E0A71004429A7 /* JLUNIT_Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 04861B68164ABDB8000991D0 /* JLUNIT_Parameters.m */; };
+		04D75274164E0A71004429A7 /* JLUNIT_RequestDispatchCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D75239164DF095004429A7 /* JLUNIT_RequestDispatchCommon.m */; };
+		04D75275164E0A71004429A7 /* JLUNIT_RequestDispatchOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B90389164C0B3700617566 /* JLUNIT_RequestDispatchOperation.m */; };
+		04D75276164E0A71004429A7 /* JLUNIT_RequestDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D75235164DEF7F004429A7 /* JLUNIT_RequestDispatch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +82,17 @@
 		04D75238164DF095004429A7 /* JLUNIT_RequestDispatchCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLUNIT_RequestDispatchCommon.h; sourceTree = "<group>"; };
 		04D75239164DF095004429A7 /* JLUNIT_RequestDispatchCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLUNIT_RequestDispatchCommon.m; sourceTree = "<group>"; };
 		04D7523C164DFB55004429A7 /* JLUNIT_CommonMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLUNIT_CommonMacros.h; sourceTree = "<group>"; };
+		04D7524E164E09A2004429A7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		04D75256164E09C6004429A7 /* UnitTests-NoSimNeeded.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UnitTests-NoSimNeeded.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		04D75258164E09C6004429A7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		04D7525B164E09C6004429A7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		04D7525C164E09C6004429A7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		04D7525D164E09C6004429A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		04D75260164E09C6004429A7 /* UnitTests-NoSimNeeded-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnitTests-NoSimNeeded-Info.plist"; sourceTree = "<group>"; };
+		04D75262164E09C6004429A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		04D75264164E09C6004429A7 /* UnitTests_NoSimNeeded.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnitTests_NoSimNeeded.h; sourceTree = "<group>"; };
+		04D75265164E09C6004429A7 /* UnitTests_NoSimNeeded.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnitTests_NoSimNeeded.m; sourceTree = "<group>"; };
+		04D75267164E09C6004429A7 /* UnitTests-NoSimNeeded-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnitTests-NoSimNeeded-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +105,16 @@
 				04861B37164ABB55000991D0 /* UIKit.framework in Frameworks */,
 				04861B38164ABB55000991D0 /* Foundation.framework in Frameworks */,
 				04385735164CD5EC007DBCD8 /* libOCMock.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04D75252164E09C6004429A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04D7526B164E09D0004429A7 /* CoreData.framework in Frameworks */,
+				04D75257164E09C6004429A7 /* SenTestingKit.framework in Frameworks */,
+				04D75259164E09C6004429A7 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +149,7 @@
 			children = (
 				04B8E94C164CE43B0006AD75 /* JLComponentLibrary */,
 				04861B39164ABB55000991D0 /* UnitTests */,
+				04D7525E164E09C6004429A7 /* UnitTests-NoSimNeeded */,
 				04861B11164ABB34000991D0 /* Frameworks */,
 				04861B0F164ABB34000991D0 /* Products */,
 			);
@@ -123,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				04861B34164ABB55000991D0 /* UnitTests.octest */,
+				04D75256164E09C6004429A7 /* UnitTests-NoSimNeeded.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,12 +167,15 @@
 		04861B11164ABB34000991D0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04D7524E164E09A2004429A7 /* CoreData.framework */,
 				04385721164CD524007DBCD8 /* OCMock */,
 				04861B6A164ABDF2000991D0 /* CoreData.framework */,
 				04861B12164ABB34000991D0 /* UIKit.framework */,
 				04861B14164ABB34000991D0 /* Foundation.framework */,
 				04861B16164ABB34000991D0 /* CoreGraphics.framework */,
 				04861B35164ABB55000991D0 /* SenTestingKit.framework */,
+				04D75258164E09C6004429A7 /* Cocoa.framework */,
+				04D7525A164E09C6004429A7 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -256,6 +296,36 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
+		04D7525A164E09C6004429A7 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04D7525B164E09C6004429A7 /* AppKit.framework */,
+				04D7525C164E09C6004429A7 /* CoreData.framework */,
+				04D7525D164E09C6004429A7 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		04D7525E164E09C6004429A7 /* UnitTests-NoSimNeeded */ = {
+			isa = PBXGroup;
+			children = (
+				04D75264164E09C6004429A7 /* UnitTests_NoSimNeeded.h */,
+				04D75265164E09C6004429A7 /* UnitTests_NoSimNeeded.m */,
+				04D7525F164E09C6004429A7 /* Supporting Files */,
+			);
+			path = "UnitTests-NoSimNeeded";
+			sourceTree = "<group>";
+		};
+		04D7525F164E09C6004429A7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				04D75260164E09C6004429A7 /* UnitTests-NoSimNeeded-Info.plist */,
+				04D75261164E09C6004429A7 /* InfoPlist.strings */,
+				04D75267164E09C6004429A7 /* UnitTests-NoSimNeeded-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -275,6 +345,24 @@
 			name = UnitTests;
 			productName = UnitTests;
 			productReference = 04861B34164ABB55000991D0 /* UnitTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		04D75255164E09C6004429A7 /* UnitTests-NoSimNeeded */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04D75268164E09C6004429A7 /* Build configuration list for PBXNativeTarget "UnitTests-NoSimNeeded" */;
+			buildPhases = (
+				04D75251164E09C6004429A7 /* Sources */,
+				04D75252164E09C6004429A7 /* Frameworks */,
+				04D75253164E09C6004429A7 /* Resources */,
+				04D75254164E09C6004429A7 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "UnitTests-NoSimNeeded";
+			productName = "UnitTests-NoSimNeeded";
+			productReference = 04D75256164E09C6004429A7 /* UnitTests-NoSimNeeded.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -300,6 +388,7 @@
 			projectRoot = "";
 			targets = (
 				04861B33164ABB55000991D0 /* UnitTests */,
+				04D75255164E09C6004429A7 /* UnitTests-NoSimNeeded */,
 			);
 		};
 /* End PBXProject section */
@@ -313,10 +402,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		04D75253164E09C6004429A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04D75263164E09C6004429A7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		04861B32164ABB55000991D0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		04D75254164E09C6004429A7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -350,6 +460,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		04D75251164E09C6004429A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04D7526C164E0A71004429A7 /* NSObject+JL_KeyPathIntrospection.m in Sources */,
+				04D7526D164E0A71004429A7 /* NSURL+JL_Parameters.m in Sources */,
+				04D7526E164E0A71004429A7 /* JLDataManager.m in Sources */,
+				04D75270164E0A71004429A7 /* JLRequestDispatch.m in Sources */,
+				04D75271164E0A71004429A7 /* JLRequestDispatchOperation.m in Sources */,
+				04D75272164E0A71004429A7 /* JLUNIT_KeyPathIntrospection.m in Sources */,
+				04D75273164E0A71004429A7 /* JLUNIT_Parameters.m in Sources */,
+				04D75274164E0A71004429A7 /* JLUNIT_RequestDispatchCommon.m in Sources */,
+				04D75275164E0A71004429A7 /* JLUNIT_RequestDispatchOperation.m in Sources */,
+				04D75276164E0A71004429A7 /* JLUNIT_RequestDispatch.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -357,6 +484,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				04861B3D164ABB55000991D0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		04D75261164E09C6004429A7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04D75262164E09C6004429A7 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -472,6 +607,43 @@
 			};
 			name = Release;
 		};
+		04D75269164E09C6004429A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UnitTests-NoSimNeeded/UnitTests-NoSimNeeded-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "UnitTests-NoSimNeeded/UnitTests-NoSimNeeded-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		04D7526A164E09C6004429A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UnitTests-NoSimNeeded/UnitTests-NoSimNeeded-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "UnitTests-NoSimNeeded/UnitTests-NoSimNeeded-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -492,6 +664,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		04D75268164E09C6004429A7 /* Build configuration list for PBXNativeTarget "UnitTests-NoSimNeeded" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04D75269164E09C6004429A7 /* Debug */,
+				04D7526A164E09C6004429A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
