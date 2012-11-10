@@ -29,7 +29,8 @@
 
 typedef NS_ENUM(NSUInteger, JLUNIT_PetType) {
     JLUNIT_PetTypeDog,
-    JLUNIT_PetTypeCat
+    JLUNIT_PetTypeCat,
+    JLUNIT_PetTypeFish
 };
 
 @interface Pet : NSObject
@@ -53,19 +54,24 @@ typedef NS_ENUM(NSUInteger, JLUNIT_PetType) {
 @end
 
 // Takes selector, keyPath selector param, and expected class. Checks equality and nil.
-#define AssertMethodReturnMatchesExpectedClass(selector, selParam, expectedClass) { \
-    Class actualClass = (Class)[_person performSelector:selector withObject:selParam]; \
+#define AssertMethodReturnMatchesExpectedClass(selector, keyPath, expectedClass) { \
+    Class actualClass = (Class)[_person performSelector:selector withObject:keyPath]; \
     STAssertNotNil(actualClass, @"-[NSObject %@] returned a null Class object.", NSStringFromSelector(selector)); \
     STAssertEqualObjects(actualClass, expectedClass, @"%@ did not return the correct Class object. Should have been %@, instead got %@.", NSStringFromSelector(selector), NSStringFromClass(expectedClass), NSStringFromClass(actualClass)); \
 }
 
-#define AssertClassMethodReturnNilAndPrimitiveMethodMatchesExpectedPrimitive(classSelector, primitiveSelector, selParam, expectedPrimitive) { \
-    Class primitiveClass = (Class)[_person performSelector:classSelector withObject:selParam]; \
-    NSString *primitiveType = (NSString *)[_person performSelector:primitiveSelector withObject:selParam]; \
+#define AssertClassMethodReturnNilAndPrimitiveMethodMatchesExpectedPrimitive(classSelector, primitiveSelector, keyPath, expectedPrimitive) { \
+    Class primitiveClass = (Class)[_person performSelector:classSelector withObject:keyPath]; \
+    NSString *primitiveType = (NSString *)[_person performSelector:primitiveSelector withObject:keyPath]; \
     STAssertNil(primitiveClass, @"-[NSObject %@] did not return a null Class for a primitive type. It instead returned %@.", NSStringFromSelector(classSelector), NSStringFromClass(primitiveClass)); \
     STAssertNotNil(primitiveType, @"-[NSObject %@] returned a nil NSString for a primitive type.", NSStringFromSelector(primitiveSelector)); \
     STAssertEqualObjects(primitiveType, expectedPrimitive, @"-[NSObject %@] did not return @\"%@\". It instead returned @\"%@\".", NSStringFromSelector(primitiveSelector), expectedPrimitive, primitiveType); \
 }
+
+#define AssertStringFromClassReturnForPrimitiveCallOnObjectType(keyPath, expectedClassString) \
+    NSString *primitiveString = [_person JL_primitiveTypeForPropertyAtKeyPath:keyPath]; \
+    STAssertNotNil(primitiveString, @"-[NSObject JL_primitiveTypeForPropertyAtKeyPath:] returned a nil NSString for an object type."); \
+    STAssertEqualObjects(primitiveString, expectedClassString, @"-[NSObject JL_primitiveTypeForPropertyAtKeyPath:] did not return @\"%@\". It instead returned @\"%@\".", expectedClassString, primitiveString);
 
 @implementation JLUNIT_KeyPathIntrospection {
     Person *_person;
@@ -92,19 +98,13 @@ typedef NS_ENUM(NSUInteger, JLUNIT_PetType) {
 - (void)testSingleKeyOfObjectType {
     AssertMethodReturnMatchesExpectedClass(@selector(JL_classForPropertyAtKeyPath:), @"name", [NSString class]);
     
-    NSString *namePrimitiveString = [_person JL_primitiveTypeForPropertyAtKeyPath:@"name"];
-    
-    STAssertNotNil(namePrimitiveString, @"-[NSObject JL_primitiveTypeForPropertyAtKeyPath:] returned a nil NSString for an object type.");
-    STAssertEqualObjects(namePrimitiveString, @"NSString", @"-[NSObject JL_primitiveTypeForPropertyAtKeyPath:] did not return @\"NSString\". It instead returned @\"%@\".", namePrimitiveString);
+    AssertStringFromClassReturnForPrimitiveCallOnObjectType(@"name", @"NSString");
 }
 
 - (void)testSingleKeyOfObjectTypePrivateRedeclaration {
     AssertMethodReturnMatchesExpectedClass(@selector(JL_classForPropertyAtKeyPath:), @"firstName", [NSObject class]);
     
-    NSString *firstNamePrimitive = [_person JL_primitiveTypeForPropertyAtKeyPath:@"firstName"];
-    
-    STAssertNotNil(firstNamePrimitive, @"-[NSObject JL_primitiveTypeForPropertyAtKeyPath:] returned a nil NSString for an object type.");
-    STAssertEqualObjects(firstNamePrimitive, @"NSObject", @"-[NSObject JL_primitiveTypeForPropertyAtKeyPath:] did not return @\"NSObject\". It instead returned @\"%@\".", firstNamePrimitive);
+    AssertStringFromClassReturnForPrimitiveCallOnObjectType(@"firstName", @"NSObject");
 }
 
 - (void)testSingleKeyOfPrimitiveType {
@@ -119,10 +119,7 @@ typedef NS_ENUM(NSUInteger, JLUNIT_PetType) {
 - (void)testKeyPathOfObjectType {
     AssertMethodReturnMatchesExpectedClass(@selector(JL_classForPropertyAtKeyPath:), @"pet.name", [NSString class]);
     
-    NSString *petNamePrimitiveString = [_person JL_primitiveTypeForPropertyAtKeyPath:@"pet.name"];
-    
-    STAssertNotNil(petNamePrimitiveString, @"-[NSObject JL_primitiveTypeForPropertyAtKeyPath:] returned a nil NSString for an object type.");
-    STAssertEqualObjects(petNamePrimitiveString, @"NSString", @"-[NSObject JL_primitiveTypeForPropertyAtKeyPath:] did not return @\"NSString\". It instead returned @\"%@\".", petNamePrimitiveString);
+    AssertStringFromClassReturnForPrimitiveCallOnObjectType(@"pet.name", @"NSString");
 }
 
 - (void)testKeyPathOfPrimitiveType {
@@ -136,10 +133,7 @@ typedef NS_ENUM(NSUInteger, JLUNIT_PetType) {
 - (void)testInheritedProperty {
     AssertMethodReturnMatchesExpectedClass(@selector(JL_classForPropertyAtKeyPath:), @"fish.name", [NSString class]);
     
-    NSString *petNamePrimitiveString = [_person JL_primitiveTypeForPropertyAtKeyPath:@"fish.name"];
-    
-    STAssertNotNil(petNamePrimitiveString, @"-[NSObject JL_primitiveTypeForPropertyAtKeyPath:] returned a nil NSString for an object type.");
-    STAssertEqualObjects(petNamePrimitiveString, @"NSString", @"-[NSObject JL_primitiveTypeForPropertyAtKeyPath:] did not return @\"NSString\". It instead returned @\"%@\".", petNamePrimitiveString);
+    AssertStringFromClassReturnForPrimitiveCallOnObjectType(@"fish.name", @"NSString");
     
     AssertClassMethodReturnNilAndPrimitiveMethodMatchesExpectedPrimitive(@selector(JL_classForPropertyAtKeyPath:), @selector(JL_primitiveTypeForPropertyAtKeyPath:), @"fish.age", @"i");
     AssertClassMethodReturnNilAndPrimitiveMethodMatchesExpectedPrimitive(@selector(JL_classForPropertyAtKeyPath:), @selector(JL_primitiveTypeForPropertyAtKeyPath:), @"fish.petType", @"Q");
