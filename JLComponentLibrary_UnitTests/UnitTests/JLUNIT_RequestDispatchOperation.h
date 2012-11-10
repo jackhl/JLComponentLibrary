@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Jack Lawrence. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import "JLUNIT_RequestDispatchCommon.h"
 
 /* Unit tests for JLRequestDispatchOperation. */
-@interface JLUNIT_RequestDispatchOperation : SenTestCase
+@interface JLUNIT_RequestDispatchOperation : JLUNIT_RequestDispatchCommon
 
 @end

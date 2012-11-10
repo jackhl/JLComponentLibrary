@@ -8,78 +8,23 @@
 
 #import "JLUNIT_RequestDispatchOperation.h"
 
+#import "JLUNIT_CommonMacros.h"
+
 #import "JLRequestDispatchOperation.h"
 
-#define AssertCompleteData(_data, _error) \
-    STAssertNotNil(data, @"Expected non-nil NSData object in completion block. Received nil NSData object in completion block."); \
-    STAssertNil(error, @"Expected no NSError in completion block. Received NSError with description: %@.", [error localizedDescription]); \
-    STAssertTrue([data length] > 0, @"Expected NSData object containing data. Received NSData object containing no data.");
-
-#define kDefaultShortTimeout 10
-
-typedef NS_ENUM(NSUInteger, JLRequestSize) {
-    JLRequestSize5MB    =    5,
-    JLRequestSize10MB   =   10,
-    JLRequestSize20MB   =   20,
-    JLRequestSize50MB   =   50,
-    JLRequestSize100MB  =  100,
-    JLRequestSize200MB  =  200,
-    JLRequestSize512MB  =  512,
-    JLRequestSize1000MB = 1000,
-};
-
-@interface NSURLRequest (SizedTestRequests)
-
-+ (instancetype)JL_requestWithSize:(JLRequestSize)size;
-
-@end
-
-@implementation NSURLRequest (SizedTestRequests)
-
-+ (instancetype)JL_requestWithSize:(JLRequestSize)size {
-    return [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://ipv4.download.thinkbroadband.com/%iMB.zip", size]]];
-}
-
-@end
-
-@implementation JLUNIT_RequestDispatchOperation {
-    BOOL _receivedData;
-}
-
-- (void)tearDown {
-    _receivedData = NO;
-    
-    [super tearDown];
-}
-
-// Inspired by http://www.mikeash.com/pyblog/friday-qa-2011-07-22-writing-unit-tests.html
-- (void)spinUntilTrue:(BOOL (^)(void))block withTimeout:(NSTimeInterval)timeout {
-    NSParameterAssert(block);
-    
-    NSTimeInterval start = [[NSProcessInfo processInfo] systemUptime];
-    while (!block() && [[NSProcessInfo processInfo] systemUptime] - start <= timeout) {
-        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate date]];
-        if (_receivedData && [[NSProcessInfo processInfo] systemUptime] - start > 5) {
-            timeout+=5;
-            _receivedData = NO;
-        }
-    }
-    STAssertTrue(block(), @"The network request timed out before completion.");
-}
+@implementation JLUNIT_RequestDispatchOperation
 
 // TODO use OCMock to mock network requests so everything always works regardless
 // of actual network status, we can have controlled network failure/degration,
 // and we can check received data sizes against expected actuals.
 
 - (void)testParameterValidation {
-
-    NSLog(@"EXPECT ASSERTION FAILURE");
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-value"
-    STAssertThrowsSpecificNamed([[JLRequestDispatchOperation alloc]
+    JLUNIT_AssertThrowsSpecificNamed([[JLRequestDispatchOperation alloc]
                                  initWithURLRequest:nil
                                  progress:nil
-                                 completion:nil], NSException, NSInternalInconsistencyException, @"");
+                                 completion:nil], NSException, NSInternalInconsistencyException, @"Passing nil for the first parameter (the URL request) should throw an exception when building for debug.");
     #pragma clang diagnostic pop
 }
 
@@ -90,7 +35,7 @@ typedef NS_ENUM(NSUInteger, JLRequestSize) {
                                                 initWithURLRequest:request
                                                 progress:nil
                                                 completion:^(NSData *data, NSError *error) {
-                                                    AssertCompleteData(data, error)
+                                                    JLUNIT_AssertCompleteData(data, error)
                                                     
                                                     finished = YES;
                                                 }];
@@ -99,19 +44,19 @@ typedef NS_ENUM(NSUInteger, JLRequestSize) {
     [self spinUntilTrue:^BOOL {
         return finished;
     }
-            withTimeout:kDefaultShortTimeout];
+            withTimeout:JLUNIT_kDefaultShortTimeout];
 }
 
 - (void)testRequestProgressAndCompletion {
     __block BOOL finished = NO;
     __block int numProgressExecute = 0;
     __block NSInteger expectedTotal = 0;
-    NSURLRequest *request = [NSURLRequest JL_requestWithSize:JLRequestSize20MB];
+    NSURLRequest *request = [NSURLRequest JL_requestWithSize:JLUNIT_RequestSize20MB];
     JLRequestDispatchOperation *netOperation = [[JLRequestDispatchOperation alloc]
                                                 initWithURLRequest:request
                                                 progress:^(JLRequestDispatchOperation *operation, NSUInteger currBytes, NSInteger expectedTotalBytes) {
                                                     expectedTotal = expectedTotalBytes;
-                                                    _receivedData = YES;
+                                                    [self receivedData];
                                                     numProgressExecute++;
                                                     // doesn't print 100% :(
                                                     if (100.0f*(currBytes/(expectedTotalBytes*1.0f) > 98.0f) || numProgressExecute%500 == 0) {
@@ -119,7 +64,7 @@ typedef NS_ENUM(NSUInteger, JLRequestSize) {
                                                     }
                                                 }
                                                 completion:^(NSData *data, NSError *error) {
-                                                    AssertCompleteData(data, error)
+                                                    JLUNIT_AssertCompleteData(data, error)
                                                     
                                                     NSLog(@"Complete: %i of expected %i bytes downloaded (%.2f%%).", [data length], expectedTotal, 100.0f*([data length]/(expectedTotal*1.0f)));
                                                     
@@ -130,19 +75,19 @@ typedef NS_ENUM(NSUInteger, JLRequestSize) {
     [self spinUntilTrue:^BOOL {
         return finished;
     }
-            withTimeout:kDefaultShortTimeout];
+            withTimeout:JLUNIT_kDefaultShortTimeout];
 }
 
 - (void)testLargeRequestProgressAndCompletion {
     __block BOOL finished = NO;
     __block int numProgressExecute = 0;
     __block NSInteger expectedTotal = 0;
-    NSURLRequest *request = [NSURLRequest JL_requestWithSize:JLRequestSize50MB];
+    NSURLRequest *request = [NSURLRequest JL_requestWithSize:JLUNIT_RequestSize50MB];
     JLRequestDispatchOperation *netOperation = [[JLRequestDispatchOperation alloc]
                                                 initWithURLRequest:request
                                                 progress:^(JLRequestDispatchOperation *operation, NSUInteger currBytes, NSInteger expectedTotalBytes) {
                                                     expectedTotal = expectedTotalBytes;
-                                                    _receivedData = YES;
+                                                    [self receivedData];
                                                     numProgressExecute++;
                                                     // doesn't print 100% :(
                                                     if (100.0f*(currBytes/(expectedTotalBytes*1.0f) > 98.0f) || numProgressExecute%1000 == 0) {
@@ -150,7 +95,7 @@ typedef NS_ENUM(NSUInteger, JLRequestSize) {
                                                     }
                                                 }
                                                 completion:^(NSData *data, NSError *error) {
-                                                    AssertCompleteData(data, error)
+                                                    JLUNIT_AssertCompleteData(data, error)
                                                     
                                                     NSLog(@"Complete: %i of expected %i bytes downloaded (%.2f%%).", [data length], expectedTotal, 100.0f*([data length]/(expectedTotal*1.0f)));
                                                     
@@ -161,47 +106,41 @@ typedef NS_ENUM(NSUInteger, JLRequestSize) {
     [self spinUntilTrue:^BOOL {
         return finished;
     }
-            withTimeout:kDefaultShortTimeout];
+            withTimeout:JLUNIT_kDefaultShortTimeout];
 }
 
 - (void)testMultipleRequestExecution {
     __block BOOL oneFinished = NO;
     __block BOOL twoFinished = NO;
     __block BOOL threeFinished = NO;
-    NSURLRequest *requestOne = [NSURLRequest JL_requestWithSize:JLRequestSize10MB];
+    NSURLRequest *requestOne = [NSURLRequest JL_requestWithSize:JLUNIT_RequestSize10MB];
     JLRequestDispatchOperation *netOperationOne = [[JLRequestDispatchOperation alloc]
                                                    initWithURLRequest:requestOne
-                                                   progress:^(JLRequestDispatchOperation *op, NSUInteger a, NSInteger b) {
-                                                       _receivedData = YES;
-                                                   }
+                                                   progress:JLUNIT_ProgressReceivedData
                                                    completion:^(NSData *data, NSError *error) {
-                                                       AssertCompleteData(data, error)
+                                                       JLUNIT_AssertCompleteData(data, error)
                                                        
                                                        oneFinished = YES;
                                                        NSLog(@"Request one finished (%i/3).", oneFinished+twoFinished+threeFinished);
                                                    }];
     
-    NSURLRequest *requestTwo = [NSURLRequest JL_requestWithSize:JLRequestSize5MB];
+    NSURLRequest *requestTwo = [NSURLRequest JL_requestWithSize:JLUNIT_RequestSize5MB];
     JLRequestDispatchOperation *netOperationTwo = [[JLRequestDispatchOperation alloc]
                                                    initWithURLRequest:requestTwo
-                                                   progress:^(JLRequestDispatchOperation *op, NSUInteger a, NSInteger b) {
-                                                       _receivedData = YES;
-                                                   }
+                                                   progress:JLUNIT_ProgressReceivedData
                                                    completion:^(NSData *data, NSError *error) {
-                                                       AssertCompleteData(data, error)
+                                                       JLUNIT_AssertCompleteData(data, error)
                                                        
                                                        twoFinished = YES;
                                                        NSLog(@"Request two finished (%i/3).", oneFinished+twoFinished+threeFinished);
                                                    }];
     
-    NSURLRequest *requestThree = [NSURLRequest JL_requestWithSize:JLRequestSize20MB];
+    NSURLRequest *requestThree = [NSURLRequest JL_requestWithSize:JLUNIT_RequestSize20MB];
     JLRequestDispatchOperation *netOperationThree = [[JLRequestDispatchOperation alloc]
                                                      initWithURLRequest:requestThree
-                                                     progress:^(JLRequestDispatchOperation *op, NSUInteger a, NSInteger b) {
-                                                         _receivedData = YES;
-                                                     }
+                                                     progress:JLUNIT_ProgressReceivedData
                                                      completion:^(NSData *data, NSError *error) {
-                                                         AssertCompleteData(data, error)
+                                                         JLUNIT_AssertCompleteData(data, error)
                                                          
                                                          threeFinished = YES;
                                                          NSLog(@"Request three finished (%i/3).", oneFinished+twoFinished+threeFinished);
@@ -213,7 +152,7 @@ typedef NS_ENUM(NSUInteger, JLRequestSize) {
     [self spinUntilTrue:^BOOL {
         return (oneFinished && twoFinished && threeFinished);
     }
-            withTimeout:kDefaultShortTimeout];
+            withTimeout:JLUNIT_kDefaultShortTimeout];
 }
 
 @end
