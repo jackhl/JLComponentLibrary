@@ -43,6 +43,7 @@ typedef NS_ENUM(NSUInteger, JLUNIT_RequestSize) {
 
 @interface JLUNIT_RequestDispatchCommon : SenTestCase
 
+/* Call wheneever you receive data in a progress update in a long running process (or use the JLUNIT_ProgressReceivedData block) so that the thread doesn't time out. */
 - (void)receivedData;
 - (void)spinUntilTrue:(BOOL (^)(void))block withTimeout:(NSTimeInterval)timeout;
 
