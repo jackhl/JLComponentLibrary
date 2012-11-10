@@ -21,7 +21,7 @@ build/
 
 # Xcode 4 specific
 xcuserdata
-xcshareddata
+#xcshareddata
 
 # appledoc docset installation notifications
 docset-installed.txt
