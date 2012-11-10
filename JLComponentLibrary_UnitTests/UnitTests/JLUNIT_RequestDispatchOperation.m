@@ -60,13 +60,13 @@
                                                     numProgressExecute++;
                                                     // doesn't print 100% :(
                                                     if (100.0f*(currBytes/(expectedTotalBytes*1.0f) > 98.0f) || numProgressExecute%500 == 0) {
-                                                        NSLog(@"Progress: %i of %i bytes (%.2f%%).", currBytes, expectedTotalBytes, 100.0f*(currBytes/(expectedTotalBytes*1.0f)));
+                                                        NSLog(@"Progress: %li of %li bytes (%.2f%%).", (long)currBytes, (long)expectedTotalBytes, 100.0f*(currBytes/(expectedTotalBytes*1.0f)));
                                                     }
                                                 }
                                                 completion:^(NSData *data, NSError *error) {
                                                     JLUNIT_AssertCompleteData(data, error)
                                                     
-                                                    NSLog(@"Complete: %i of expected %i bytes downloaded (%.2f%%).", [data length], expectedTotal, 100.0f*([data length]/(expectedTotal*1.0f)));
+                                                    NSLog(@"Complete: %li of expected %li bytes downloaded (%.2f%%).", (long)[data length], (long)expectedTotal, 100.0f*([data length]/(expectedTotal*1.0f)));
                                                     
                                                     finished = YES;
                                                 }];
@@ -91,13 +91,13 @@
                                                     numProgressExecute++;
                                                     // doesn't print 100% :(
                                                     if (100.0f*(currBytes/(expectedTotalBytes*1.0f) > 98.0f) || numProgressExecute%1000 == 0) {
-                                                        NSLog(@"Progress: %i of %i bytes (%.2f%%).", currBytes, expectedTotalBytes, 100.0f*(currBytes/(expectedTotalBytes*1.0f)));
+                                                        NSLog(@"Progress: %li of %li bytes (%.2f%%).", (long)currBytes, (long)expectedTotalBytes, 100.0f*(currBytes/(expectedTotalBytes*1.0f)));
                                                     }
                                                 }
                                                 completion:^(NSData *data, NSError *error) {
                                                     JLUNIT_AssertCompleteData(data, error)
                                                     
-                                                    NSLog(@"Complete: %i of expected %i bytes downloaded (%.2f%%).", [data length], expectedTotal, 100.0f*([data length]/(expectedTotal*1.0f)));
+                                                    NSLog(@"Complete: %li of expected %li bytes downloaded (%.2f%%).", (long)[data length], (long)expectedTotal, 100.0f*([data length]/(expectedTotal*1.0f)));
                                                     
                                                     finished = YES;
                                                 }];

@@ -11,7 +11,7 @@
 @implementation NSURLRequest (SizedTestRequests)
 
 + (instancetype)JL_requestWithSize:(JLUNIT_RequestSize)size {
-    return [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://ipv4.download.thinkbroadband.com/%iMB.zip", size]]];
+    return [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://ipv4.download.thinkbroadband.com/%liMB.zip", (long)size]]];
 }
 
 @end
