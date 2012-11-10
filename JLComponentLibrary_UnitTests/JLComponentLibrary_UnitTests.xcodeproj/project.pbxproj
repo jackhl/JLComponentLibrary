@@ -22,6 +22,8 @@
 		04B8E962164CE4470006AD75 /* JLManagedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E958164CE4470006AD75 /* JLManagedTableViewController.m */; };
 		04B8E963164CE4470006AD75 /* JLRequestDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E95B164CE4470006AD75 /* JLRequestDispatch.m */; };
 		04B8E964164CE4470006AD75 /* JLRequestDispatchOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E95E164CE4470006AD75 /* JLRequestDispatchOperation.m */; };
+		04D75236164DEF7F004429A7 /* JLUNIT_RequestDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D75235164DEF7F004429A7 /* JLUNIT_RequestDispatch.m */; };
+		04D7523A164DF095004429A7 /* JLUNIT_RequestDispatchCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D75239164DF095004429A7 /* JLUNIT_RequestDispatchCommon.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,11 @@
 		04B8E95E164CE4470006AD75 /* JLRequestDispatchOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLRequestDispatchOperation.m; sourceTree = "<group>"; };
 		04B90388164C0B3700617566 /* JLUNIT_RequestDispatchOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLUNIT_RequestDispatchOperation.h; sourceTree = "<group>"; };
 		04B90389164C0B3700617566 /* JLUNIT_RequestDispatchOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLUNIT_RequestDispatchOperation.m; sourceTree = "<group>"; };
+		04D75234164DEF7F004429A7 /* JLUNIT_RequestDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLUNIT_RequestDispatch.h; sourceTree = "<group>"; };
+		04D75235164DEF7F004429A7 /* JLUNIT_RequestDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLUNIT_RequestDispatch.m; sourceTree = "<group>"; };
+		04D75238164DF095004429A7 /* JLUNIT_RequestDispatchCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLUNIT_RequestDispatchCommon.h; sourceTree = "<group>"; };
+		04D75239164DF095004429A7 /* JLUNIT_RequestDispatchCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLUNIT_RequestDispatchCommon.m; sourceTree = "<group>"; };
+		04D7523C164DFB55004429A7 /* JLUNIT_CommonMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLUNIT_CommonMacros.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +143,7 @@
 		04861B39164ABB55000991D0 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				04D7523B164DFB44004429A7 /* Common */,
 				04B9038C164C0B3F00617566 /* Category Tests */,
 				04B9038D164C0B4600617566 /* Class Tests */,
 				04861B3A164ABB55000991D0 /* Supporting Files */,
@@ -230,10 +238,22 @@
 		04B9038E164C0B6C00617566 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				04D75238164DF095004429A7 /* JLUNIT_RequestDispatchCommon.h */,
+				04D75239164DF095004429A7 /* JLUNIT_RequestDispatchCommon.m */,
 				04B90388164C0B3700617566 /* JLUNIT_RequestDispatchOperation.h */,
 				04B90389164C0B3700617566 /* JLUNIT_RequestDispatchOperation.m */,
+				04D75234164DEF7F004429A7 /* JLUNIT_RequestDispatch.h */,
+				04D75235164DEF7F004429A7 /* JLUNIT_RequestDispatch.m */,
 			);
 			name = Networking;
+			sourceTree = "<group>";
+		};
+		04D7523B164DFB44004429A7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				04D7523C164DFB55004429A7 /* JLUNIT_CommonMacros.h */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,6 +345,8 @@
 				04B8E962164CE4470006AD75 /* JLManagedTableViewController.m in Sources */,
 				04B8E963164CE4470006AD75 /* JLRequestDispatch.m in Sources */,
 				04B8E964164CE4470006AD75 /* JLRequestDispatchOperation.m in Sources */,
+				04D75236164DEF7F004429A7 /* JLUNIT_RequestDispatch.m in Sources */,
+				04D7523A164DF095004429A7 /* JLUNIT_RequestDispatchCommon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
