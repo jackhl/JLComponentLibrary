@@ -10,16 +10,45 @@
 
 #import "NSObject+JL_KeyPathIntrospection.h"
 
+@class Pet, AquaticPet;
+
 @interface Person : NSObject
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) int age;
 @property (nonatomic, readonly, strong) NSObject *firstName;
 @property (nonatomic, strong) id theGenericObject;
+@property (nonatomic, strong) Pet *pet;
+@property (nonatomic, strong) AquaticPet *fish;
 
 @end
 
 @implementation Person
+
+@end
+
+typedef NS_ENUM(NSUInteger, JLUNIT_PetType) {
+    JLUNIT_PetTypeDog,
+    JLUNIT_PetTypeCat
+};
+
+@interface Pet : NSObject
+
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, assign) int age;
+@property (nonatomic, assign) JLUNIT_PetType petType;
+
+@end
+
+@implementation Pet
+
+@end
+
+@interface AquaticPet : Pet
+
+@end
+
+@implementation AquaticPet
 
 @end
 
@@ -34,8 +63,8 @@
     Class primitiveClass = (Class)[_person performSelector:classSelector withObject:selParam]; \
     NSString *primitiveType = (NSString *)[_person performSelector:primitiveSelector withObject:selParam]; \
     STAssertNil(primitiveClass, @"-[NSObject %@] did not return a null Class for a primitive type. It instead returned %@.", NSStringFromSelector(classSelector), NSStringFromClass(primitiveClass)); \
-    STAssertNotNil(primitiveType, @"-[NSObject %@] returned a nil NSString for a primitive type.", primitiveSelector); \
-    STAssertEqualObjects(primitiveType, expectedPrimitive, @"-[NSObject %@] did not return @\"%@\". It instead returned @\"%@\".", expectedPrimitive, primitiveType); \
+    STAssertNotNil(primitiveType, @"-[NSObject %@] returned a nil NSString for a primitive type.", NSStringFromSelector(primitiveSelector)); \
+    STAssertEqualObjects(primitiveType, expectedPrimitive, @"-[NSObject %@] did not return @\"%@\". It instead returned @\"%@\".", NSStringFromSelector(primitiveSelector), expectedPrimitive, primitiveType); \
 }
 
 @implementation JLUNIT_KeyPathIntrospection {
@@ -65,8 +94,8 @@
     
     NSString *namePrimitiveString = [_person JL_primitiveTypeForPropertyAtKeyPath:@"name"];
     
-    STAssertNotNil(namePrimitiveString, @"-[NSObject JL_primitiveTypeForPropertyAtKeyPath] returned a nil NSString for an object type.");
-    STAssertEqualObjects(namePrimitiveString, @"NSString", @"-[NSObject JL_primitiveTypeForPropertyAtKeyPath] did not return @\"NSString\". It instead returned @\"%@\".", namePrimitiveString);
+    STAssertNotNil(namePrimitiveString, @"-[NSObject JL_primitiveTypeForPropertyAtKeyPath:] returned a nil NSString for an object type.");
+    STAssertEqualObjects(namePrimitiveString, @"NSString", @"-[NSObject JL_primitiveTypeForPropertyAtKeyPath:] did not return @\"NSString\". It instead returned @\"%@\".", namePrimitiveString);
 }
 
 - (void)testSingleKeyOfObjectTypePrivateRedeclaration {
@@ -74,8 +103,8 @@
     
     NSString *firstNamePrimitive = [_person JL_primitiveTypeForPropertyAtKeyPath:@"firstName"];
     
-    STAssertNotNil(firstNamePrimitive, @"-[NSObject JL_primitiveTypeForPropertyAtKeyPath] returned a nil NSString for an object type.");
-    STAssertEqualObjects(firstNamePrimitive, @"NSObject", @"-[NSObject JL_primitiveTypeForPropertyAtKeyPath] did not return @\"NSObject\". It instead returned @\"%@\".", firstNamePrimitive);
+    STAssertNotNil(firstNamePrimitive, @"-[NSObject JL_primitiveTypeForPropertyAtKeyPath:] returned a nil NSString for an object type.");
+    STAssertEqualObjects(firstNamePrimitive, @"NSObject", @"-[NSObject JL_primitiveTypeForPropertyAtKeyPath:] did not return @\"NSObject\". It instead returned @\"%@\".", firstNamePrimitive);
 }
 
 - (void)testSingleKeyOfPrimitiveType {
@@ -88,11 +117,32 @@
 }
 
 - (void)testKeyPathOfObjectType {
-    STFail(@"Test not implemented.");
+    AssertMethodReturnMatchesExpectedClass(@selector(JL_classForPropertyAtKeyPath:), @"pet.name", [NSString class]);
+    
+    NSString *petNamePrimitiveString = [_person JL_primitiveTypeForPropertyAtKeyPath:@"pet.name"];
+    
+    STAssertNotNil(petNamePrimitiveString, @"-[NSObject JL_primitiveTypeForPropertyAtKeyPath:] returned a nil NSString for an object type.");
+    STAssertEqualObjects(petNamePrimitiveString, @"NSString", @"-[NSObject JL_primitiveTypeForPropertyAtKeyPath:] did not return @\"NSString\". It instead returned @\"%@\".", petNamePrimitiveString);
 }
 
 - (void)testKeyPathOfPrimitiveType {
-    STFail(@"Test not implemented.");
+    AssertClassMethodReturnNilAndPrimitiveMethodMatchesExpectedPrimitive(@selector(JL_classForPropertyAtKeyPath:), @selector(JL_primitiveTypeForPropertyAtKeyPath:), @"pet.age", @"i");
+}
+
+- (void)testKeyPathOfTypedefPrimitiveType {
+    AssertClassMethodReturnNilAndPrimitiveMethodMatchesExpectedPrimitive(@selector(JL_classForPropertyAtKeyPath:), @selector(JL_primitiveTypeForPropertyAtKeyPath:), @"pet.petType", @"Q");
+}
+
+- (void)testInheritedProperty {
+    AssertMethodReturnMatchesExpectedClass(@selector(JL_classForPropertyAtKeyPath:), @"fish.name", [NSString class]);
+    
+    NSString *petNamePrimitiveString = [_person JL_primitiveTypeForPropertyAtKeyPath:@"fish.name"];
+    
+    STAssertNotNil(petNamePrimitiveString, @"-[NSObject JL_primitiveTypeForPropertyAtKeyPath:] returned a nil NSString for an object type.");
+    STAssertEqualObjects(petNamePrimitiveString, @"NSString", @"-[NSObject JL_primitiveTypeForPropertyAtKeyPath:] did not return @\"NSString\". It instead returned @\"%@\".", petNamePrimitiveString);
+    
+    AssertClassMethodReturnNilAndPrimitiveMethodMatchesExpectedPrimitive(@selector(JL_classForPropertyAtKeyPath:), @selector(JL_primitiveTypeForPropertyAtKeyPath:), @"fish.age", @"i");
+    AssertClassMethodReturnNilAndPrimitiveMethodMatchesExpectedPrimitive(@selector(JL_classForPropertyAtKeyPath:), @selector(JL_primitiveTypeForPropertyAtKeyPath:), @"fish.petType", @"Q");
 }
 
 @end
