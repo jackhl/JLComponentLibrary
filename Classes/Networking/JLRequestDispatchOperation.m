@@ -18,6 +18,7 @@
     BOOL _isLoadingRequest;
     BOOL _isFinished;
     long long _expectedContentLength;
+    NSURLResponse *_response;
 }
 
 - (instancetype)initWithURLRequest:(NSURLRequest *)urlRequest progress:(JLRequestProgress)progress completion:(JLRequestCompletion)completion {
@@ -29,7 +30,7 @@
         [self setUrlRequest:urlRequest];
         [self setProgress:progress];
         [self setCompletion:completion];
-        _expectedContentLength = RequestDispatchOperationUnknownLength;
+        _expectedContentLength = JLRequestDispatchOperationUnknownLength;
     }
     
     return self;
@@ -95,11 +96,13 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     if ([response expectedContentLength] == NSURLResponseUnknownLength) {
-        _expectedContentLength = RequestDispatchOperationUnknownLength;
+        _expectedContentLength = JLRequestDispatchOperationUnknownLength;
     }
     else {
         _expectedContentLength = (NSInteger)[response expectedContentLength];
     }
+#warning TODO Decide if I'm going to send along the response or expected content length or both. Look at AFNetworking etc.
+    _response = response;
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data

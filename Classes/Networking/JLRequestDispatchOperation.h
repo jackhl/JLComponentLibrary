@@ -9,7 +9,7 @@
 #ifndef RequestDispatchOperation_h
 #define RequestDispatchOperation_h
 
-#define RequestDispatchOperationUnknownLength NSURLResponseUnknownLength
+#define JLRequestDispatchOperationUnknownLength NSURLResponseUnknownLength
 
 #endif
 
