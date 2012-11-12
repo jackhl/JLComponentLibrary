@@ -22,10 +22,10 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-value"
     JLUNIT_AssertThrowsSpecificNamed([[JLRequestDispatchOperation alloc]
-                                 initWithURLRequest:nil
-                                 progress:nil
-                                 completion:nil], NSException, NSInternalInconsistencyException, @"Passing nil for the first parameter (the URL request) should throw an exception when building for debug.");
-    #pragma clang diagnostic pop
+                                      initWithURLRequest:nil
+                                      progress:nil
+                                      completion:nil], NSException, NSInternalInconsistencyException, @"Passing nil for the first parameter (the URL request) should throw an exception when building for debug.");
+#pragma clang diagnostic pop
 }
 
 - (void)testSimpleURLRequestCompletion {
@@ -153,6 +153,70 @@
         return (oneFinished && twoFinished && threeFinished);
     }
             withTimeout:JLUNIT_kDefaultShortTimeout];
+}
+
+- (void)testNoProgressOrCompletionUnresolvableDomain {
+    NSURLRequest *unresolvableRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://example.notarealdomain"]]; // could this do weird stuff when opendns/ISPs do unknown domain redirection?
+    JLRequestDispatchOperation *unresolvableOperation = [[JLRequestDispatchOperation alloc]
+                                                         initWithURLRequest:unresolvableRequest
+                                                         progress:nil
+                                                         completion:nil];
+    [unresolvableOperation start];
+    
+    STAssertNotNil(unresolvableOperation, @"Operation initialization failed.");
+}
+
+- (void)testCompletionNoProgressUnresolvableDomain {
+    __block BOOL hitCompletionBlock = NO;
+    NSURLRequest *unresolvableRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://example.notarealdomain"]]; // could this do weird stuff when opendns/ISPs do unknown domain redirection?
+    JLRequestDispatchOperation *unresolvableOperation = [[JLRequestDispatchOperation alloc]
+                                                         initWithURLRequest:unresolvableRequest
+                                                         progress:nil
+                                                         completion:^(NSData *data, NSError *error) {
+                                                             hitCompletionBlock = YES;
+                                                             STAssertNil(data, @"Dispatched request for unresolvable domain but received response.");
+                                                             STAssertNotNil(error, @"Dispatched request for unresolvable domain but received no error.");
+                                                         }];
+    [unresolvableOperation start];
+    
+    STAssertNotNil(unresolvableOperation, @"Operation initialization failed.");
+    
+    [self spinUntilTrue:^BOOL {
+        return hitCompletionBlock;
+    }
+            withTimeout:JLUNIT_kDefaultShortTimeout
+           confirmation:^{
+               STAssertTrue(hitCompletionBlock, @"Dispatched request for unresolvable domain but did not execute completion block to report error.");
+           }];
+}
+
+- (void)testProgressAndCompletionUnresolvableDomain {
+    NSURLRequest *unresolvableRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://example.notarealdomain"]]; // could this do weird stuff when opendns/ISPs do unknown domain redirection?
+    __block BOOL hitProgressBlock = NO;
+    __block BOOL hitCompletionBlock = NO;
+    JLRequestDispatchOperation *unresolvableOperation = [[JLRequestDispatchOperation alloc]
+                                                         initWithURLRequest:unresolvableRequest
+                                                         progress:^(JLRequestDispatchOperation *op, NSUInteger currBytes, NSInteger expectedTotalBytes) {
+                                                             hitProgressBlock = YES;
+                                                             STAssertTrue(expectedTotalBytes = JLRequestDispatchOperationUnknownLength, @"Dispatched request for unresolvable domain but expected total bytes was a known value.");
+                                                         }
+                                                         completion:^(NSData *data, NSError *error) {
+                                                             hitCompletionBlock = YES;
+                                                             STAssertNil(data, @"Dispatched request for unresolvable domain but received response.");
+                                                             STAssertNotNil(error, @"Dispatched request for unresolvable domain but received no error.");
+                                                         }];
+    [unresolvableOperation start];
+    
+    STAssertNotNil(unresolvableOperation, @"Operation initialization failed.");
+    
+    [self spinUntilTrue:^BOOL {
+        return hitCompletionBlock;
+    }
+            withTimeout:JLUNIT_kDefaultShortTimeout
+           confirmation:^{
+               STAssertFalse(hitProgressBlock, @"Dispatched request for unresolvable domain but executed progress block.");
+               STAssertTrue(hitCompletionBlock, @"Dispatched request for unresolvable domain but did not execute completion block to report error.");
+           }];
 }
 
 @end
