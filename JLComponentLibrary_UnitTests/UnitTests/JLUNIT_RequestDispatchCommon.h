@@ -46,5 +46,7 @@ typedef NS_ENUM(NSUInteger, JLUNIT_RequestSize) {
 /* Call wheneever you receive data in a progress update in a long running process (or use the JLUNIT_ProgressReceivedData block) so that the thread doesn't time out. */
 - (void)receivedData;
 - (void)spinUntilTrue:(BOOL (^)(void))block withTimeout:(NSTimeInterval)timeout;
+// use the confirmation block to test any state that should be true at the end of execution or at timeout. Confirmation executes after the completion evaluation block.
+- (void)spinUntilTrue:(BOOL (^)(void))block withTimeout:(NSTimeInterval)timeout confirmation:(void (^)(void))confirmation;
 
 @end

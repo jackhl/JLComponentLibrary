@@ -30,8 +30,12 @@
     [super tearDown];
 }
 
-// Inspired by http://www.mikeash.com/pyblog/friday-qa-2011-07-22-writing-unit-tests.html
 - (void)spinUntilTrue:(BOOL (^)(void))block withTimeout:(NSTimeInterval)timeout {
+    [self spinUntilTrue:block withTimeout:timeout confirmation:nil];
+}
+
+// Inspired by http://www.mikeash.com/pyblog/friday-qa-2011-07-22-writing-unit-tests.html
+- (void)spinUntilTrue:(BOOL (^)(void))block withTimeout:(NSTimeInterval)timeout confirmation:(void (^)(void))confirmation {
     NSParameterAssert(block);
     
     NSTimeInterval start = [[NSProcessInfo processInfo] systemUptime];
@@ -42,7 +46,11 @@
             _receivedData = NO;
         }
     }
+    
     STAssertTrue(block(), @"The network request timed out before completion.");
+    if (confirmation) {
+        confirmation();
+    }
 }
 
 @end
