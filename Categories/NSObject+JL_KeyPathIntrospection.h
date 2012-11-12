@@ -11,6 +11,20 @@
  like `valueForKeyPath:` and related methods do, this category traverses the class
  definitions themselves.
  
+ Useful for adding to your own frameworks when you want to take arbitrary objects
+ with various data-types and key paths from framework consumers. 
+ 
+ For example, JL_KeyPathIntrospection is useful for taking an object and then a 
+ property list configuration file with key paths and various other pieces of 
+ metadata and then rocessing the data or generating UI. I have personally used 
+ this category to write a small framework that takes an arbitrary object and an 
+ HTML template that contains marked-up keypaths and generates a PDF. It uses key 
+ path introspection to smartly determine how to handle types like dates and 
+ collections. I've also used it in another framework that took a property list of 
+ keypaths and metadata and an object and created table views with different cell 
+ input views depending on the keypath data type which then automatically retrieved 
+ and saved properties on the passed-in object.
+ 
  @note `id` is simply a typedef for a struct; It is not a full-fledged class.
  Therefore when checking for type `id`, use the primitive introspection methods
  which will return `@` for properties declared as type `id`.
@@ -19,7 +33,10 @@
  instance, introspection will dead-end when the property is of type id. It will 
  also report the declared object type, so for example if you externally declare
  a property of type `NSArray` but internally you return an `NSMutableArray`, 
- property introspection will report it as an NSArray.
+ property introspection will report it as an NSArray. Should I add a keyword like
+ @runtimeType or something or a totally separate implementation? What's most
+ useful and efficient? I should check libobjcext and see if they do something
+ similar.
  
  @warn JL_KeyPathIntrospection does not look at private property (re)declarations.
  
