@@ -22,6 +22,8 @@
 		04B8E962164CE4470006AD75 /* JLManagedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E958164CE4470006AD75 /* JLManagedTableViewController.m */; };
 		04B8E963164CE4470006AD75 /* JLRequestDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E95B164CE4470006AD75 /* JLRequestDispatch.m */; };
 		04B8E964164CE4470006AD75 /* JLRequestDispatchOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E95E164CE4470006AD75 /* JLRequestDispatchOperation.m */; };
+		04BEE8F11651736E00FD0D28 /* NSString+WhiteSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BEE8F01651736E00FD0D28 /* NSString+WhiteSpace.m */; };
+		04BEE8F21651736E00FD0D28 /* NSString+WhiteSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BEE8F01651736E00FD0D28 /* NSString+WhiteSpace.m */; };
 		04D75236164DEF7F004429A7 /* JLUNIT_RequestDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D75235164DEF7F004429A7 /* JLUNIT_RequestDispatch.m */; };
 		04D7523A164DF095004429A7 /* JLUNIT_RequestDispatchCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D75239164DF095004429A7 /* JLUNIT_RequestDispatchCommon.m */; };
 		04D75257164E09C6004429A7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B35164ABB55000991D0 /* SenTestingKit.framework */; };
@@ -77,6 +79,8 @@
 		04B8E95E164CE4470006AD75 /* JLRequestDispatchOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLRequestDispatchOperation.m; sourceTree = "<group>"; };
 		04B90388164C0B3700617566 /* JLUNIT_RequestDispatchOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLUNIT_RequestDispatchOperation.h; sourceTree = "<group>"; };
 		04B90389164C0B3700617566 /* JLUNIT_RequestDispatchOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLUNIT_RequestDispatchOperation.m; sourceTree = "<group>"; };
+		04BEE8EF1651736E00FD0D28 /* NSString+WhiteSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WhiteSpace.h"; sourceTree = "<group>"; };
+		04BEE8F01651736E00FD0D28 /* NSString+WhiteSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WhiteSpace.m"; sourceTree = "<group>"; };
 		04D75234164DEF7F004429A7 /* JLUNIT_RequestDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLUNIT_RequestDispatch.h; sourceTree = "<group>"; };
 		04D75235164DEF7F004429A7 /* JLUNIT_RequestDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLUNIT_RequestDispatch.m; sourceTree = "<group>"; };
 		04D75238164DF095004429A7 /* JLUNIT_RequestDispatchCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLUNIT_RequestDispatchCommon.h; sourceTree = "<group>"; };
@@ -217,6 +221,8 @@
 				04B8E94F164CE4470006AD75 /* NSObject+JL_KeyPathIntrospection.m */,
 				04B8E950164CE4470006AD75 /* NSURL+JL_Parameters.h */,
 				04B8E951164CE4470006AD75 /* NSURL+JL_Parameters.m */,
+				04BEE8EF1651736E00FD0D28 /* NSString+WhiteSpace.h */,
+				04BEE8F01651736E00FD0D28 /* NSString+WhiteSpace.m */,
 			);
 			name = Categories;
 			path = ../Categories;
@@ -457,6 +463,7 @@
 				04B8E964164CE4470006AD75 /* JLRequestDispatchOperation.m in Sources */,
 				04D75236164DEF7F004429A7 /* JLUNIT_RequestDispatch.m in Sources */,
 				04D7523A164DF095004429A7 /* JLUNIT_RequestDispatchCommon.m in Sources */,
+				04BEE8F11651736E00FD0D28 /* NSString+WhiteSpace.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +481,7 @@
 				04D75274164E0A71004429A7 /* JLUNIT_RequestDispatchCommon.m in Sources */,
 				04D75275164E0A71004429A7 /* JLUNIT_RequestDispatchOperation.m in Sources */,
 				04D75276164E0A71004429A7 /* JLUNIT_RequestDispatch.m in Sources */,
+				04BEE8F21651736E00FD0D28 /* NSString+WhiteSpace.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,6 +680,7 @@
 				04D7526A164E09C6004429A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
