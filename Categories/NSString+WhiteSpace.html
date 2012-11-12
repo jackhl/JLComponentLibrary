@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>JLManagedTableViewControllerDataSource Protocol Reference</title>
+		<title>NSString(WhiteSpace) Category Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
@@ -17,7 +17,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">JLManagedTableViewControllerDataSource Protocol Reference</h1>
+				<h1 class="hideInXcode">NSString(WhiteSpace) Category Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -44,7 +44,7 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/managedTableViewController:cellForManagedObject:atIndexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- managedTableViewController:cellForManagedObject:atIndexPath:</option>
+	<option value="//api/name/isNotWhiteSpaceOrNil">&nbsp;&nbsp;&nbsp;&nbsp;- isNotWhiteSpaceOrNil</option>
 	
 	
 	
@@ -74,7 +74,7 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/managedTableViewController:cellForManagedObject:atIndexPath:">managedTableViewController:cellForManagedObject:atIndexPath:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isNotWhiteSpaceOrNil">isNotWhiteSpaceOrNil</a></span></li>
 	
 </ul></li>
 
@@ -83,7 +83,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="JLManagedTableViewControllerDataSource Protocol Reference" name="top"></a>
+				<a title="NSString(WhiteSpace) Category Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -92,18 +92,15 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">JLManagedTableViewControllerDataSource Protocol Reference</h1>
+						<h1 class="title title-header">NSString(WhiteSpace) Category Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
-	<td class="specification-title">Conforms to</td>
-	<td class="specification-value">NSObject</td>
-</tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">JLManagedTableViewController.h</td>
+	<td class="specification-value">NSString+WhiteSpace.h<br />NSString+WhiteSpace.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -113,7 +110,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Objects conforming to JLManagedTableViewControllerDataSource are polled for data.</p>
+						<p>Extends NSString to provide support for detecting whitespace.</p>
 					</div>
 					
 					
@@ -131,8 +128,8 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/managedTableViewController:cellForManagedObject:atIndexPath:">&ndash;&nbsp;managedTableViewController:cellForManagedObject:atIndexPath:</a></code>
-		<span class="tooltip"><p>An alternative to <code>[UITableViewController tableView:cellForRowAtIndexPath:]</code> that gives you a reference to the managed object in question.</p></span>
+		<code><a href="#//api/name/isNotWhiteSpaceOrNil">&ndash;&nbsp;isNotWhiteSpaceOrNil</a></code>
+		<span class="tooltip"><p>Determines whether or not the receiver does not only contain whitespace or is nil.</p></span>
 	</span>
 	
 	
@@ -154,42 +151,27 @@
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/managedTableViewController:cellForManagedObject:atIndexPath:" title="managedTableViewController:cellForManagedObject:atIndexPath:"></a>
-	<h3 class="subsubtitle method-title">managedTableViewController:cellForManagedObject:atIndexPath:</h3>
+	<a name="//api/name/isNotWhiteSpaceOrNil" title="isNotWhiteSpaceOrNil"></a>
+	<h3 class="subsubtitle method-title">isNotWhiteSpaceOrNil</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>An alternative to <code>[UITableViewController tableView:cellForRowAtIndexPath:]</code> that gives you a reference to the managed object in question.</p>
+		<p>Determines whether or not the receiver does not only contain whitespace or is nil.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (UITableViewCell *)managedTableViewController:(JLManagedTableViewController *)<em>tableController</em> cellForManagedObject:(NSManagedObject *)<em>managedObject</em> atIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (BOOL)isNotWhiteSpaceOrNil</code></div>
 
     
 	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>tableController</em></dt>
-			<dd><p>The sender.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>managedObject</em></dt>
-			<dd><p>The managed object associated with the cell at the specified <code>indexPath</code>.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>indexPath</em></dt>
-			<dd><p>The index path of the requested cell.</p></dd>
-		</dl>
-		
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Whether or not the receiver does not only contain whitespace or is nil.</p>
 	</div>
-	
-	
 	
 	
 	
@@ -197,11 +179,9 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>An alternative to <code>[UITableViewController tableView:cellForRowAtIndexPath:]</code> that gives you a reference to the managed object in question.</p>
-
-<p>As a convenience, you should create a new pointer and re-cast the <code>managedObject</code> from its generic <code>NSManagedObject</code> type and give it its real
-entity type. You can also instead choose to implement <code>[UITableViewController tableView:cellForRowAtIndexPath:]</code> and retrieve a reference to the
-entity through the property <code>fetchedResultsController</code> using <code>[NSFetchedResultsController objectAtIndexPath:]</code>.</p>
+		<p>Determines whether or not the receiver does not only contain whitespace or is nil.</p><div class="note"><p><strong>Note:</strong> This method doesn&rsquo;t actually check for nil. It&rsquo;s worded awkwardly as such
+(ie the absence of certain content results in TRUE instead of the presence) to
+accomidate the fact that method calls on nil objects return nil.</p></div>
 	</div>
 	
 	
@@ -212,7 +192,7 @@ entity through the property <code>fetchedResultsController</code> using <code>[N
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">JLManagedTableViewController.h</code><br />
+		<code class="declared-in-ref">NSString+WhiteSpace.h</code><br />
 	</div>				
 	
 	
