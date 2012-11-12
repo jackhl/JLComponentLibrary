@@ -1,6 +1,5 @@
 //
 //  NSString+WhiteSpace.h
-//  EcoCr
 //
 //  Created by Jack Lawrence on 7/31/12.
 //
@@ -9,7 +8,7 @@
 #import <Foundation/Foundation.h>
 
 /** Extends NSString to provide support for detecting whitespace. */
-@interface NSString (WhiteSpace)
+@interface NSString (JL_WhiteSpace)
 
 /**
  Determines whether or not the receiver does not only contain whitespace or is nil.
@@ -20,6 +19,6 @@
  
  @return Whether or not the receiver does not only contain whitespace or is nil.
  */
-- (BOOL)isNotWhiteSpaceOrNil;
+- (BOOL)JL_isNotWhiteSpaceOrNil;
 
 @end

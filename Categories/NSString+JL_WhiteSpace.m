@@ -1,16 +1,15 @@
 //
 //  NSString+WhiteSpace.m
-//  EcoCr
 //
 //  Created by Jack Lawrence on 7/31/12.
 //
 //
 
-#import "NSString+WhiteSpace.h"
+#import "NSString+JL_WhiteSpace.h"
 
-@implementation NSString (WhiteSpace)
+@implementation NSString (JL_WhiteSpace)
 
-- (BOOL)isNotWhiteSpaceOrNil
+- (BOOL)JL_isNotWhiteSpaceOrNil
 {
     NSCharacterSet *whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
     NSString *trimmed = [self stringByTrimmingCharactersInSet:whitespace];
