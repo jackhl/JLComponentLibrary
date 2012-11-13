@@ -89,7 +89,6 @@
                                                     expectedTotal = expectedTotalBytes;
                                                     [self receivedData];
                                                     numProgressExecute++;
-                                                    // doesn't print 100% :(
                                                     if (100.0f*(currBytes/(expectedTotalBytes*1.0f) > 98.0f) || numProgressExecute%1000 == 0) {
                                                         NSLog(@"Progress: %li of %li bytes (%.2f%%).", (long)currBytes, (long)expectedTotalBytes, 100.0f*(currBytes/(expectedTotalBytes*1.0f)));
                                                     }
