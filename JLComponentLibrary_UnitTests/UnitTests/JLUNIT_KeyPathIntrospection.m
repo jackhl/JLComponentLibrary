@@ -127,7 +127,13 @@ typedef NS_ENUM(NSUInteger, JLUNIT_PetType) {
 }
 
 - (void)testKeyPathOfTypedefPrimitiveType {
-    AssertClassMethodReturnNilAndPrimitiveMethodMatchesExpectedPrimitive(@selector(JL_classForPropertyAtKeyPath:), @selector(JL_primitiveTypeForPropertyAtKeyPath:), @"pet.petType", @"Q");
+#if TARGET_OS_IPHONE
+    NSString *primitiveTypeString = @"I";
+#else
+    NSString *primitiveTypeString = @"Q";
+#endif
+
+    AssertClassMethodReturnNilAndPrimitiveMethodMatchesExpectedPrimitive(@selector(JL_classForPropertyAtKeyPath:), @selector(JL_primitiveTypeForPropertyAtKeyPath:), @"pet.petType", primitiveTypeString);
 }
 
 - (void)testInheritedProperty {
@@ -136,7 +142,12 @@ typedef NS_ENUM(NSUInteger, JLUNIT_PetType) {
     AssertStringFromClassReturnForPrimitiveCallOnObjectType(@"fish.name", @"NSString");
     
     AssertClassMethodReturnNilAndPrimitiveMethodMatchesExpectedPrimitive(@selector(JL_classForPropertyAtKeyPath:), @selector(JL_primitiveTypeForPropertyAtKeyPath:), @"fish.age", @"i");
-    AssertClassMethodReturnNilAndPrimitiveMethodMatchesExpectedPrimitive(@selector(JL_classForPropertyAtKeyPath:), @selector(JL_primitiveTypeForPropertyAtKeyPath:), @"fish.petType", @"Q");
+#if TARGET_OS_IPHONE
+    NSString *primitiveTypeString = @"I";
+#else
+    NSString *primitiveTypeString = @"Q";
+#endif
+    AssertClassMethodReturnNilAndPrimitiveMethodMatchesExpectedPrimitive(@selector(JL_classForPropertyAtKeyPath:), @selector(JL_primitiveTypeForPropertyAtKeyPath:), @"fish.petType", primitiveTypeString);
 }
 
 @end

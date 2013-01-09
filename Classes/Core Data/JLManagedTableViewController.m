@@ -24,21 +24,6 @@
 
 @implementation JLManagedTableViewController
 
-@synthesize allowsCellDeletion = _allowsCellDeletion;
-@synthesize allowsCellReordering = _allowsCellReordering;
-@synthesize showsSectionHeaderTitles = _showsSectionHeaderTitles;
-@synthesize showsSectionQuickScrollBar = _showsSectionQuickScrollBar;
-
-@synthesize delegate = _delegate;
-@synthesize dataSource = _dataSource;
-
-@synthesize entityName = _entityName;
-@synthesize filterPredicate = _filterPredicate;
-@synthesize sortDescriptors = _sortDescriptors;
-@synthesize sectionNameKeyPath = _sectionNameKeyPath;
-
-@synthesize fetchedResultsController = _fetchedResultsController;
-
 - (id)initWithStyle:(UITableViewStyle)style entityName:(NSString *)entityName sortKeyPath:(NSString *)sortKeyPath
 {
     return [self initWithStyle:style entityName:entityName sortKeyPath:sortKeyPath sortDescriptors:nil filterPredicate:nil sectionNameKeyPath:nil];
@@ -101,7 +86,7 @@
         [fetchRequest setSortDescriptors:[self sortDescriptors]];
         
         NSFetchedResultsController *controller = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-                                                                                     managedObjectContext:[[JLDataManager sharedInstance] mainObjectContext]
+                                                                                     managedObjectContext:[[JLDataManager sharedInstance] mainThreadObjectContext]
                                                                                        sectionNameKeyPath:[self sectionNameKeyPath]
                                                                                                 cacheName:[self entityName]];
         
@@ -171,12 +156,12 @@
         if ([self.delegate respondsToSelector:@selector(managedTableViewController:willDeleteObject:)]) {
             [self.delegate managedTableViewController:self willDeleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
         }
-        [[[JLDataManager sharedInstance] mainObjectContext] deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+        [[[JLDataManager sharedInstance] mainThreadObjectContext] deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         NSManagedObject *insertedObj = [[NSClassFromString([self entityName]) alloc] initWithEntity:[NSEntityDescription entityForName:[self entityName]
-                                                                                                                inManagedObjectContext:[[JLDataManager sharedInstance] mainObjectContext]]
-                                                                     insertIntoManagedObjectContext:[[JLDataManager sharedInstance] mainObjectContext]];
+                                                                                                                inManagedObjectContext:[[JLDataManager sharedInstance] mainThreadObjectContext]]
+                                                                     insertIntoManagedObjectContext:[[JLDataManager sharedInstance] mainThreadObjectContext]];
         if ([self.delegate respondsToSelector:@selector(managedTableViewController:didInsertObject:)]) {
             [self.delegate managedTableViewController:self didInsertObject:insertedObj];
         }

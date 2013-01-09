@@ -20,7 +20,7 @@ extern NSString * const JLDataManagerDidSaveFailedNotification;
 /** The object model the persistent store coordinator uses. */
 @property (nonatomic, readonly, strong) NSManagedObjectModel *objectModel;
 /** The managed object context that JLDataManager retains on the main thread. */
-@property (nonatomic, readonly, strong) NSManagedObjectContext *mainObjectContext;
+@property (nonatomic, readonly, strong) NSManagedObjectContext *mainThreadObjectContext;
 /** The global persistent store coordinator. */
 @property (nonatomic, readonly, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
@@ -44,6 +44,13 @@ extern NSString * const JLDataManagerDidSaveFailedNotification;
  @return A new managed object context.
  */
 - (NSManagedObjectContext *)managedObjectContext;
+
+/**
+ Retreives the current thread's context.
+ 
+ @return The current thread's managed object context.
+ */
+- (NSManagedObjectContext *)currentThreadObjectContext;
 
 /**
  Retreives the options the persistent store should use when migrating and retrieving the data store.

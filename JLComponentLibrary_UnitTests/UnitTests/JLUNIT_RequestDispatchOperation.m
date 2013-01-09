@@ -173,7 +173,7 @@
                                                          progress:nil
                                                          completion:^(NSData *data, NSError *error) {
                                                              hitCompletionBlock = YES;
-                                                             STAssertNil(data, @"Dispatched request for unresolvable domain but received response.");
+                                                             STAssertNil(data, @"Dispatched request for unresolvable domain but received response.\n It's possible that your DNS server is redirecting unresolvable domains.");
                                                              STAssertNotNil(error, @"Dispatched request for unresolvable domain but received no error.");
                                                          }];
     [unresolvableOperation start];
@@ -197,11 +197,11 @@
                                                          initWithURLRequest:unresolvableRequest
                                                          progress:^(JLRequestDispatchOperation *op, NSUInteger currBytes, NSInteger expectedTotalBytes) {
                                                              hitProgressBlock = YES;
-                                                             STAssertTrue(expectedTotalBytes = JLRequestDispatchOperationUnknownLength, @"Dispatched request for unresolvable domain but expected total bytes was a known value.");
+                                                             STAssertTrue(expectedTotalBytes = JLRequestDispatchOperationUnknownLength, @"Dispatched request for unresolvable domain but expected total bytes was a known value.\n It's possible that your DNS server is redirecting unresolvable domains.");
                                                          }
                                                          completion:^(NSData *data, NSError *error) {
                                                              hitCompletionBlock = YES;
-                                                             STAssertNil(data, @"Dispatched request for unresolvable domain but received response.");
+                                                             STAssertNil(data, @"Dispatched request for unresolvable domain but received response.\n It's possible that your DNS server is redirecting unresolvable domains.");
                                                              STAssertNotNil(error, @"Dispatched request for unresolvable domain but received no error.");
                                                          }];
     [unresolvableOperation start];
@@ -213,7 +213,7 @@
     }
             withTimeout:JLUNIT_kDefaultShortTimeout
            confirmation:^{
-               STAssertFalse(hitProgressBlock, @"Dispatched request for unresolvable domain but executed progress block.");
+               STAssertFalse(hitProgressBlock, @"Dispatched request for unresolvable domain but executed progress block.\n It's possible that your DNS server is redirecting unresolvable domains.");
                STAssertTrue(hitCompletionBlock, @"Dispatched request for unresolvable domain but did not execute completion block to report error.");
            }];
 }

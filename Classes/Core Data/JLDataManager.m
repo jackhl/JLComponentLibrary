@@ -6,19 +6,20 @@ NSString * const JLDataManagerDidSaveFailedNotification = @"DataManagerDidSaveFa
 
 @interface JLDataManager ()
 
+@property (nonatomic, readwrite, strong) NSManagedObjectModel *objectModel;
+@property (nonatomic, readwrite, strong) NSManagedObjectContext *mainThreadObjectContext;
+@property (nonatomic, readwrite, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
 - (NSString*)sharedDocumentsPath;
 
 @end
 
 @implementation JLDataManager
 
-@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-@synthesize mainObjectContext = _mainObjectContext;
-@synthesize objectModel = _objectModel;
-
 NSString * const kDataManagerSQLiteNameType = @"sqlite";
 NSString * const kDataManagerSQLiteNameResource = @"Model";
 NSString * const kDataManagerSQLiteName = @"Model.sqlite";
+NSString * const kCurrentThreadContextKey = @"JLDATAMANAGER_CURRENT_THREAD_CONTEXT";
 
 
 + (JLDataManager *)sharedInstance {
@@ -81,31 +82,31 @@ NSString * const kDataManagerSQLiteName = @"Model.sqlite";
 	return _persistentStoreCoordinator;
 }
 
-- (NSManagedObjectContext *)mainObjectContext {
-	if (_mainObjectContext)
-		return _mainObjectContext;
+- (NSManagedObjectContext *)mainThreadObjectContext {
+	if (_mainThreadObjectContext)
+		return _mainThreadObjectContext;
     
 	// Create the main context only on the main thread
 	if (![NSThread isMainThread]) {
-		[self performSelectorOnMainThread:@selector(mainObjectContext)
+		[self performSelectorOnMainThread:@selector(mainThreadObjectContext)
                                withObject:nil
                             waitUntilDone:YES];
-		return _mainObjectContext;
+		return _mainThreadObjectContext;
 	}
     
-	_mainObjectContext = [[NSManagedObjectContext alloc] init];
-	[_mainObjectContext setPersistentStoreCoordinator:self.persistentStoreCoordinator];
-    [_mainObjectContext setUndoManager:nil];
+	_mainThreadObjectContext = [[NSManagedObjectContext alloc] init];
+	[_mainThreadObjectContext setPersistentStoreCoordinator:self.persistentStoreCoordinator];
+    [_mainThreadObjectContext setUndoManager:nil];
     
-	return _mainObjectContext;
+	return _mainThreadObjectContext;
 }
 
 - (BOOL)save {
-	if (![self.mainObjectContext hasChanges])
+	if (![self.mainThreadObjectContext hasChanges])
 		return YES;
     
 	NSError *error = nil;
-	if (![self.mainObjectContext save:&error]) {
+	if (![self.mainThreadObjectContext save:&error]) {
 		NSLog(@"Error while saving: %@\n%@", [error localizedDescription], [error userInfo]);
 		[[NSNotificationCenter defaultCenter] postNotificationName:JLDataManagerDidSaveFailedNotification
                                                             object:error];
@@ -139,15 +140,26 @@ NSString * const kDataManagerSQLiteName = @"Model.sqlite";
 	return SharedDocumentsPath;
 }
 
+- (NSManagedObjectContext *)currentThreadObjectContext {
+    if ([NSThread isMainThread]) {
+        return [self mainThreadObjectContext];
+    }
+    NSManagedObjectContext *context = [[[NSThread currentThread] threadDictionary] objectForKey:kCurrentThreadContextKey];
+    if (!context) {
+        return [self managedObjectContext];
+    }
+    else {
+        return context;
+    }
+}
+
 - (NSManagedObjectContext *)managedObjectContext {
-#if DEBUG
-    NSLog(@"WARNING: CREATING MANAGED OBJECT CONTEXT. Are you sure you didn't mean to type mainObjectContext? There is no guarantee regarding which   \
-          thread this context will be created on, and every call will result in a new, different context unless you retain. If you did mean to create \
-          a new context, make sure you do not autorelease it because it will most likely immediately be deallocated after you're done using it to     \
-          execute a fetch request. Managed objects would then be unable to fault on values, and your objects would essentially null all of their properties.");
-#endif
 	NSManagedObjectContext *ctx = [[NSManagedObjectContext alloc] init];
 	[ctx setPersistentStoreCoordinator:self.persistentStoreCoordinator];
+    
+    if (![[[NSThread currentThread] threadDictionary] objectForKey:kCurrentThreadContextKey]) {
+        [[[NSThread currentThread] threadDictionary] setObject:ctx forKey:kCurrentThreadContextKey];
+    }
     
 	return ctx;
 }

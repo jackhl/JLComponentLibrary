@@ -11,7 +11,7 @@
 @protocol JLManagedTableViewControllerDelegate;
 @protocol JLManagedTableViewControllerDataSource;
 
-/** 
+/**
  A subclass of `UITableViewController` that allows easy integration with Core Data, including sorting, sections, deleting, and reordering.
  
  
@@ -21,15 +21,15 @@
 
 /** @name Configurable Options */
 
-/** 
+/**
  Whether or not you can delete cells and their corresponding Core Data entities using the edit button or swipe to delete.
  
  If `allowsCellDeletion` or allowsCellReordering is `YES` and the table view is in the context of a `UINavigationController`,
  an edit button will be shown on the left of the navigation bar.
  */
 @property (nonatomic) BOOL allowsCellDeletion;
-/** 
- Whether or not you can reorder cells. 
+/**
+ Whether or not you can reorder cells.
  
  If allowsCellDeletion or `allowsCellReordering` is `YES` and the table view is in the context of a `UINavigationController`,
  an edit button will be shown on the left of the navigation bar.
@@ -54,8 +54,8 @@
 
 /** @name Initialization */
 
-/** 
- Initializes the managed table view controller with a table view style and the minimum information required to fetch data from the data store 
+/**
+ Initializes the managed table view controller with a table view style and the minimum information required to fetch data from the data store
  and populate the table view.
  
  @param style The table view's style, currently either plain or grouped.
@@ -64,9 +64,9 @@
  
  @return An initialized instance of `JLManagedTableViewController`.
  */
-- (id)initWithStyle:(UITableViewStyle)style
-         entityName:(NSString *)entityName
-        sortKeyPath:(NSString *)sortKeyPath;
+- (instancetype)initWithStyle:(UITableViewStyle)style
+                   entityName:(NSString *)entityName
+                  sortKeyPath:(NSString *)sortKeyPath;
 
 /**
  Initializes the managed table view controller with a table view style and the minimum information used to fetch data from the data store
@@ -81,12 +81,12 @@
  
  @return An initialized instance of `JLManagedTableViewController`.
  */
-- (id)initWithStyle:(UITableViewStyle)style
-         entityName:(NSString *)entityName
-        sortKeyPath:(NSString *)sortKeyPathOrNil
-    sortDescriptors:(NSArray *)sortDescriptorsOrNil
-    filterPredicate:(NSPredicate *)predicateOrNil
- sectionNameKeyPath:(NSString *)sectionNameKeyPathOrNil;
+- (instancetype)initWithStyle:(UITableViewStyle)style
+                   entityName:(NSString *)entityName
+                  sortKeyPath:(NSString *)sortKeyPathOrNil
+              sortDescriptors:(NSArray *)sortDescriptorsOrNil
+              filterPredicate:(NSPredicate *)predicateOrNil
+           sectionNameKeyPath:(NSString *)sectionNameKeyPathOrNil;
 
 @end
 

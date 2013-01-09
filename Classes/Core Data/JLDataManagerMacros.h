@@ -9,4 +9,9 @@
                                                       inManagedObjectContext:[[JLDataManager sharedInstance] mainObjectContext]]                         \
                                               insertIntoManagedObjectContext:[[JLDataManager sharedInstance] mainObjectContext]];
 
+#define ManagedObjectForClassInContext(class, context) [[class alloc] initWithEntity:[NSEntityDescription entityForName:[NSString stringWithUTF8String:#class]   \
+                                                              inManagedObjectContext:context]                                                                    \
+                                                      insertIntoManagedObjectContext:context];
+
+
 #endif

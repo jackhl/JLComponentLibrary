@@ -22,6 +22,7 @@
  
  + Improved parameter validation.
  + Verify that memory management and dispatching works in end cases. 
+ + Performance/memory management testing.
  + Better (public) unit testing.
  + Grouped caches.
  + POST requests.
