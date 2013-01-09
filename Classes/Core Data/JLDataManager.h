@@ -45,6 +45,8 @@ extern NSString * const JLDataManagerDidSaveFailedNotification;
  */
 - (NSManagedObjectContext *)managedObjectContext;
 
+- (NSManagedObjectContext *)currentThreadObjectContext;
+
 /**
  Retreives the current thread's context.
  
