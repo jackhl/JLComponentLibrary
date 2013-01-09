@@ -40,7 +40,7 @@
 	
 	<option value="properties">Properties</option>
 	
-	<option value="//api/name/mainObjectContext">&nbsp;&nbsp;&nbsp;&nbsp;mainObjectContext</option>
+	<option value="//api/name/mainThreadObjectContext">&nbsp;&nbsp;&nbsp;&nbsp;mainThreadObjectContext</option>
 	
 	<option value="//api/name/objectModel">&nbsp;&nbsp;&nbsp;&nbsp;objectModel</option>
 	
@@ -57,6 +57,8 @@
 	
 	
 	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/currentThreadObjectContext">&nbsp;&nbsp;&nbsp;&nbsp;- currentThreadObjectContext</option>
 	
 	<option value="//api/name/managedObjectContext">&nbsp;&nbsp;&nbsp;&nbsp;- managedObjectContext</option>
 	
@@ -88,7 +90,7 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mainObjectContext">mainObjectContext</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mainThreadObjectContext">mainThreadObjectContext</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/objectModel">objectModel</a></span></li>
 	
@@ -107,6 +109,8 @@
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentThreadObjectContext">currentThreadObjectContext</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/managedObjectContext">managedObjectContext</a></span></li>
 	
@@ -180,7 +184,7 @@ easier when you’re working with objects on the UI thread.</p>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/mainObjectContext">&nbsp;&nbsp;mainObjectContext</a></code>
+		<code><a href="#//api/name/mainThreadObjectContext">&nbsp;&nbsp;mainThreadObjectContext</a></code>
 		<span class="tooltip"><p>The managed object context that JLDataManager retains on the main thread.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
@@ -216,6 +220,13 @@ instantiating multiple data managers as sqlite3 has thread safety issues.</p></s
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/currentThreadObjectContext">&ndash;&nbsp;currentThreadObjectContext</a></code>
+		<span class="tooltip"><p>Retreives the current thread&rsquo;s context.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/persistentStoreCoordinatorOptions">&ndash;&nbsp;persistentStoreCoordinatorOptions</a></code>
 		<span class="tooltip"><p>Retreives the options the persistent store should use when migrating and retrieving the data store.</p></span>
 	</span>
@@ -235,8 +246,8 @@ instantiating multiple data managers as sqlite3 has thread safety issues.</p></s
 						<h2 class="subtitle subtitle-methods">Properties</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/mainObjectContext" title="mainObjectContext"></a>
-	<h3 class="subsubtitle method-title">mainObjectContext</h3>
+	<a name="//api/name/mainThreadObjectContext" title="mainThreadObjectContext"></a>
+	<h3 class="subsubtitle method-title">mainThreadObjectContext</h3>
 	
 	
 	
@@ -246,7 +257,7 @@ instantiating multiple data managers as sqlite3 has thread safety issues.</p></s
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, strong) NSManagedObjectContext *mainObjectContext</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, strong) NSManagedObjectContext *mainThreadObjectContext</code></div>
 
     
 	
@@ -255,11 +266,6 @@ instantiating multiple data managers as sqlite3 has thread safety issues.</p></s
 	
 	
 	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>The managed object context that JLDataManager retains on the main thread.</p>
-	</div>
 	
 	
 	
@@ -297,11 +303,6 @@ instantiating multiple data managers as sqlite3 has thread safety issues.</p></s
 	
 	
 	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>The object model the persistent store coordinator uses.</p>
-	</div>
-	
 	
 	
 	
@@ -337,11 +338,6 @@ instantiating multiple data managers as sqlite3 has thread safety issues.</p></s
 	
 	
 	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>The global persistent store coordinator.</p>
-	</div>
 	
 	
 	
@@ -393,12 +389,6 @@ instantiating multiple data managers as sqlite3 has thread safety issues.</p>
 	
 	
 	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Retrive the shared data manager. You should use this method to retreive the singleton object and avoid
-instantiating multiple data managers as sqlite3 has thread safety issues.</p>
-	</div>
-	
 	
 	
 	
@@ -420,6 +410,47 @@ instantiating multiple data managers as sqlite3 has thread safety issues.</p>
 					<div class="section section-methods">
 						<a title="Instance Methods" name="instance_methods"></a>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/currentThreadObjectContext" title="currentThreadObjectContext"></a>
+	<h3 class="subsubtitle method-title">currentThreadObjectContext</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Retreives the current thread&rsquo;s context.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSManagedObjectContext *)currentThreadObjectContext</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The current thread&rsquo;s managed object context.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">JLDataManager.h</code><br />
+	</div>				
+	
+	
+</div>
 						
 						<div class="section-method">
 	<a name="//api/name/managedObjectContext" title="managedObjectContext"></a>
@@ -447,11 +478,6 @@ instantiating multiple data managers as sqlite3 has thread safety issues.</p>
 	
 	
 	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Creates a new managed object context on the caller&rsquo;s current thread.</p>
-	</div>
 	
 	
 	
@@ -496,9 +522,7 @@ instantiating multiple data managers as sqlite3 has thread safety issues.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Retreives the options the persistent store should use when migrating and retrieving the data store.</p>
-
-<p>Subclass this method to provide your own options.</p>
+		<p>Subclass this method to provide your own options.</p>
 	</div>
 	
 	
@@ -542,11 +566,6 @@ instantiating multiple data managers as sqlite3 has thread safety issues.</p>
 	
 	
 	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Reconciles changes made in the main thread managed object context to disk.</p>
-	</div>
-	
 	
 	
 	
@@ -574,7 +593,7 @@ instantiating multiple data managers as sqlite3 has thread safety issues.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2012 Jack. All rights reserved. (Last updated: 2012-12-28)</span><br />
+						<p><span class="copyright">&copy; 2013 Jack. All rights reserved. (Last updated: 2013-01-09)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						

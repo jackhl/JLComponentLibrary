@@ -307,9 +307,7 @@ and populate the table view. Also provides more advanced sorting, filtering, and
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Whether or not you can delete cells and their corresponding Core Data entities using the edit button or swipe to delete.</p>
-
-<p>If <code>allowsCellDeletion</code> or <a href="#//api/name/allowsCellReordering">allowsCellReordering</a> is <code>YES</code> and the table view is in the context of a <code>UINavigationController</code>,
+		<p>If <code>allowsCellDeletion</code> or <a href="#//api/name/allowsCellReordering">allowsCellReordering</a> is <code>YES</code> and the table view is in the context of a <code>UINavigationController</code>,
 an edit button will be shown on the left of the navigation bar.</p>
 	</div>
 	
@@ -351,9 +349,7 @@ an edit button will be shown on the left of the navigation bar.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Whether or not you can reorder cells.</p>
-
-<p>If <a href="#//api/name/allowsCellDeletion">allowsCellDeletion</a> or <code>allowsCellReordering</code> is <code>YES</code> and the table view is in the context of a <code>UINavigationController</code>,
+		<p>If <a href="#//api/name/allowsCellDeletion">allowsCellDeletion</a> or <code>allowsCellReordering</code> is <code>YES</code> and the table view is in the context of a <code>UINavigationController</code>,
 an edit button will be shown on the left of the navigation bar.</p>
 	</div>
 	
@@ -393,11 +389,6 @@ an edit button will be shown on the left of the navigation bar.</p>
 	
 	
 	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>The controller&rsquo;s data source.</p>
-	</div>
-	
 	
 	
 	
@@ -433,11 +424,6 @@ an edit button will be shown on the left of the navigation bar.</p>
 	
 	
 	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>The controller&rsquo;s delegate.</p>
-	</div>
 	
 	
 	
@@ -475,11 +461,6 @@ an edit button will be shown on the left of the navigation bar.</p>
 	
 	
 	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>The fetched results controller containing the Core Data backing store.</p>
-	</div>
-	
 	
 	
 	
@@ -516,11 +497,6 @@ an edit button will be shown on the left of the navigation bar.</p>
 	
 	
 	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Whether or not section titles are shown. Section titles are based on the passed in <a href="#//api/name/sectionNameKeyPath"><code>sectionNameKeyPath</code></a>.</p>
-	</div>
-	
 	
 	
 	
@@ -556,11 +532,6 @@ an edit button will be shown on the left of the navigation bar.</p>
 	
 	
 	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Whether or not the quick-scroll bar is shown on the right.</p>
-	</div>
 	
 	
 	
@@ -599,7 +570,7 @@ and populate the table view.</p>
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (id)initWithStyle:(UITableViewStyle)<em>style</em> entityName:(NSString *)<em>entityName</em> sortKeyPath:(NSString *)<em>sortKeyPath</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (instancetype)initWithStyle:(UITableViewStyle)<em>style</em> entityName:(NSString *)<em>entityName</em> sortKeyPath:(NSString *)<em>sortKeyPath</em></code></div>
 
     
 	
@@ -634,12 +605,6 @@ and populate the table view.</p>
 	
 	
 	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Initializes the managed table view controller with a table view style and the minimum information required to fetch data from the data store
-and populate the table view.</p>
-	</div>
-	
 	
 	
 	
@@ -667,7 +632,7 @@ and populate the table view. Also provides more advanced sorting, filtering, and
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (id)initWithStyle:(UITableViewStyle)<em>style</em> entityName:(NSString *)<em>entityName</em> sortKeyPath:(NSString *)<em>sortKeyPathOrNil</em> sortDescriptors:(NSArray *)<em>sortDescriptorsOrNil</em> filterPredicate:(NSPredicate *)<em>predicateOrNil</em> sectionNameKeyPath:(NSString *)<em>sectionNameKeyPathOrNil</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (instancetype)initWithStyle:(UITableViewStyle)<em>style</em> entityName:(NSString *)<em>entityName</em> sortKeyPath:(NSString *)<em>sortKeyPathOrNil</em> sortDescriptors:(NSArray *)<em>sortDescriptorsOrNil</em> filterPredicate:(NSPredicate *)<em>predicateOrNil</em> sectionNameKeyPath:(NSString *)<em>sectionNameKeyPathOrNil</em></code></div>
 
     
 	
@@ -717,12 +682,6 @@ and populate the table view. Also provides more advanced sorting, filtering, and
 	
 	
 	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Initializes the managed table view controller with a table view style and the minimum information used to fetch data from the data store
-and populate the table view. Also provides more advanced sorting, filtering, and sections.</p>
-	</div>
-	
 	
 	
 	
@@ -750,7 +709,7 @@ and populate the table view. Also provides more advanced sorting, filtering, and
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2012 Jack. All rights reserved. (Last updated: 2012-12-28)</span><br />
+						<p><span class="copyright">&copy; 2013 Jack. All rights reserved. (Last updated: 2013-01-09)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
