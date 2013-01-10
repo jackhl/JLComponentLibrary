@@ -25,8 +25,6 @@
 		041974AD169F2DE200067E1C /* JLRequestDispatchOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E95E164CE4470006AD75 /* JLRequestDispatchOperation.m */; };
 		041974AE169F2DE800067E1C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B6A164ABDF2000991D0 /* CoreData.framework */; };
 		041974B8169F300800067E1C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 041974B6169F300800067E1C /* Model.xcdatamodeld */; };
-		041974C9169F32FD00067E1C /* JLURLStringTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 041974C8169F32FD00067E1C /* JLURLStringTransformer.m */; };
-		041974CA169F32FD00067E1C /* JLURLStringTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 041974C8169F32FD00067E1C /* JLURLStringTransformer.m */; };
 		04385735164CD5EC007DBCD8 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0438572D164CD5EC007DBCD8 /* libOCMock.a */; };
 		04861B36164ABB55000991D0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B35164ABB55000991D0 /* SenTestingKit.framework */; };
 		04861B37164ABB55000991D0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B12164ABB34000991D0 /* UIKit.framework */; };
