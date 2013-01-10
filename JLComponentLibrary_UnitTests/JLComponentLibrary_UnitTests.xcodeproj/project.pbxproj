@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041974C9169F32FD00067E1C /* JLURLStringTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 041974C8169F32FD00067E1C /* JLURLStringTransformer.m */; };
+		041974CA169F32FD00067E1C /* JLURLStringTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 041974C8169F32FD00067E1C /* JLURLStringTransformer.m */; };
 		04385735164CD5EC007DBCD8 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0438572D164CD5EC007DBCD8 /* libOCMock.a */; };
 		04861B36164ABB55000991D0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B35164ABB55000991D0 /* SenTestingKit.framework */; };
 		04861B37164ABB55000991D0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B12164ABB34000991D0 /* UIKit.framework */; };
@@ -45,6 +47,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		041974C7169F32FD00067E1C /* JLURLStringTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLURLStringTransformer.h; sourceTree = "<group>"; };
+		041974C8169F32FD00067E1C /* JLURLStringTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLURLStringTransformer.m; sourceTree = "<group>"; };
 		0438572D164CD5EC007DBCD8 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = UnitTests/Frameworks/OCMock/libOCMock.a; sourceTree = "<group>"; };
 		0438572F164CD5EC007DBCD8 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		04385730164CD5EC007DBCD8 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
@@ -248,6 +252,8 @@
 				04B8E956164CE4470006AD75 /* JLDataManagerMacros.h */,
 				04B8E957164CE4470006AD75 /* JLManagedTableViewController.h */,
 				04B8E958164CE4470006AD75 /* JLManagedTableViewController.m */,
+				041974C7169F32FD00067E1C /* JLURLStringTransformer.h */,
+				041974C8169F32FD00067E1C /* JLURLStringTransformer.m */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -467,6 +473,7 @@
 				04D7523A164DF095004429A7 /* JLUNIT_RequestDispatchCommon.m in Sources */,
 				04BEE8F11651736E00FD0D28 /* NSString+JL_WhiteSpace.m in Sources */,
 				04BEE8FA1651766400FD0D28 /* JLUNIT_WhiteSpace.m in Sources */,
+				041974C9169F32FD00067E1C /* JLURLStringTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +493,7 @@
 				04D75276164E0A71004429A7 /* JLUNIT_RequestDispatch.m in Sources */,
 				04BEE8F21651736E00FD0D28 /* NSString+JL_WhiteSpace.m in Sources */,
 				04BEE8FB1651766400FD0D28 /* JLUNIT_WhiteSpace.m in Sources */,
+				041974CA169F32FD00067E1C /* JLURLStringTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
