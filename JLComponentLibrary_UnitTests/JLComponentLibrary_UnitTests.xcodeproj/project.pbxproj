@@ -24,6 +24,7 @@
 		041974AA169F2DE200067E1C /* JLRequestDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E95B164CE4470006AD75 /* JLRequestDispatch.m */; };
 		041974AD169F2DE200067E1C /* JLRequestDispatchOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E95E164CE4470006AD75 /* JLRequestDispatchOperation.m */; };
 		041974AE169F2DE800067E1C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B6A164ABDF2000991D0 /* CoreData.framework */; };
+		041974B8169F300800067E1C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 041974B6169F300800067E1C /* Model.xcdatamodeld */; };
 		04385735164CD5EC007DBCD8 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0438572D164CD5EC007DBCD8 /* libOCMock.a */; };
 		04861B36164ABB55000991D0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B35164ABB55000991D0 /* SenTestingKit.framework */; };
 		04861B37164ABB55000991D0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B12164ABB34000991D0 /* UIKit.framework */; };
@@ -72,6 +73,7 @@
 		04197495169F2D8A00067E1C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		04197497169F2D8A00067E1C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		04197499169F2D8A00067E1C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		041974B7169F300800067E1C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		0438572D164CD5EC007DBCD8 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = UnitTests/Frameworks/OCMock/libOCMock.a; sourceTree = "<group>"; };
 		0438572F164CD5EC007DBCD8 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		04385730164CD5EC007DBCD8 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			children = (
 				04197492169F2D8A00067E1C /* JLUNITAppDelegate.h */,
 				04197493169F2D8A00067E1C /* JLUNITAppDelegate.m */,
+				041974BA169F301000067E1C /* Model */,
 				0419748A169F2D8A00067E1C /* Supporting Files */,
 			);
 			path = UITests;
@@ -187,6 +190,14 @@
 				04197499169F2D8A00067E1C /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		041974BA169F301000067E1C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				041974B6169F300800067E1C /* Model.xcdatamodeld */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		04385721164CD524007DBCD8 /* OCMock */ = {
@@ -556,6 +567,7 @@
 				041974AD169F2DE200067E1C /* JLRequestDispatchOperation.m in Sources */,
 				04197490169F2D8A00067E1C /* main.m in Sources */,
 				04197494169F2D8A00067E1C /* JLUNITAppDelegate.m in Sources */,
+				041974B8169F300800067E1C /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -815,6 +827,7 @@
 				0419749D169F2D8A00067E1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04861B08164ABB34000991D0 /* Build configuration list for PBXProject "JLComponentLibrary_UnitTests" */ = {
 			isa = XCConfigurationList;
@@ -844,6 +857,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		041974B6169F300800067E1C /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				041974B7169F300800067E1C /* Model.xcdatamodel */,
+			);
+			currentVersion = 041974B7169F300800067E1C /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 04861B05164ABB34000991D0 /* Project object */;
 }
