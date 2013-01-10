@@ -35,7 +35,7 @@
  a property of type `NSArray` but internally you return an `NSMutableArray`, 
  property introspection will report it as an NSArray. Should I add a keyword like
  @runtimeType or something or a totally separate implementation? What's most
- useful and efficient? I should check libobjcext and see if they do something
+ useful and efficient? I should check libextobjc and see if they do something
  similar.
  
  @warn JL_KeyPathIntrospection does not look at private property (re)declarations.

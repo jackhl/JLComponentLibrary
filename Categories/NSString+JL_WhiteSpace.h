@@ -20,7 +20,7 @@
  
  @note This method doesn't actually check for nil. It's worded awkwardly as such
  (i.e. the absence of certain content results in TRUE instead of the presence) to
- accomidate the fact that method calls on nil objects return nil.
+ accommodate for the fact that method calls on nil objects return nil.
  
  @return Whether or not the receiver does not only contain whitespace or is nil.
  */
