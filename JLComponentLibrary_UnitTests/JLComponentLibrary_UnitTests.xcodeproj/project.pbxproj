@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04010F7D16A0BF350037421F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04010F7516A0BF350037421F /* Default-568h@2x.png */; };
+		04010F7E16A0BF350037421F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 04010F7616A0BF350037421F /* Default.png */; };
+		04010F7F16A0BF350037421F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04010F7716A0BF350037421F /* Default@2x.png */; };
+		04010F8016A0BF350037421F /* JLUNITAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04010F7916A0BF350037421F /* JLUNITAppDelegate.m */; };
+		04010F8116A0BF350037421F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04010F7A16A0BF350037421F /* main.m */; };
+		04010F8B16A0BFD70037421F /* JLVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04010F8A16A0BFD70037421F /* JLVersionManager.m */; };
+		04010F8C16A0BFD70037421F /* JLVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04010F8A16A0BFD70037421F /* JLVersionManager.m */; };
+		04010F8D16A0BFD70037421F /* JLVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04010F8A16A0BFD70037421F /* JLVersionManager.m */; };
+		04197486169F2D8A00067E1C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B12164ABB34000991D0 /* UIKit.framework */; };
+		04197487169F2D8A00067E1C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B14164ABB34000991D0 /* Foundation.framework */; };
+		04197488169F2D8A00067E1C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B16164ABB34000991D0 /* CoreGraphics.framework */; };
+		0419749F169F2DE200067E1C /* NSObject+JL_KeyPathIntrospection.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E94F164CE4470006AD75 /* NSObject+JL_KeyPathIntrospection.m */; };
+		041974A1169F2DE200067E1C /* NSURL+JL_Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E951164CE4470006AD75 /* NSURL+JL_Parameters.m */; };
+		041974A3169F2DE200067E1C /* NSString+JL_WhiteSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BEE8F01651736E00FD0D28 /* NSString+JL_WhiteSpace.m */; };
+		041974A5169F2DE200067E1C /* JLDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E955164CE4470006AD75 /* JLDataManager.m */; };
+		041974A8169F2DE200067E1C /* JLManagedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E958164CE4470006AD75 /* JLManagedTableViewController.m */; };
+		041974AA169F2DE200067E1C /* JLRequestDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E95B164CE4470006AD75 /* JLRequestDispatch.m */; };
+		041974AD169F2DE200067E1C /* JLRequestDispatchOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E95E164CE4470006AD75 /* JLRequestDispatchOperation.m */; };
+		041974AE169F2DE800067E1C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B6A164ABDF2000991D0 /* CoreData.framework */; };
 		04385735164CD5EC007DBCD8 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0438572D164CD5EC007DBCD8 /* libOCMock.a */; };
 		04861B36164ABB55000991D0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B35164ABB55000991D0 /* SenTestingKit.framework */; };
 		04861B37164ABB55000991D0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B12164ABB34000991D0 /* UIKit.framework */; };
@@ -45,6 +64,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04010F7516A0BF350037421F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		04010F7616A0BF350037421F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		04010F7716A0BF350037421F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		04010F7816A0BF350037421F /* JLUNITAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLUNITAppDelegate.h; sourceTree = "<group>"; };
+		04010F7916A0BF350037421F /* JLUNITAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLUNITAppDelegate.m; sourceTree = "<group>"; };
+		04010F7A16A0BF350037421F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		04010F7B16A0BF350037421F /* UITests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "UITests-Info.plist"; sourceTree = "<group>"; };
+		04010F7C16A0BF350037421F /* UITests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITests-Prefix.pch"; sourceTree = "<group>"; };
+		04010F8916A0BFD70037421F /* JLVersionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLVersionManager.h; sourceTree = "<group>"; };
+		04010F8A16A0BFD70037421F /* JLVersionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLVersionManager.m; sourceTree = "<group>"; };
+		041974C7169F32FD00067E1C /* JLURLStringTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLURLStringTransformer.h; sourceTree = "<group>"; };
+		041974C8169F32FD00067E1C /* JLURLStringTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLURLStringTransformer.m; sourceTree = "<group>"; };
 		0438572D164CD5EC007DBCD8 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = UnitTests/Frameworks/OCMock/libOCMock.a; sourceTree = "<group>"; };
 		0438572F164CD5EC007DBCD8 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		04385730164CD5EC007DBCD8 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
@@ -102,6 +133,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		04197481169F2D8A00067E1C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				041974AE169F2DE800067E1C /* CoreData.framework in Frameworks */,
+				04197486169F2D8A00067E1C /* UIKit.framework in Frameworks */,
+				04197487169F2D8A00067E1C /* Foundation.framework in Frameworks */,
+				04197488169F2D8A00067E1C /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04861B30164ABB55000991D0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -127,6 +169,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04010F8716A0BF8A0037421F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				04010F8916A0BFD70037421F /* JLVersionManager.h */,
+				04010F8A16A0BFD70037421F /* JLVersionManager.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		04197489169F2D8A00067E1C /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				041974BA169F301000067E1C /* Model */,
+				0419748A169F2D8A00067E1C /* Supporting Files */,
+			);
+			path = UITests;
+			sourceTree = "<group>";
+		};
+		0419748A169F2D8A00067E1C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0419748C169F2D8A00067E1C /* InfoPlist.strings */,
+				04010F7516A0BF350037421F /* Default-568h@2x.png */,
+				04010F7616A0BF350037421F /* Default.png */,
+				04010F7716A0BF350037421F /* Default@2x.png */,
+				04010F7816A0BF350037421F /* JLUNITAppDelegate.h */,
+				04010F7916A0BF350037421F /* JLUNITAppDelegate.m */,
+				04010F7A16A0BF350037421F /* main.m */,
+				04010F7B16A0BF350037421F /* UITests-Info.plist */,
+				04010F7C16A0BF350037421F /* UITests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		041974BA169F301000067E1C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				041974B6169F300800067E1C /* Model.xcdatamodeld */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		04385721164CD524007DBCD8 /* OCMock */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +240,7 @@
 				04B8E94C164CE43B0006AD75 /* JLComponentLibrary */,
 				04861B39164ABB55000991D0 /* UnitTests */,
 				04D7525E164E09C6004429A7 /* UnitTests-NoSimNeeded */,
+				04197489169F2D8A00067E1C /* UITests */,
 				04861B11164ABB34000991D0 /* Frameworks */,
 				04861B0F164ABB34000991D0 /* Products */,
 			);
@@ -233,6 +318,7 @@
 		04B8E952164CE4470006AD75 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				04010F8716A0BF8A0037421F /* Utilities */,
 				04B8E953164CE4470006AD75 /* Core Data */,
 				04B8E959164CE4470006AD75 /* Networking */,
 			);
@@ -248,6 +334,8 @@
 				04B8E956164CE4470006AD75 /* JLDataManagerMacros.h */,
 				04B8E957164CE4470006AD75 /* JLManagedTableViewController.h */,
 				04B8E958164CE4470006AD75 /* JLManagedTableViewController.m */,
+				041974C7169F32FD00067E1C /* JLURLStringTransformer.h */,
+				041974C8169F32FD00067E1C /* JLURLStringTransformer.m */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -337,6 +425,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		04197483169F2D8A00067E1C /* UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0419749B169F2D8A00067E1C /* Build configuration list for PBXNativeTarget "UITests" */;
+			buildPhases = (
+				04197480169F2D8A00067E1C /* Sources */,
+				04197481169F2D8A00067E1C /* Frameworks */,
+				04197482169F2D8A00067E1C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UITests;
+			productName = UITests;
+			productType = "com.apple.product-type.application";
+		};
 		04861B33164ABB55000991D0 /* UnitTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04861B43164ABB55000991D0 /* Build configuration list for PBXNativeTarget "UnitTests" */;
@@ -397,11 +501,22 @@
 			targets = (
 				04861B33164ABB55000991D0 /* UnitTests */,
 				04D75255164E09C6004429A7 /* UnitTests-NoSimNeeded */,
+				04197483169F2D8A00067E1C /* UITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		04197482169F2D8A00067E1C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04010F7D16A0BF350037421F /* Default-568h@2x.png in Resources */,
+				04010F7E16A0BF350037421F /* Default.png in Resources */,
+				04010F7F16A0BF350037421F /* Default@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04861B31164ABB55000991D0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -450,6 +565,23 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		04197480169F2D8A00067E1C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0419749F169F2DE200067E1C /* NSObject+JL_KeyPathIntrospection.m in Sources */,
+				041974A1169F2DE200067E1C /* NSURL+JL_Parameters.m in Sources */,
+				041974A3169F2DE200067E1C /* NSString+JL_WhiteSpace.m in Sources */,
+				041974A5169F2DE200067E1C /* JLDataManager.m in Sources */,
+				041974A8169F2DE200067E1C /* JLManagedTableViewController.m in Sources */,
+				041974AA169F2DE200067E1C /* JLRequestDispatch.m in Sources */,
+				041974AD169F2DE200067E1C /* JLRequestDispatchOperation.m in Sources */,
+				04010F8016A0BF350037421F /* JLUNITAppDelegate.m in Sources */,
+				04010F8116A0BF350037421F /* main.m in Sources */,
+				04010F8D16A0BFD70037421F /* JLVersionManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04861B2F164ABB55000991D0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -467,6 +599,7 @@
 				04D7523A164DF095004429A7 /* JLUNIT_RequestDispatchCommon.m in Sources */,
 				04BEE8F11651736E00FD0D28 /* NSString+JL_WhiteSpace.m in Sources */,
 				04BEE8FA1651766400FD0D28 /* JLUNIT_WhiteSpace.m in Sources */,
+				04010F8B16A0BFD70037421F /* JLVersionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,12 +619,20 @@
 				04D75276164E0A71004429A7 /* JLUNIT_RequestDispatch.m in Sources */,
 				04BEE8F21651736E00FD0D28 /* NSString+JL_WhiteSpace.m in Sources */,
 				04BEE8FB1651766400FD0D28 /* JLUNIT_WhiteSpace.m in Sources */,
+				04010F8C16A0BFD70037421F /* JLVersionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		0419748C169F2D8A00067E1C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		04861B3C164ABB55000991D0 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -511,6 +652,30 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0419749C169F2D8A00067E1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UITests/UITests-Prefix.pch";
+				INFOPLIST_FILE = "UITests/UITests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0419749D169F2D8A00067E1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UITests/UITests-Prefix.pch";
+				INFOPLIST_FILE = "UITests/UITests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		04861B2A164ABB34000991D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -531,7 +696,9 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_PEDANTIC = NO;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
@@ -553,7 +720,9 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_PEDANTIC = NO;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -573,6 +742,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UnitTests/UnitTests-Prefix.pch";
+				GCC_WARN_PEDANTIC = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/UnitTests/Frameworks/OCMock";
 				INFOPLIST_FILE = "UnitTests/UnitTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
@@ -601,6 +772,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UnitTests/UnitTests-Prefix.pch";
+				GCC_WARN_PEDANTIC = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/UnitTests/Frameworks/OCMock";
 				INFOPLIST_FILE = "UnitTests/UnitTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
@@ -659,6 +832,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0419749B169F2D8A00067E1C /* Build configuration list for PBXNativeTarget "UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0419749C169F2D8A00067E1C /* Debug */,
+				0419749D169F2D8A00067E1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		04861B08164ABB34000991D0 /* Build configuration list for PBXProject "JLComponentLibrary_UnitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -687,6 +869,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		041974B6169F300800067E1C /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+			);
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 04861B05164ABB34000991D0 /* Project object */;
 }
