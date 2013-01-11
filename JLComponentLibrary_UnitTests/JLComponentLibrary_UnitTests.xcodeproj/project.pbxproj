@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04010F7D16A0BF350037421F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04010F7516A0BF350037421F /* Default-568h@2x.png */; };
+		04010F7E16A0BF350037421F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 04010F7616A0BF350037421F /* Default.png */; };
+		04010F7F16A0BF350037421F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04010F7716A0BF350037421F /* Default@2x.png */; };
+		04010F8016A0BF350037421F /* JLUNITAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04010F7916A0BF350037421F /* JLUNITAppDelegate.m */; };
+		04010F8116A0BF350037421F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04010F7A16A0BF350037421F /* main.m */; };
+		04010F8216A0BF350037421F /* UITests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04010F7B16A0BF350037421F /* UITests-Info.plist */; };
 		04197486169F2D8A00067E1C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B12164ABB34000991D0 /* UIKit.framework */; };
 		04197487169F2D8A00067E1C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B14164ABB34000991D0 /* Foundation.framework */; };
 		04197488169F2D8A00067E1C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B16164ABB34000991D0 /* CoreGraphics.framework */; };
 		0419748E169F2D8A00067E1C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0419748C169F2D8A00067E1C /* InfoPlist.strings */; };
-		04197490169F2D8A00067E1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0419748F169F2D8A00067E1C /* main.m */; };
-		04197494169F2D8A00067E1C /* JLUNITAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04197493169F2D8A00067E1C /* JLUNITAppDelegate.m */; };
-		04197496169F2D8A00067E1C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 04197495169F2D8A00067E1C /* Default.png */; };
-		04197498169F2D8A00067E1C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04197497169F2D8A00067E1C /* Default@2x.png */; };
-		0419749A169F2D8A00067E1C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04197499169F2D8A00067E1C /* Default-568h@2x.png */; };
+		04197490169F2D8A00067E1C /* (null) in Sources */ = {isa = PBXBuildFile; };
+		04197494169F2D8A00067E1C /* (null) in Sources */ = {isa = PBXBuildFile; };
+		04197496169F2D8A00067E1C /* (null) in Resources */ = {isa = PBXBuildFile; };
+		04197498169F2D8A00067E1C /* (null) in Resources */ = {isa = PBXBuildFile; };
+		0419749A169F2D8A00067E1C /* (null) in Resources */ = {isa = PBXBuildFile; };
 		0419749F169F2DE200067E1C /* NSObject+JL_KeyPathIntrospection.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E94F164CE4470006AD75 /* NSObject+JL_KeyPathIntrospection.m */; };
 		041974A1169F2DE200067E1C /* NSURL+JL_Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E951164CE4470006AD75 /* NSURL+JL_Parameters.m */; };
 		041974A3169F2DE200067E1C /* NSString+JL_WhiteSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BEE8F01651736E00FD0D28 /* NSString+JL_WhiteSpace.m */; };
@@ -63,6 +69,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04010F7516A0BF350037421F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		04010F7616A0BF350037421F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		04010F7716A0BF350037421F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		04010F7816A0BF350037421F /* JLUNITAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLUNITAppDelegate.h; sourceTree = "<group>"; };
+		04010F7916A0BF350037421F /* JLUNITAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLUNITAppDelegate.m; sourceTree = "<group>"; };
+		04010F7A16A0BF350037421F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		04010F7B16A0BF350037421F /* UITests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "UITests-Info.plist"; sourceTree = "<group>"; };
+		04010F7C16A0BF350037421F /* UITests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITests-Prefix.pch"; sourceTree = "<group>"; };
 		041974C7169F32FD00067E1C /* JLURLStringTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLURLStringTransformer.h; sourceTree = "<group>"; };
 		041974C8169F32FD00067E1C /* JLURLStringTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLURLStringTransformer.m; sourceTree = "<group>"; };
 		0438572D164CD5EC007DBCD8 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = UnitTests/Frameworks/OCMock/libOCMock.a; sourceTree = "<group>"; };
@@ -161,8 +175,6 @@
 		04197489169F2D8A00067E1C /* UITests */ = {
 			isa = PBXGroup;
 			children = (
-				04197492169F2D8A00067E1C /* JLUNITAppDelegate.h */,
-				04197493169F2D8A00067E1C /* JLUNITAppDelegate.m */,
 				041974BA169F301000067E1C /* Model */,
 				0419748A169F2D8A00067E1C /* Supporting Files */,
 			);
@@ -172,13 +184,15 @@
 		0419748A169F2D8A00067E1C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0419748B169F2D8A00067E1C /* UITests-Info.plist */,
 				0419748C169F2D8A00067E1C /* InfoPlist.strings */,
-				0419748F169F2D8A00067E1C /* main.m */,
-				04197491169F2D8A00067E1C /* UITests-Prefix.pch */,
-				04197495169F2D8A00067E1C /* Default.png */,
-				04197497169F2D8A00067E1C /* Default@2x.png */,
-				04197499169F2D8A00067E1C /* Default-568h@2x.png */,
+				04010F7516A0BF350037421F /* Default-568h@2x.png */,
+				04010F7616A0BF350037421F /* Default.png */,
+				04010F7716A0BF350037421F /* Default@2x.png */,
+				04010F7816A0BF350037421F /* JLUNITAppDelegate.h */,
+				04010F7916A0BF350037421F /* JLUNITAppDelegate.m */,
+				04010F7A16A0BF350037421F /* main.m */,
+				04010F7B16A0BF350037421F /* UITests-Info.plist */,
+				04010F7C16A0BF350037421F /* UITests-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -231,7 +245,6 @@
 			children = (
 				04861B34164ABB55000991D0 /* UnitTests.octest */,
 				04D75256164E09C6004429A7 /* UnitTests-NoSimNeeded.octest */,
-				04197484169F2D8A00067E1C /* UITests.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -419,7 +432,6 @@
 			);
 			name = UITests;
 			productName = UITests;
-			productReference = 04197484169F2D8A00067E1C /* UITests.app */;
 			productType = "com.apple.product-type.application";
 		};
 		04861B33164ABB55000991D0 /* UnitTests */ = {
@@ -493,9 +505,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0419748E169F2D8A00067E1C /* InfoPlist.strings in Resources */,
-				04197496169F2D8A00067E1C /* Default.png in Resources */,
-				04197498169F2D8A00067E1C /* Default@2x.png in Resources */,
-				0419749A169F2D8A00067E1C /* Default-568h@2x.png in Resources */,
+				04197496169F2D8A00067E1C /* (null) in Resources */,
+				04197498169F2D8A00067E1C /* (null) in Resources */,
+				0419749A169F2D8A00067E1C /* (null) in Resources */,
+				04010F7D16A0BF350037421F /* Default-568h@2x.png in Resources */,
+				04010F7E16A0BF350037421F /* Default.png in Resources */,
+				04010F7F16A0BF350037421F /* Default@2x.png in Resources */,
+				04010F8216A0BF350037421F /* UITests-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,9 +574,11 @@
 				041974A8169F2DE200067E1C /* JLManagedTableViewController.m in Sources */,
 				041974AA169F2DE200067E1C /* JLRequestDispatch.m in Sources */,
 				041974AD169F2DE200067E1C /* JLRequestDispatchOperation.m in Sources */,
-				04197490169F2D8A00067E1C /* main.m in Sources */,
-				04197494169F2D8A00067E1C /* JLUNITAppDelegate.m in Sources */,
+				04197490169F2D8A00067E1C /* (null) in Sources */,
+				04197494169F2D8A00067E1C /* (null) in Sources */,
 				041974B8169F300800067E1C /* Model.xcdatamodeld in Sources */,
+				04010F8016A0BF350037421F /* JLUNITAppDelegate.m in Sources */,
+				04010F8116A0BF350037421F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,7 +599,6 @@
 				04D7523A164DF095004429A7 /* JLUNIT_RequestDispatchCommon.m in Sources */,
 				04BEE8F11651736E00FD0D28 /* NSString+JL_WhiteSpace.m in Sources */,
 				04BEE8FA1651766400FD0D28 /* JLUNIT_WhiteSpace.m in Sources */,
-				041974C9169F32FD00067E1C /* JLURLStringTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,7 +618,6 @@
 				04D75276164E0A71004429A7 /* JLUNIT_RequestDispatch.m in Sources */,
 				04BEE8F21651736E00FD0D28 /* NSString+JL_WhiteSpace.m in Sources */,
 				04BEE8FB1651766400FD0D28 /* JLUNIT_WhiteSpace.m in Sources */,
-				041974CA169F32FD00067E1C /* JLURLStringTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,7 +627,6 @@
 		0419748C169F2D8A00067E1C /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0419748D169F2D8A00067E1C /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -857,9 +872,7 @@
 		041974B6169F300800067E1C /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				041974B7169F300800067E1C /* Model.xcdatamodel */,
 			);
-			currentVersion = 041974B7169F300800067E1C /* Model.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
