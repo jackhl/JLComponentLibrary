@@ -12,16 +12,12 @@
 		04010F7F16A0BF350037421F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04010F7716A0BF350037421F /* Default@2x.png */; };
 		04010F8016A0BF350037421F /* JLUNITAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04010F7916A0BF350037421F /* JLUNITAppDelegate.m */; };
 		04010F8116A0BF350037421F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04010F7A16A0BF350037421F /* main.m */; };
-		04010F8216A0BF350037421F /* UITests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04010F7B16A0BF350037421F /* UITests-Info.plist */; };
+		04010F8B16A0BFD70037421F /* JLVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04010F8A16A0BFD70037421F /* JLVersionManager.m */; };
+		04010F8C16A0BFD70037421F /* JLVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04010F8A16A0BFD70037421F /* JLVersionManager.m */; };
+		04010F8D16A0BFD70037421F /* JLVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04010F8A16A0BFD70037421F /* JLVersionManager.m */; };
 		04197486169F2D8A00067E1C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B12164ABB34000991D0 /* UIKit.framework */; };
 		04197487169F2D8A00067E1C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B14164ABB34000991D0 /* Foundation.framework */; };
 		04197488169F2D8A00067E1C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B16164ABB34000991D0 /* CoreGraphics.framework */; };
-		0419748E169F2D8A00067E1C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0419748C169F2D8A00067E1C /* InfoPlist.strings */; };
-		04197490169F2D8A00067E1C /* (null) in Sources */ = {isa = PBXBuildFile; };
-		04197494169F2D8A00067E1C /* (null) in Sources */ = {isa = PBXBuildFile; };
-		04197496169F2D8A00067E1C /* (null) in Resources */ = {isa = PBXBuildFile; };
-		04197498169F2D8A00067E1C /* (null) in Resources */ = {isa = PBXBuildFile; };
-		0419749A169F2D8A00067E1C /* (null) in Resources */ = {isa = PBXBuildFile; };
 		0419749F169F2DE200067E1C /* NSObject+JL_KeyPathIntrospection.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E94F164CE4470006AD75 /* NSObject+JL_KeyPathIntrospection.m */; };
 		041974A1169F2DE200067E1C /* NSURL+JL_Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E951164CE4470006AD75 /* NSURL+JL_Parameters.m */; };
 		041974A3169F2DE200067E1C /* NSString+JL_WhiteSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BEE8F01651736E00FD0D28 /* NSString+JL_WhiteSpace.m */; };
@@ -30,7 +26,6 @@
 		041974AA169F2DE200067E1C /* JLRequestDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E95B164CE4470006AD75 /* JLRequestDispatch.m */; };
 		041974AD169F2DE200067E1C /* JLRequestDispatchOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B8E95E164CE4470006AD75 /* JLRequestDispatchOperation.m */; };
 		041974AE169F2DE800067E1C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B6A164ABDF2000991D0 /* CoreData.framework */; };
-		041974B8169F300800067E1C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 041974B6169F300800067E1C /* Model.xcdatamodeld */; };
 		04385735164CD5EC007DBCD8 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0438572D164CD5EC007DBCD8 /* libOCMock.a */; };
 		04861B36164ABB55000991D0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B35164ABB55000991D0 /* SenTestingKit.framework */; };
 		04861B37164ABB55000991D0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B12164ABB34000991D0 /* UIKit.framework */; };
@@ -77,6 +72,8 @@
 		04010F7A16A0BF350037421F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04010F7B16A0BF350037421F /* UITests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "UITests-Info.plist"; sourceTree = "<group>"; };
 		04010F7C16A0BF350037421F /* UITests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITests-Prefix.pch"; sourceTree = "<group>"; };
+		04010F8916A0BFD70037421F /* JLVersionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLVersionManager.h; sourceTree = "<group>"; };
+		04010F8A16A0BFD70037421F /* JLVersionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLVersionManager.m; sourceTree = "<group>"; };
 		041974C7169F32FD00067E1C /* JLURLStringTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLURLStringTransformer.h; sourceTree = "<group>"; };
 		041974C8169F32FD00067E1C /* JLURLStringTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLURLStringTransformer.m; sourceTree = "<group>"; };
 		0438572D164CD5EC007DBCD8 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = UnitTests/Frameworks/OCMock/libOCMock.a; sourceTree = "<group>"; };
@@ -172,6 +169,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04010F8716A0BF8A0037421F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				04010F8916A0BFD70037421F /* JLVersionManager.h */,
+				04010F8A16A0BFD70037421F /* JLVersionManager.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		04197489169F2D8A00067E1C /* UITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +318,7 @@
 		04B8E952164CE4470006AD75 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				04010F8716A0BF8A0037421F /* Utilities */,
 				04B8E953164CE4470006AD75 /* Core Data */,
 				04B8E959164CE4470006AD75 /* Networking */,
 			);
@@ -504,14 +511,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0419748E169F2D8A00067E1C /* InfoPlist.strings in Resources */,
-				04197496169F2D8A00067E1C /* (null) in Resources */,
-				04197498169F2D8A00067E1C /* (null) in Resources */,
-				0419749A169F2D8A00067E1C /* (null) in Resources */,
 				04010F7D16A0BF350037421F /* Default-568h@2x.png in Resources */,
 				04010F7E16A0BF350037421F /* Default.png in Resources */,
 				04010F7F16A0BF350037421F /* Default@2x.png in Resources */,
-				04010F8216A0BF350037421F /* UITests-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,11 +576,9 @@
 				041974A8169F2DE200067E1C /* JLManagedTableViewController.m in Sources */,
 				041974AA169F2DE200067E1C /* JLRequestDispatch.m in Sources */,
 				041974AD169F2DE200067E1C /* JLRequestDispatchOperation.m in Sources */,
-				04197490169F2D8A00067E1C /* (null) in Sources */,
-				04197494169F2D8A00067E1C /* (null) in Sources */,
-				041974B8169F300800067E1C /* Model.xcdatamodeld in Sources */,
 				04010F8016A0BF350037421F /* JLUNITAppDelegate.m in Sources */,
 				04010F8116A0BF350037421F /* main.m in Sources */,
+				04010F8D16A0BFD70037421F /* JLVersionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,6 +599,7 @@
 				04D7523A164DF095004429A7 /* JLUNIT_RequestDispatchCommon.m in Sources */,
 				04BEE8F11651736E00FD0D28 /* NSString+JL_WhiteSpace.m in Sources */,
 				04BEE8FA1651766400FD0D28 /* JLUNIT_WhiteSpace.m in Sources */,
+				04010F8B16A0BFD70037421F /* JLVersionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +619,7 @@
 				04D75276164E0A71004429A7 /* JLUNIT_RequestDispatch.m in Sources */,
 				04BEE8F21651736E00FD0D28 /* NSString+JL_WhiteSpace.m in Sources */,
 				04BEE8FB1651766400FD0D28 /* JLUNIT_WhiteSpace.m in Sources */,
+				04010F8C16A0BFD70037421F /* JLVersionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
