@@ -6,8 +6,8 @@
 #define JLDataManagerMacros_h
 
 #define MainThreadManagedObjectForClass(class) [[class alloc] initWithEntity:[NSEntityDescription entityForName:[NSString stringWithUTF8String:#class]   \
-                                                      inManagedObjectContext:[[JLDataManager sharedInstance] mainObjectContext]]                         \
-                                              insertIntoManagedObjectContext:[[JLDataManager sharedInstance] mainObjectContext]];
+                                                      inManagedObjectContext:[[JLDataManager sharedManager] mainThreadObjectContext]]                    \
+                                              insertIntoManagedObjectContext:[[JLDataManager sharedManager] mainThreadObjectContext]];
 
 #define ManagedObjectForClassInContext(class, context) [[class alloc] initWithEntity:[NSEntityDescription entityForName:[NSString stringWithUTF8String:#class]   \
                                                               inManagedObjectContext:context]                                                                    \

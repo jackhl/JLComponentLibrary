@@ -30,7 +30,7 @@ extern NSString * const JLDataManagerDidSaveFailedNotification;
  
  @return The shared data manager.
  */
-+ (JLDataManager *)sharedInstance;
++ (JLDataManager *)sharedManager;
 
 /**
  Reconciles changes made in the main thread managed object context to disk.

@@ -22,15 +22,15 @@ NSString * const kDataManagerSQLiteName = @"Model.sqlite";
 NSString * const kCurrentThreadContextKey = @"JLDATAMANAGER_CURRENT_THREAD_CONTEXT";
 
 
-+ (JLDataManager *)sharedInstance {
++ (JLDataManager *)sharedManager {
 	static dispatch_once_t pred;
-	static JLDataManager *sharedInstance = nil;
+	static JLDataManager *sharedManager = nil;
     
 	dispatch_once(&pred, ^{
-        sharedInstance = [[self alloc] init];
+        sharedManager = [[self alloc] init];
     });
     
-	return sharedInstance;
+	return sharedManager;
 }
 
 - (void)dealloc {

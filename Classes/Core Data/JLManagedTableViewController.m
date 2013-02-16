@@ -73,7 +73,7 @@
 {
     [super viewWillDisappear:animated];
     
-    [[JLDataManager sharedInstance] save];
+    [[JLDataManager sharedManager] save];
 }
 
 #pragma mark - Table view data source
@@ -86,7 +86,7 @@
         [fetchRequest setSortDescriptors:[self sortDescriptors]];
         
         NSFetchedResultsController *controller = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-                                                                                     managedObjectContext:[[JLDataManager sharedInstance] mainThreadObjectContext]
+                                                                                     managedObjectContext:[[JLDataManager sharedManager] mainThreadObjectContext]
                                                                                        sectionNameKeyPath:[self sectionNameKeyPath]
                                                                                                 cacheName:[self entityName]];
         
@@ -156,12 +156,12 @@
         if ([self.delegate respondsToSelector:@selector(managedTableViewController:willDeleteObject:)]) {
             [self.delegate managedTableViewController:self willDeleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
         }
-        [[[JLDataManager sharedInstance] mainThreadObjectContext] deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+        [[[JLDataManager sharedManager] mainThreadObjectContext] deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         NSManagedObject *insertedObj = [[NSClassFromString([self entityName]) alloc] initWithEntity:[NSEntityDescription entityForName:[self entityName]
-                                                                                                                inManagedObjectContext:[[JLDataManager sharedInstance] mainThreadObjectContext]]
-                                                                     insertIntoManagedObjectContext:[[JLDataManager sharedInstance] mainThreadObjectContext]];
+                                                                                                                inManagedObjectContext:[[JLDataManager sharedManager] mainThreadObjectContext]]
+                                                                     insertIntoManagedObjectContext:[[JLDataManager sharedManager] mainThreadObjectContext]];
         if ([self.delegate respondsToSelector:@selector(managedTableViewController:didInsertObject:)]) {
             [self.delegate managedTableViewController:self didInsertObject:insertedObj];
         }
