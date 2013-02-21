@@ -109,7 +109,7 @@
         [NSURLConnection sendAsynchronousRequest:request
                                            queue:[[self sharedDispatch] operationQueue]
                                completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                                   if (shouldCache) {
+                                   if (shouldCache && data) {
                                        [[[self sharedDispatch] resourceCache] setObject:data forKey:[url absoluteString]];
                                    }
                                    if (completion) {
