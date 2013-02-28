@@ -2,6 +2,7 @@
 // Based on http://nachbaur.com/blog/smarter-core-data
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "JLDataManagerMacros.h"
 
 /** NSNotification posted when the data manager successfully reconciles changes in the main thread managed object context to disk. */
 extern NSString * const JLDataManagerDidSaveNotification;

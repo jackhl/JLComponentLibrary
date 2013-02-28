@@ -94,7 +94,7 @@ NSString * const kCurrentThreadContextKey = @"JLDATAMANAGER_CURRENT_THREAD_CONTE
 		return _mainThreadObjectContext;
 	}
     
-	_mainThreadObjectContext = [[NSManagedObjectContext alloc] init];
+	_mainThreadObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
 	[_mainThreadObjectContext setPersistentStoreCoordinator:self.persistentStoreCoordinator];
     [_mainThreadObjectContext setUndoManager:nil];
     
@@ -154,8 +154,8 @@ NSString * const kCurrentThreadContextKey = @"JLDATAMANAGER_CURRENT_THREAD_CONTE
 }
 
 - (NSManagedObjectContext *)managedObjectContext {
-	NSManagedObjectContext *ctx = [[NSManagedObjectContext alloc] init];
-	[ctx setPersistentStoreCoordinator:self.persistentStoreCoordinator];
+	NSManagedObjectContext *ctx = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSConfinementConcurrencyType];
+    [ctx setParentContext:[self mainThreadObjectContext]];
     
     if (![[[NSThread currentThread] threadDictionary] objectForKey:kCurrentThreadContextKey]) {
         [[[NSThread currentThread] threadDictionary] setObject:ctx forKey:kCurrentThreadContextKey];
