@@ -7,8 +7,6 @@
 /** 
  Implements methods to simplify Objective-C runtime introspection on key paths.
  
- ## Overview
- 
  JL_KeyPathIntrospection is cool because instead of traveling a particular instance
  like `valueForKeyPath:` and related methods do, this category traverses the class
  definitions themselves.
