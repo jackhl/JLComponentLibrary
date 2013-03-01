@@ -29,6 +29,7 @@
  Therefore when checking for type `id`, use the primitive introspection methods
  which will return `@` for properties declared as type `id`.
  
+ 
  @warn Because the introspection is done on the class definition and not a particular
  instance, introspection will dead-end when the property is of type id. It will 
  also report the declared object type, so for example if you externally declare
@@ -37,6 +38,7 @@
  @runtimeType or something or a totally separate implementation? What's most
  useful and efficient? I should check libextobjc and see if they do something
  similar.
+ 
  
  @warn JL_KeyPathIntrospection does not look at private property (re)declarations.
  

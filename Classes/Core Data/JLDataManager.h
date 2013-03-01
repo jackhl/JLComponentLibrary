@@ -42,6 +42,10 @@ extern NSString * const JLDataManagerDidSaveFailedNotification;
 /**
  Creates a new managed object context on the caller's current thread.
  
+ @note The first time you call this method on a particular thread,
+ the managed object context that is returned is also set as the
+ current thread object context.
+ 
  @return A new managed object context.
  */
 - (NSManagedObjectContext *)managedObjectContext;
