@@ -11,7 +11,7 @@
 static NSString * const JLVersionManagerCurrentVersionKey = @"JL_VERSION_MANAGER_CURRENT_VERSION";
 
 static NSString *CurrentVersion;
-static NSString *MigratingFromVersion;
+static NSString *MigratedFromVersion;
 
 static BOOL IsFirstLaunch = NO;
 static BOOL IsFirstLaunchThisVersion = NO;
@@ -19,7 +19,7 @@ static BOOL IsFirstLaunchThisVersion = NO;
 @implementation JLVersionManager
 
 + (void)initialize {
-    CurrentVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    CurrentVersion = [NSString stringWithFormat:@"%@ (%@)", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"], [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]];
     NSString *savedVersion = [[NSUserDefaults standardUserDefaults] stringForKey:JLVersionManagerCurrentVersionKey];
     
     if (!savedVersion) {
@@ -28,7 +28,7 @@ static BOOL IsFirstLaunchThisVersion = NO;
     
     if (![savedVersion isEqualToString:CurrentVersion]) {
         IsFirstLaunchThisVersion = YES;
-        MigratingFromVersion = savedVersion;
+        MigratedFromVersion = savedVersion;
     }
     
     [[NSUserDefaults standardUserDefaults] setObject:CurrentVersion forKey:JLVersionManagerCurrentVersionKey];
@@ -43,8 +43,8 @@ static BOOL IsFirstLaunchThisVersion = NO;
     return IsFirstLaunchThisVersion;
 }
 
-+ (NSString *)migratingFromVersion {
-    return MigratingFromVersion;
++ (NSString *)migratedFromVersion {
+    return MigratedFromVersion;
 }
 
 + (NSString *)currentVersion {
