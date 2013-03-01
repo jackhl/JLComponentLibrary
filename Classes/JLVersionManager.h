@@ -14,7 +14,9 @@
  JLVersionManager bases versioning off of the build number
  and the version number.
  
- @warn JLVersionManager utilizes NSUserDefaults. Removing
+ ## Warnings
+ 
+ JLVersionManager utilizes NSUserDefaults. Removing
  or modifying JLVersionManager data from NSUserDefaults 
  is not advised.
  */
