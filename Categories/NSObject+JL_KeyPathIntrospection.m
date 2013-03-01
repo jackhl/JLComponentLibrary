@@ -54,10 +54,16 @@
     objc_property_t theProperty;
     if ([keyArray count] == 1) {
         theProperty = class_getProperty(class, [[keyArray lastObject] UTF8String]);
+        if (!theProperty) {
+            [NSException raise:NSInternalInconsistencyException format:@"The key '%@' could not be found on class '%@'.", [keyArray lastObject], NSStringFromClass(class)];
+        }
         return NSClassFromString([self JL_typeStringForProperty:theProperty]);
     }
     else if ([keyArray count] > 1) {
         theProperty = class_getProperty(class, [[keyArray objectAtIndex:0] UTF8String]);
+        if (!theProperty) {
+            [NSException raise:NSInternalInconsistencyException format:@"The key '%@' could not be found on class '%@'.", [keyArray objectAtIndex:0], NSStringFromClass(class)];
+        }
         Class propertyClass = [self JL_classTypeForProperty:theProperty];
         return [self JL_classForPropertyAtKeyPath:[keyArray subarrayWithRange:NSMakeRange(1, [keyArray count]-1)] onClass:propertyClass];
     }
