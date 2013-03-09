@@ -3,6 +3,8 @@
 
 Complete documentation is available [here][1].
 
+License: You can do whatever you want with the code as long as you credit me (Jack Lawrence) if you use any substantial portion of the codebase. MIT License.
+
 ---
 ##JLDataManager
 *JLDataManager manages the entire Core Data stack, much of which is simply boilerplate code. JLDataManager manages a single NSManagedObjectContext that lives on the main thread while also allowing the class consumer to instantiate more instances with the same core data stack on different (or the same) threads. This makes keeping a reference to the object context much easier when you’re working with objects on the UI thread.*
