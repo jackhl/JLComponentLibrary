@@ -10,7 +10,11 @@ NSString * const JLDataManagerDidSaveFailedNotification = @"DataManagerDidSaveFa
 @property (nonatomic, readwrite, strong) NSManagedObjectContext *mainThreadObjectContext;
 @property (nonatomic, readwrite, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-- (NSString*)sharedDocumentsPath;
+// State needed for resets.
+// Holds all of the contexts assigned to a thread for resetPersistentStoreCoordinator.
+@property (nonatomic, strong) NSMutableArray *threadSpecificContexts;
+
+- (NSString *)sharedDocumentsPath;
 
 @end
 
@@ -22,12 +26,22 @@ NSString * const kDataManagerSQLiteName = @"Model.sqlite";
 NSString * const kCurrentThreadContextKey = @"JLDATAMANAGER_CURRENT_THREAD_CONTEXT";
 
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        [self setThreadSpecificContexts:[NSMutableArray array]];
+    }
+    return self;
+}
+
 + (JLDataManager *)sharedManager {
 	static dispatch_once_t pred;
 	static JLDataManager *sharedManager = nil;
     
 	dispatch_once(&pred, ^{
         sharedManager = [[self alloc] init];
+        [sharedManager setConcurrencyType:NSConfinementConcurrencyType];
     });
     
 	return sharedManager;
@@ -75,8 +89,8 @@ NSString * const kCurrentThreadContextKey = @"JLDATAMANAGER_CURRENT_THREAD_CONTE
                                                              URL:storeURL
                                                          options:options
                                                            error:&error]) {
-		NSLog(@"Fatal error while creating persistent store: %@", error);
-		abort();
+        [NSException raise:@"com.jackhl.JLDataManager.CoreDataStackCreationException"
+                    format:@"Fatal error while creating persistent store: %@", error];
 	}
     
 	return _persistentStoreCoordinator;
@@ -107,7 +121,12 @@ NSString * const kCurrentThreadContextKey = @"JLDATAMANAGER_CURRENT_THREAD_CONTE
     
 	NSError *error = nil;
 	if (![self.mainThreadObjectContext save:&error]) {
-		NSLog(@"Error while saving: %@\n%@", [error localizedDescription], [error userInfo]);
+        // Support crashlytics logging if available, otherwise NSLog(). Doesn't work in static lib compilation.
+#ifdef CLS_LOG
+        CLS_LOG(@"Error while saving: %@\n%@", [error localizedDescription], [error userInfo]);
+#else
+        NSLog(@"Error while saving: %@\n%@", [error localizedDescription], [error userInfo]);
+#endif
 		[[NSNotificationCenter defaultCenter] postNotificationName:JLDataManagerDidSaveFailedNotification
                                                             object:error];
 		return NO;
@@ -133,8 +152,10 @@ NSString * const kCurrentThreadContextKey = @"JLDATAMANAGER_CURRENT_THREAD_CONTE
 		   withIntermediateDirectories:YES
                             attributes:nil
                                  error:&error];
-		if (error)
-			NSLog(@"Error creating directory path: %@", [error localizedDescription]);
+		if (error) {
+            [NSException raise:@"com.jackhl.JLDataManager.CoreDataStackCreationException"
+                        format:@"Error creating directory at path: %@", [error localizedDescription]];
+        }
 	}
     
 	return SharedDocumentsPath;
@@ -154,14 +175,38 @@ NSString * const kCurrentThreadContextKey = @"JLDATAMANAGER_CURRENT_THREAD_CONTE
 }
 
 - (NSManagedObjectContext *)managedObjectContext {
-	NSManagedObjectContext *ctx = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSConfinementConcurrencyType];
+	NSManagedObjectContext *ctx = [[NSManagedObjectContext alloc] initWithConcurrencyType:[self concurrencyType]];
     [ctx setParentContext:[self mainThreadObjectContext]];
     
     if (![[[NSThread currentThread] threadDictionary] objectForKey:kCurrentThreadContextKey]) {
         [[[NSThread currentThread] threadDictionary] setObject:ctx forKey:kCurrentThreadContextKey];
+        [[self threadSpecificContexts] addObject:ctx];
     }
     
 	return ctx;
+}
+
+- (void)resetPersistentStoreCoordinator {
+    NSString *storePath = [[self sharedDocumentsPath] stringByAppendingPathComponent:kDataManagerSQLiteName];
+    NSURL *storeURL = [NSURL fileURLWithPath:storePath];
+    
+    NSError *removeStoreError;
+    NSPersistentStore *storeToRemove = [[self persistentStoreCoordinator] persistentStoreForURL:storeURL];
+    if ([[self persistentStoreCoordinator] removePersistentStore:storeToRemove error:&removeStoreError]) {
+        NSError *fileDeleteError;
+        if (![[NSFileManager defaultManager] removeItemAtPath:storePath error:&fileDeleteError]) {
+            [NSException raise:@"com.jackhl.JLDataManager.UnitTestingException"
+                        format:@"Failed to remove the SQLite store from disk: %@", fileDeleteError];
+        }
+        [self setPersistentStoreCoordinator:nil];
+        [self setMainThreadObjectContext:nil];
+        [[self threadSpecificContexts] makeObjectsPerformSelector:@selector(reset)];
+        [[self threadSpecificContexts] makeObjectsPerformSelector:@selector(setParentContext:) withObject:[self mainThreadObjectContext]];
+    }
+    else {
+        [NSException raise:@"com.jackhl.JLDataManager.UnitTestingException"
+                    format:@"Failed to remove the persistent store from the persistent store coordinator: %@", removeStoreError];
+    }
 }
 
 @end

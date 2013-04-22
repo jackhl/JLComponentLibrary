@@ -24,6 +24,19 @@ extern NSString * const JLDataManagerDidSaveFailedNotification;
 @property (nonatomic, readonly, strong) NSManagedObjectContext *mainThreadObjectContext;
 /** The global persistent store coordinator. */
 @property (nonatomic, readonly, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+/**
+ The `NSManagedObjectContextConcurrencyType` that managed object contexts retreived from
+ `-[JLDataManager managedObjectContext]` and `-[JLDataManager currentThreadObjectContext]` will use.
+ Defaults to `NSConfinementConcurrencyType`.
+ 
+ You should set this property as soon as possible after launch to ensure that the concurrency type
+ is consistently applied to all managed object contexts.
+ 
+ @note If `-[JLDataManager currentThreadObjectContext]` is called from the main thread, the context
+ it returns will use `NSMainQueueConcurrencyType`.
+ */
+@property (nonatomic) NSManagedObjectContextConcurrencyType concurrencyType;
+
 
 /** 
  Retrive the shared data manager. You should use this method to retreive the singleton object and avoid
@@ -60,10 +73,19 @@ extern NSString * const JLDataManagerDidSaveFailedNotification;
 /**
  Retreives the options the persistent store should use when migrating and retrieving the data store.
  
- Subclass this method to provide your own options.
+ Subclass `JLDataManager` and override this method to provide your own options.
  
  @return The options the persistent store should use when migrating and retrieving the data store.
  */
 - (NSDictionary *)persistentStoreCoordinatorOptions;
+
+/**
+ Resets the main thread managed object context and deletes the backing SQLite store. Useful for
+ unit testing.
+ 
+ @warn During and after invoking this method you must refrain from using any existing references you 
+ have to `NSManagedObjectContext` instances and model objects from any thread.
+ */
+- (void)resetPersistentStoreCoordinator;
 
 @end
