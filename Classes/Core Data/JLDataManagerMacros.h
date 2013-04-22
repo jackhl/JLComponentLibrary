@@ -5,13 +5,11 @@
 #ifndef JLDataManagerMacros_h
 #define JLDataManagerMacros_h
 
-#define MainThreadManagedObjectForClass(class) [[class alloc] initWithEntity:[NSEntityDescription entityForName:[NSString stringWithUTF8String:#class]   \
-                                                      inManagedObjectContext:[[JLDataManager sharedManager] mainThreadObjectContext]]                    \
-                                              insertIntoManagedObjectContext:[[JLDataManager sharedManager] mainThreadObjectContext]];
+#define MainThreadManagedObjectForClass(class) [NSEntityDescription insertNewObjectForEntityForName:[NSString stringWithUTF8String:#class] \
+                                                                             inManagedObjectContext:[[JLDataManager sharedManager] mainThreadObjectContext]];
 
-#define ManagedObjectForClassInContext(class, context) [[class alloc] initWithEntity:[NSEntityDescription entityForName:[NSString stringWithUTF8String:#class]   \
-                                                              inManagedObjectContext:context]                                                                    \
-                                                      insertIntoManagedObjectContext:context];
+#define ManagedObjectForClassInContext(class, context) [NSEntityDescription insertNewObjectForEntityForName:[NSString stringWithUTF8String:#class] \
+                                                                                     inManagedObjectContext:context];
 
 
 #endif
