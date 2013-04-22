@@ -14,6 +14,7 @@
 
 + (Class)JL_classForPropertyAtKeyPath:(NSArray *)keyArray onClass:(Class)class;
 
++ (void)JL_unrecognizedKey:(NSString *)key onClass:(Class)class;
 @end
 
 @implementation NSObject (JL_KeyPathIntrospectionInternal)
@@ -55,14 +56,14 @@
     if ([keyArray count] == 1) {
         theProperty = class_getProperty(class, [[keyArray lastObject] UTF8String]);
         if (!theProperty) {
-            [NSException raise:NSInternalInconsistencyException format:@"The key '%@' could not be found on class '%@'.", [keyArray lastObject], NSStringFromClass(class)];
+            [self JL_unrecognizedKey:[keyArray lastObject] onClass:class];
         }
         return NSClassFromString([self JL_typeStringForProperty:theProperty]);
     }
     else if ([keyArray count] > 1) {
         theProperty = class_getProperty(class, [[keyArray objectAtIndex:0] UTF8String]);
         if (!theProperty) {
-            [NSException raise:NSInternalInconsistencyException format:@"The key '%@' could not be found on class '%@'.", [keyArray objectAtIndex:0], NSStringFromClass(class)];
+            [self JL_unrecognizedKey:[keyArray objectAtIndex:0] onClass:class];
         }
         Class propertyClass = [self JL_classTypeForProperty:theProperty];
         return [self JL_classForPropertyAtKeyPath:[keyArray subarrayWithRange:NSMakeRange(1, [keyArray count]-1)] onClass:propertyClass];
@@ -72,23 +73,31 @@
     }
 }
 
++ (void)JL_unrecognizedKey:(NSString *)key onClass:(Class)class
+{
+    [NSException raise:NSInternalInconsistencyException format:@"The key '%@' could not be found on class '%@'.", key, NSStringFromClass(class)];
+}
+
 @end
 
 @implementation NSObject (JL_KeyPathIntrospection)
 
 + (Class)JL_classForPropertyAtKeyPath:(NSString *)keyPath
 {
+    NSParameterAssert([keyPath isKindOfClass:[NSString class]]);
     NSMutableArray *keyArr = [NSMutableArray arrayWithArray:[keyPath componentsSeparatedByString:@"."]];
     return [self JL_classForPropertyAtKeyPath:keyArr onClass:self];
 }
 
 - (Class)JL_classForPropertyAtKeyPath:(NSString *)keyPath
 {
+    NSParameterAssert([keyPath isKindOfClass:[NSString class]]);
     return [[self class] JL_classForPropertyAtKeyPath:keyPath];
 }
 
 + (NSString *)JL_primitiveTypeForPropertyAtKeyPath:(NSString *)keyPath
 {
+    NSParameterAssert([keyPath isKindOfClass:[NSString class]]);
     NSMutableArray *keyArr = [NSMutableArray arrayWithArray:[keyPath componentsSeparatedByString:@"."]];
     if ([keyArr count] == 0) return nil;
     
@@ -108,6 +117,7 @@
 
 - (NSString *)JL_primitiveTypeForPropertyAtKeyPath:(NSString *)keyPath
 {
+    NSParameterAssert([keyPath isKindOfClass:[NSString class]]);
     return [[self class] JL_primitiveTypeForPropertyAtKeyPath:keyPath];
 }
 
