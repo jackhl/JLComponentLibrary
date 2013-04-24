@@ -45,6 +45,9 @@
 		04BEE8F21651736E00FD0D28 /* NSString+JL_WhiteSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BEE8F01651736E00FD0D28 /* NSString+JL_WhiteSpace.m */; };
 		04BEE8FA1651766400FD0D28 /* JLUNIT_WhiteSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BEE8F91651766400FD0D28 /* JLUNIT_WhiteSpace.m */; };
 		04BEE8FB1651766400FD0D28 /* JLUNIT_WhiteSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BEE8F91651766400FD0D28 /* JLUNIT_WhiteSpace.m */; };
+		04C69668172765FB00E172AB /* JLUNIT_KeyPathIntrospection.m in Sources */ = {isa = PBXBuildFile; fileRef = 04861B40164ABB55000991D0 /* JLUNIT_KeyPathIntrospection.m */; };
+		04C696691727660300E172AB /* JLUNIT_Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 04861B68164ABDB8000991D0 /* JLUNIT_Parameters.m */; };
+		04C6966A1727660A00E172AB /* JLUNIT_WhiteSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BEE8F91651766400FD0D28 /* JLUNIT_WhiteSpace.m */; };
 		04D75236164DEF7F004429A7 /* JLUNIT_RequestDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D75235164DEF7F004429A7 /* JLUNIT_RequestDispatch.m */; };
 		04D7523A164DF095004429A7 /* JLUNIT_RequestDispatchCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D75239164DF095004429A7 /* JLUNIT_RequestDispatchCommon.m */; };
 		04D75257164E09C6004429A7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04861B35164ABB55000991D0 /* SenTestingKit.framework */; };
@@ -578,6 +581,9 @@
 				041974AD169F2DE200067E1C /* JLRequestDispatchOperation.m in Sources */,
 				04010F8016A0BF350037421F /* JLUNITAppDelegate.m in Sources */,
 				04010F8116A0BF350037421F /* main.m in Sources */,
+				04C69668172765FB00E172AB /* JLUNIT_KeyPathIntrospection.m in Sources */,
+				04C696691727660300E172AB /* JLUNIT_Parameters.m in Sources */,
+				04C6966A1727660A00E172AB /* JLUNIT_WhiteSpace.m in Sources */,
 				04010F8D16A0BFD70037421F /* JLVersionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
