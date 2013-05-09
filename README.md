@@ -23,4 +23,4 @@ License: You can do whatever you want with the code as long as you credit me (Ja
  not using this object in the context of an NSOperationQueue.*
 
 
-[1]: http://jlawr3nc3.github.com/JLComponentLibrary/
+[1]: http://jackhl.github.io/JLComponentLibrary/
